@@ -1,0 +1,4 @@
+repository "Ten Rings 1/Ten Rings 1@1375551278765@cloud"
+  path "/"
+    br "/main"
+    co "/main"
