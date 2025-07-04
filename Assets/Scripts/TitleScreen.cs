@@ -9,4 +9,13 @@ public class TitleScreen : MonoBehaviour
     {
         SceneManager.LoadScene("Saves Screen");
     }
+
+    public void QuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
 }
