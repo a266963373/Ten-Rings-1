@@ -9,7 +9,11 @@ public class SaveSystem : MonoBehaviour
 
     private void Awake()
     {
-        if (!I) I = this;
+        if (!I)
+        {
+            I = this;
+            DontDestroyOnLoad(gameObject);
+        }
         else Destroy(gameObject);
     }
 

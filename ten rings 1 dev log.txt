@@ -19,3 +19,14 @@
 
 关于Unity中的GO的命名——我打算，如果是UI类型，则把UI类型放在最前面，如Panel Base；如果是作用类型，像System，放script的，则把类型放在后面，比如Save System。……这样会不会太麻烦？前者是为了看起来方便。
 额……查了下，还是建议是大驼峰法。而且，果然UI类型放前面的还是太反常理了……改回来吧。BasePanel.
+
+7/4/25
+main menu也写完了，那么，终于可以开始写最好玩的战斗了！在这之前，我必须决定角色的属性。其实上个作品，或者说项目，我的概念已经相当完善了。不过这次，借着AI的帮助，我还是发现了不少可以改进的地方，比如之前的modifier，每写一个Ring就要重新写一个方法，这次干脆把Modifier变成一个类。
+接着，为了先能让战斗跑起来，我打算先只写几个基础的Stats，这样之后如果要改也方便些。就只几个必要的好了：ATK，HP，SPD。
+
+这次我将实施一个对battle system的优化：角色不再拥有deal damage和take damage这么主动的方法，而是让battle system来处理伤害的actor和target. 这样能方便写on attack和on take damage. 
+
+AI推荐我用SO来储存角色数据。我记得上个项目中，我没有这么做，是为什么呢？目的好像是为了方便调整对话，然后可以把所有数据都放在.cs文件里。然而，AI说，用SO储存数值数据更加轻量化，不用编译就能修改数值。试试看用SO吧。
+
+7/5/25
+今天写了很多。把battle system的时间系统，血条和时间条，都写完了。还有如何load character. 现在的逻辑是character panel <- character <- character data SO。从AI那里学到了道理：是character panel依赖 character，所以不能让character里有panel，而是panel里有character. 这样一来，许多引用，聆听，都容易写很多了。

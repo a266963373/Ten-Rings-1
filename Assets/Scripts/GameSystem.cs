@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Localization.Settings;
+using System.Linq;
 
 public class GameSystem : MonoBehaviour
 {
@@ -16,6 +19,13 @@ public class GameSystem : MonoBehaviour
         else Destroy(gameObject);
     }
 
+    private void Start()
+    {
+        // for devs
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales
+            .FirstOrDefault(l => l.Identifier.Code == "en");
+    }
+
     private void OnDestroy()
     {
         I = null;
@@ -23,8 +33,14 @@ public class GameSystem : MonoBehaviour
 
     public SaveData CurrentSave { get; private set; }
 
+    public void SaveSaveData(int saveId)
+    {
+        SaveSystem.I.Save(CurrentSave);
+    }
+
     public void LoadSaveData(int saveId)
     {
         CurrentSave = SaveSystem.I.Load(saveId);
+        SceneManager.LoadScene("MainScene");
     }
 }
