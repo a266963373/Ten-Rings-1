@@ -7,6 +7,8 @@ public class CharacterBattlePanel : MonoBehaviour
 {
     [SerializeField] BarController HpBar;
     [SerializeField] BarController SpeedBar;
+    private ActionResolver actionResolver;
+
     private Character character;
     public Character Character
     {
@@ -18,10 +20,9 @@ public class CharacterBattlePanel : MonoBehaviour
         }
     }
 
-    public void Initialize()
+    public void Initialize(ActionResolver r)
     {
-        Debug.Log("Init");
-
+        actionResolver = r;
         UpdateHpBar();
         UpdateActionGauge();
     }
@@ -43,5 +44,10 @@ public class CharacterBattlePanel : MonoBehaviour
     {
         character.Stats.OnHpChanged += UpdateHpBar;
         character.OnActionGaugeChanged += UpdateActionGauge;
+    }
+
+    public void OnClick()
+    {
+        actionResolver.OnPanelClick(character);
     }
 }

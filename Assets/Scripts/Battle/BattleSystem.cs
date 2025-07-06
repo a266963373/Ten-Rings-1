@@ -6,7 +6,7 @@ using System.Linq;
 public enum BattleState
 {
     Idle,
-    AwaitPlayerInput,
+    AwaitForAction,
     PlayingAnimation,
     Busy,
 }
@@ -15,8 +15,12 @@ public class BattleSystem : MonoBehaviour
 {
     public static BattleSystem I { get; private set; }
     [SerializeField] BattleLoader battleLoader;
+
     private TimeSystem timeSystem = new();
-    private BattleState state;
+    public BattleState State;
+
+    [SerializeField] ActionDecider actionDecider;
+    [SerializeField] ActionResolver actionResolver;
 
     private List<Character> characters = new();
 
@@ -29,13 +33,16 @@ public class BattleSystem : MonoBehaviour
     private void Start()
     {
         LoadBattle();
+
         timeSystem.Initialize(characters);
-        timeSystem.OnGaugeFull += PerformTurn;
+        timeSystem.OnGaugeFull += actionDecider.Decide;
+
+        actionDecider.Initialize(characters);
     }
 
     private void Update()
     {
-        if (state == BattleState.Idle)
+        if (State == BattleState.Idle)
         {
             timeSystem.Tick();
         }
@@ -48,6 +55,11 @@ public class BattleSystem : MonoBehaviour
         
         characters.Add(player);
         characters.Add(enemy);
+    }
+
+    private void ResolveAction(BattleAction action)
+    {
+
     }
 
     private void PerformTurn(Character actor)

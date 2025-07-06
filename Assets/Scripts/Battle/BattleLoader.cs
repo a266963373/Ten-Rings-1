@@ -5,8 +5,11 @@ using UnityEngine;
 public class BattleLoader : MonoBehaviour
 {
     [SerializeField] GameObject templateBattlePanel;
+    //[SerializeField] PanelManager panelManager;
+
     [SerializeField] Transform playerSpot;
     [SerializeField] Transform enemySpot;
+    [SerializeField] ActionResolver actionResolver;
 
     [Header("½ÇÉ«Ä£°å (ScriptableObject)")]
     public CharacterSO playerSO;
@@ -19,11 +22,16 @@ public class BattleLoader : MonoBehaviour
     {
         Player = new Character(playerSO);
         Enemy = new Character(enemySO);
+        Player.IsPlayerSide = true;
+        Player.IsPlayerControlled = true;
+
         CharacterBattlePanel playerPanel = Instantiate(templateBattlePanel, playerSpot).GetComponent<CharacterBattlePanel>();
         CharacterBattlePanel enemyPanel = Instantiate(templateBattlePanel, enemySpot).GetComponent<CharacterBattlePanel>();
+        //panelManager.Panels.Add(playerPanel);
+        //panelManager.Panels.Add(enemyPanel);
         playerPanel.Character = Player;
         enemyPanel.Character = Enemy;
-        playerPanel.Initialize();
-        enemyPanel.Initialize();
+        playerPanel.Initialize(actionResolver);
+        enemyPanel.Initialize(actionResolver);
     }
 }

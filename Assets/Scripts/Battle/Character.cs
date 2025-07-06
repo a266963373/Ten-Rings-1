@@ -9,6 +9,10 @@ public class Character
 {
     public string Name;
     public CharacterStats Stats;
+    public List<BattleActionSO> BattleActions = new();
+    public bool IsPlayerSide = false;
+    public bool IsPlayerControlled = false;
+
     private float actionGauge = 0f;
     public float ActionGauge
     {
@@ -25,6 +29,8 @@ public class Character
     {
         Name = so.CharacterName;
         Stats = so.GetStats(); // 运行时副本
+        BattleActionSO newBattleAction = Resources.Load<BattleActionSO>("ScriptableObjects/BattleActions/AttackActionSO");
+        BattleActions.Add(newBattleAction);
     }
 
     public void StartBattle()
