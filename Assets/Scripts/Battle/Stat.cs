@@ -6,7 +6,7 @@ using UnityEngine;
 
 public enum StatType
 {
-    NON, MHP, HP, STR, MND, SPD
+    NON, MHP, HP, STR, MND, SPD, MMP, MP
 }
 
 public class Stat
@@ -60,11 +60,6 @@ public class Stat
             }
 
             Explanation += $"\n= {finalValue:F0}";
-
-            if (Type == StatType.HP)
-            {
-                if (finalValue < 0) finalValue = 0;
-            }
             return (int)finalValue;
         }
     }
@@ -118,7 +113,20 @@ public class CharacterStats
 
     public int GetStat(StatType type)
     {
-        return stats[type].FinalValue;
+        int finalValue = stats[type].FinalValue;
+
+        if (type == StatType.HP)
+        {
+            if (finalValue < 0) finalValue = 0;
+            else if (finalValue > GetStat(StatType.MHP)) finalValue = GetStat(StatType.MHP);
+        }
+        else if (type == StatType.MP)
+        {
+            if (finalValue < 0) finalValue = 0;
+            else if (finalValue > GetStat(StatType.MMP)) finalValue = GetStat(StatType.MMP);
+        }
+
+        return finalValue;
     }
 
     public void AddModifier(StatModifier mod)
