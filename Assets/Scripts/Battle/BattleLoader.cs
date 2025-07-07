@@ -20,6 +20,8 @@ public class BattleLoader : MonoBehaviour
 
     private void Awake()
     {
+        enemySO = BattleSession.Encounter.Characters[0];
+
         Player = new Character(playerSO);
         Enemy = new Character(enemySO);
         Player.IsPlayerSide = true;

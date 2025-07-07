@@ -10,16 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: Character Names_en
+  m_Name: Character Name_zh-Hans
   m_EditorClassIdentifier: 
   m_LocaleId:
-    m_Code: en
+    m_Code: zh-Hans
   m_SharedData: {fileID: 11400000, guid: f6ce4275c2ac66942a755708f2008b81, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
   - m_Id: 7230083072
-    m_Localized: Debug Enemy
+    m_Localized: "\u6D4B\u8BD5\u654C\u4EBA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 408230042947584
+    m_Localized: "\u73A9\u5BB6"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 477405230813184
+    m_Localized: "\u53F2\u83B1\u59C6\u8001\u5E08"
     m_Metadata:
       m_Items: []
   references:

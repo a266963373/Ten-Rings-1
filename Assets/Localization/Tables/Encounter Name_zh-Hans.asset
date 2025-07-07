@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: Character Names_zh-Hans
+  m_Name: Encounter Name_zh-Hans
   m_EditorClassIdentifier: 
   m_LocaleId:
     m_Code: zh-Hans
-  m_SharedData: {fileID: 11400000, guid: f6ce4275c2ac66942a755708f2008b81, type: 2}
+  m_SharedData: {fileID: 11400000, guid: ab3479a921735d6438ed4cb6584eb79d, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 7230083072
-    m_Localized: "\u6D4B\u8BD5\u654C\u4EBA"
+  - m_Id: 4663169024
+    m_Localized: "\u53F2\u83B1\u59C6\u8001\u5E08"
     m_Metadata:
       m_Items: []
   references:

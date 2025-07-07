@@ -24,7 +24,25 @@ MonoBehaviour:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c952b7ffb33452c4da935d53e3b6f2e2
-    m_Address: Character Names_en
+    m_Address: Character Name_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0158f380ab62cc348b9f6f30944deee7
+    m_Address: Battle Log_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 29a677b37c7fa38478860e7dbdeb4efa
+    m_Address: Encounter Description_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be59234303cfd2e4c8dfef9cd639839b
+    m_Address: Encounter Name_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en

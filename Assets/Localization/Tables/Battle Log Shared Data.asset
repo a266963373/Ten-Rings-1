@@ -10,27 +10,39 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: Character Names Shared Data
+  m_Name: Battle Log Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: Character Names
-  m_TableCollectionNameGuidString: f6ce4275c2ac66942a755708f2008b81
+  m_TableCollectionName: Battle Log
+  m_TableCollectionNameGuidString: b80b02ebe1115c54880ca882f6664d5f
   m_Entries:
-  - m_Id: 7230083072
-    m_Key: Debug Enemy
+  - m_Id: 17187360768
+    m_Key: Go Add New Entries!
     m_Metadata:
       m_Items: []
-  - m_Id: 89937563648
-    m_Key: Go Add New Entry!
+  - m_Id: 285253718016
+    m_Key: ShowBattleAction
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50670489600
+    m_Key: ShowWhoseTurn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14274394214400
+    m_Key: ShowActionResult
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14297689378816
+    m_Key: Default
     m_Metadata:
       m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 5901558423749132290
+    rid: 5901558444680282114
   references:
     version: 2
     RefIds:
-    - rid: 5901558423749132290
+    - rid: 5901558444680282114
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1751739878016
+        m_CustomEpoch: 1751826462246

@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 250094870bc152d419af587ebaef2b5f
+  - enabled: 1
+    path: Assets/Scenes/LevelScene.unity
+    guid: 30b9fbe347f97c9479066ce4ab48b443
+  - enabled: 1
+    path: Assets/Scenes/BattleScene.unity
+    guid: b68a6ac7dc0550d4ca4230f9a5be45e2
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 6594a206b2077344080dd6a82ba3623d, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: dfa0c79fcb5c641408f7a8473890459c, type: 2}

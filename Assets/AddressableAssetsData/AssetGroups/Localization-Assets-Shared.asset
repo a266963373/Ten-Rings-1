@@ -27,6 +27,21 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b80b02ebe1115c54880ca882f6664d5f
+    m_Address: Assets/Localization/Tables/Battle Log Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 163ad2b9b5f02e74795748da5a0ffe6d
+    m_Address: Assets/Localization/Tables/Encounter Description Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab3479a921735d6438ed4cb6584eb79d
+    m_Address: Assets/Localization/Tables/Encounter Name Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: ec387e5b6fe2306429a37e909a4e5bf5, type: 2}
   m_SchemaSet:

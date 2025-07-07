@@ -1,12 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 
 public class CharacterBattlePanel : MonoBehaviour
 {
     [SerializeField] BarController HpBar;
     [SerializeField] BarController SpeedBar;
+    [SerializeField] LocalizeStringEvent localizeStringEvent;
+
     private ActionResolver actionResolver;
 
     private Character character;
@@ -16,6 +20,8 @@ public class CharacterBattlePanel : MonoBehaviour
         set
         {
             character = value;
+            localizeStringEvent.StringReference.SetReference("Character Name", character.Name);
+            
             Subscribe();
         }
     }

@@ -83,6 +83,26 @@ MonoBehaviour:
     m_Key: Load 3
     m_Metadata:
       m_Items: []
+  - m_Id: 874619409158144
+    m_Key: Challenge!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 888698752356352
+    m_Key: Choose Rewards!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 889418171961344
+    m_Key: Borrow!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 889628696662016
+    m_Key: Claim!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 890268281884672
+    m_Key: AfterWinBattle
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

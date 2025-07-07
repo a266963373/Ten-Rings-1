@@ -1,19 +1,51 @@
 using System;   // Guid
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum StatType
 {
-    MHP, HP, STR, SPD, MND
+    MHP, HP, STR, MND, SPD
 }
 
 public class Stat
 {
     public StatType Type;
     public int Value;
-    public List<StatModifier> Mods = new();
+    private List<StatModifier> mods = new();
     public string Explanation = "";
+
+    public void AddMod(StatModifier mod)
+    {
+        if (mod.IsPermanent)
+        {
+            Value = (int)ProcessMod(Value, mod);
+        } else
+        {
+            mods.Add(mod);
+        }
+    }
+
+    private float ProcessMod(float value, StatModifier mod)
+    {
+        switch (mod.ModType)
+        {
+            case ModifierType.Flat:
+                value += mod.Value;
+                Explanation += $"\n + {mod.Value} ({mod.Source})";
+                break;
+            case ModifierType.Percent:
+                value *= 1 + mod.Value;
+                Explanation += $"\n ¡Á {1 + mod.Value:F2} ({mod.Source})";
+                break;
+            case ModifierType.Set:
+                value = mod.Value;
+                Explanation += $"\n ¡û {mod.Value:F2} ({mod.Source})";
+                break;
+        }
+        return value;
+    }
 
     public int FinalValue
     {
@@ -22,27 +54,23 @@ public class Stat
             float finalValue = Value;
             Explanation = $"Base {Type}: {Value}";
 
-            foreach (var mod in Mods)
+            foreach (var mod in mods)
             {
-                if (mod.ModType == ModifierType.Flat)
-                {
-                    finalValue += mod.Value;
-                    Explanation += $"\n + {mod.Value} ({mod.Source})";
-                }
-                else if (mod.ModType == ModifierType.Percent)
-                {
-                    finalValue *= (1 + mod.Value);
-                    Explanation += $"\n ¡Á {1 + mod.Value:F2} ({mod.Source})";
-                }
+                finalValue = ProcessMod(finalValue, mod);
             }
 
             Explanation += $"\n= {finalValue:F0}";
+
+            if (Type == StatType.HP)
+            {
+                if (finalValue < 0) finalValue = 0;
+            }
             return (int)finalValue;
         }
     }
 }
 
-public enum ModifierType { Flat, Percent }
+public enum ModifierType { Flat, Percent, Set }
 public class StatModifier
 {
     public StatType StatType = StatType.HP;
@@ -95,7 +123,7 @@ public class CharacterStats
 
     public void AddModifier(StatModifier mod)
     {
-        stats[mod.StatType].Mods.Add(mod);
+        stats[mod.StatType].AddMod(mod);
         if (mod.StatType == StatType.HP || mod.StatType == StatType.MHP)
         {
             OnHpChanged?.Invoke();

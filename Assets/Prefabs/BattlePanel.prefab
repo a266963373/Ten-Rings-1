@@ -432,6 +432,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HpBar: {fileID: 5669201066372785085}
   SpeedBar: {fileID: 5260927218699801579}
+  localizedString:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  localizeStringEvent: {fileID: 1295395760090774057}
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &1982338293689191025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -956,6 +969,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdc86dbe547b83b4394a6049cc7f1e17, type: 3}
+--- !u!114 &1295395760090774057 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2236718600789894245, guid: fdc86dbe547b83b4394a6049cc7f1e17, type: 3}
+  m_PrefabInstance: {fileID: 1076430833857257036}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6956623773651545873 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7960855976408478045, guid: fdc86dbe547b83b4394a6049cc7f1e17, type: 3}

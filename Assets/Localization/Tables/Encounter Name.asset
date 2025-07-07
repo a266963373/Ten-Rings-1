@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
-  m_Name: Character Names
+  m_Name: Encounter Name
   m_EditorClassIdentifier: 
-  m_SharedTableData: {fileID: 11400000, guid: f6ce4275c2ac66942a755708f2008b81, type: 2}
+  m_SharedTableData: {fileID: 11400000, guid: ab3479a921735d6438ed4cb6584eb79d, type: 2}
   m_Tables:
-  - {fileID: 11400000, guid: ede4ccae0a3a7a14ab0cb350dbc13be8, type: 2}
-  - {fileID: 11400000, guid: c952b7ffb33452c4da935d53e3b6f2e2, type: 2}
+  - {fileID: 11400000, guid: 8454f16344f1dde4eacb84a0c83c42db, type: 2}
+  - {fileID: 11400000, guid: be59234303cfd2e4c8dfef9cd639839b, type: 2}
   m_Extensions: []
   m_Group: String Table
   references:

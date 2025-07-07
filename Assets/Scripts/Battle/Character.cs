@@ -12,6 +12,7 @@ public class Character
     public List<BattleActionSO> BattleActions = new();
     public bool IsPlayerSide = false;
     public bool IsPlayerControlled = false;
+    public bool IsDead = false;
 
     private float actionGauge = 0f;
     public float ActionGauge
@@ -29,8 +30,21 @@ public class Character
     {
         Name = so.CharacterName;
         Stats = so.GetStats(); // 运行时副本
+        Stats.OnHpChanged += HpChanged;
+
+        // Load skills
         BattleActionSO newBattleAction = Resources.Load<BattleActionSO>("ScriptableObjects/BattleActions/AttackActionSO");
         BattleActions.Add(newBattleAction);
+
+
+    }
+
+    private void HpChanged()
+    {
+        if (Stats.GetStat(StatType.HP) <= 0)
+        {
+            IsDead = true;
+        }
     }
 
     public void StartBattle()

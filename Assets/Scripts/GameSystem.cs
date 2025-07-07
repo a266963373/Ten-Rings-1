@@ -9,14 +9,17 @@ public class GameSystem : MonoBehaviour
 {
     public static GameSystem I { get; private set; }
 
-    private void Awake()
+    void Awake()
     {
-        if (!I)
+        if (I == null)
         {
             I = this;
             DontDestroyOnLoad(gameObject);
         }
-        else Destroy(gameObject);
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Start()
@@ -24,11 +27,6 @@ public class GameSystem : MonoBehaviour
         // for devs
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales
             .FirstOrDefault(l => l.Identifier.Code == "en");
-    }
-
-    private void OnDestroy()
-    {
-        I = null;
     }
 
     public SaveData CurrentSave { get; private set; }

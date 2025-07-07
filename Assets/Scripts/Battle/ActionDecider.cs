@@ -28,6 +28,11 @@ public class ActionDecider : MonoBehaviour
         {
             actionResolver.Actor = actor;
 
+            foreach (Transform child in actionPanelContent)
+            {
+                Destroy(child.gameObject);
+            }
+
             foreach (BattleActionSO battleAction in actor.BattleActions)
             {
                 ActionButton newActionButton = Instantiate(actionButton, actionPanelContent);

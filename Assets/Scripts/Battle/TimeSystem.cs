@@ -26,17 +26,20 @@ public class TimeSystem
         {
             var c = characters[currentIndex];
 
-            c.ActionGauge += c.Stats.GetStat(StatType.SPD) * Time.deltaTime;
-
-            if (c.ActionGauge >= actionThreshold)
+            if (!c.IsDead)
             {
-                c.ActionGauge = 0;
-                OnGaugeFull?.Invoke(c);
-                BattleSystem.I.State = BattleState.AwaitForAction;
+                c.ActionGauge += c.Stats.GetStat(StatType.SPD) * Time.deltaTime;
 
-                // 下次从下一个角色开始
-                currentIndex = (currentIndex + 1) % characters.Count;
-                return; // 立刻退出 Tick，等待下一帧
+                if (c.ActionGauge >= actionThreshold)
+                {
+                    c.ActionGauge = 0;
+                    OnGaugeFull?.Invoke(c);
+                    BattleSystem.I.State = BattleState.AwaitForAction;
+
+                    // 下次从下一个角色开始
+                    currentIndex = (currentIndex + 1) % characters.Count;
+                    return; // 立刻退出 Tick，等待下一帧
+                }
             }
 
             // 检查下一个

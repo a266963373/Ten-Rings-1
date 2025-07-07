@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: en
   m_SharedData: {fileID: 11400000, guid: f8c04d8d0d08a8940a1e11b14183f69f, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 5901558444680282134
   m_TableData:
   - m_Id: 37466820608
     m_Localized: Select Your Memories
@@ -78,6 +79,32 @@ MonoBehaviour:
     m_Localized: Load 3
     m_Metadata:
       m_Items: []
+  - m_Id: 874619409158144
+    m_Localized: Challenge!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 888698752356352
+    m_Localized: Choose Rewards!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 889418171961344
+    m_Localized: Borrow!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 889628696662016
+    m_Localized: Claim!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 890268281884672
+    m_Localized: You received {0} gold as you win the battle, and they want to help
+      you for the incoming battles.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558444680282134
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 5901558444680282134
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 0050b2bcb1290300

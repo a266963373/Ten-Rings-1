@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public enum BattleState
 {
@@ -21,8 +22,10 @@ public class BattleSystem : MonoBehaviour
 
     [SerializeField] ActionDecider actionDecider;
     [SerializeField] ActionResolver actionResolver;
+    [SerializeField] BattleLogSystem battleLogSystem;
 
     private List<Character> characters = new();
+    private bool hasCheckedEnd = false;
 
     private void Awake()
     {
@@ -35,7 +38,7 @@ public class BattleSystem : MonoBehaviour
         LoadBattle();
 
         timeSystem.Initialize(characters);
-        timeSystem.OnGaugeFull += actionDecider.Decide;
+        timeSystem.OnGaugeFull += GaugeFull;
 
         actionDecider.Initialize(characters);
     }
@@ -44,7 +47,17 @@ public class BattleSystem : MonoBehaviour
     {
         if (State == BattleState.Idle)
         {
+            if (!hasCheckedEnd)
+            {
+                hasCheckedEnd = true;
+                CheckBattleEnd();
+            }
+
             timeSystem.Tick();
+        }
+        else
+        {
+            hasCheckedEnd = false; // 状态离开 Idle，允许下次再检查
         }
     }
 
@@ -57,30 +70,31 @@ public class BattleSystem : MonoBehaviour
         characters.Add(enemy);
     }
 
-    private void ResolveAction(BattleAction action)
+    private void GaugeFull(Character character)
     {
-
+        battleLogSystem.ShowWhoseTurn(character.Name, () => {
+            actionDecider.Decide(character);
+        }, isBlock: !character.IsPlayerControlled
+        );
     }
 
-    private void PerformTurn(Character actor)
+    private void CheckBattleEnd()
     {
-        // 示例：找到随机目标
-        Character target = characters.Where(c => c != actor).FirstOrDefault();
-        if (target != null)
+        bool allPlayersDead = characters
+            .Where(c => c.IsPlayerSide)
+            .All(c => c.IsDead);
+
+        bool allEnemiesDead = characters
+            .Where(c => !c.IsPlayerSide)
+            .All(c => c.IsDead);
+
+        if (allPlayersDead || allEnemiesDead)
         {
-            Attack(actor, target);
-            Debug.Log($"{actor.Name} 攻击了 {target.Name}");
+            BattleResult result = allEnemiesDead ? BattleResult.Win : BattleResult.Lose;
+
+            BattleSession.Result = result;
+
+            SceneManager.LoadScene("LevelScene");
         }
-    }
-
-    public void Attack(Character actor, Character target)
-    {
-        int dmg = actor.Stats.GetStat(StatType.STR);
-        StatModifier mod = new()
-        {
-            IsPermanent = true,
-            Value = -dmg,
-        };
-        target.Stats.AddModifier(mod);
     }
 }

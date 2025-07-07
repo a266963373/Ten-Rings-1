@@ -24,7 +24,25 @@ MonoBehaviour:
     - Locale-zh-Hans
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ede4ccae0a3a7a14ab0cb350dbc13be8
-    m_Address: Character Names_zh-Hans
+    m_Address: Character Name_zh-Hans
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-Hans
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 90509a513b0dfba4997a7e78312914c3
+    m_Address: Battle Log_zh-Hans
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-Hans
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5804fe97fb8eaa34cb810ae841e8bfab
+    m_Address: Encounter Description_zh-Hans
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-Hans
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8454f16344f1dde4eacb84a0c83c42db
+    m_Address: Encounter Name_zh-Hans
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-zh-Hans
