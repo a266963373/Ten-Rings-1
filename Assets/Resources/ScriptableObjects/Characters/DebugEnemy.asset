@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HumanSO
   CharacterName: Debug Enemy
   StatEntries: []
+  Rings:
+  - {fileID: 11400000, guid: 13467382c629a7441bf2892b53d45781, type: 2}
+  - {fileID: 11400000, guid: c76fd842e1576e3428a47d703fadb5e5, type: 2}

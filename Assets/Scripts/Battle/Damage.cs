@@ -12,6 +12,7 @@ public enum DamageElement
     Bio,
     Fire,
     Water,
+    Grass,
 }
 
 public enum DamageTargetType

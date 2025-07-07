@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using TMPro.Examples;
 using UnityEngine;
 
-public class ActionResolver : MonoBehaviour
+public class ActionResolver : MonoBehaviour // receive choice from panels
 {
     [NonSerialized] public bool IsTargetSelectMode = false;
     [NonSerialized] public BattleActionSO BattleActionSO;
     [SerializeField] BattleLogSystem battleLogSystem;
+    [SerializeField] CharacterInfoPanel characterInfoPanel;
     private BattleAction battleAction;
     public Character Actor;
     public Character Target;
@@ -21,6 +22,10 @@ public class ActionResolver : MonoBehaviour
             StartResolve();
             IsTargetSelectMode = false ;
         }
+        else
+        {
+            characterInfoPanel.ShowInfo(target);
+        }
     }
 
     public void StartResolve()
@@ -31,7 +36,7 @@ public class ActionResolver : MonoBehaviour
 
     private void ProcessBattleAction()
     {
-        Attack();
+        battleAction.Resolve();
         // Battle Action Processed
         battleLogSystem.ShowActionResult(battleAction, ActionResolved, true);
     }
@@ -43,8 +48,6 @@ public class ActionResolver : MonoBehaviour
 
     private void Attack()
     {
-        Debug.Log(battleAction.Damage.Value);
-        //battleAction.damage.Value = (int)(battleAction.damage.Value * Actor.Stats.GetStat(battleAction.damage.Scale) * 0.01f);
         float scaled = battleAction.Damage.Value * Actor.Stats.GetStat(battleAction.Damage.Scale) * 0.01f;
         battleAction.Damage.Value = Mathf.RoundToInt(scaled);
         StatModifier mod = new()

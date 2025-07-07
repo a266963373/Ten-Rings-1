@@ -6,7 +6,7 @@ using UnityEngine;
 
 public enum StatType
 {
-    MHP, HP, STR, MND, SPD
+    NON, MHP, HP, STR, MND, SPD
 }
 
 public class Stat
