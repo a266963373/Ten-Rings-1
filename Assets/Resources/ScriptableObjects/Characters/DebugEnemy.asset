@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 27aa2b8eb34b9f24395015f07d55f2cf, type: 3}
   m_Name: DebugEnemy
   m_EditorClassIdentifier: Assembly-CSharp::HumanSO
   CharacterName: Debug Enemy
   StatEntries: []
-  Rings:
-  - {fileID: 11400000, guid: 13467382c629a7441bf2892b53d45781, type: 2}
-  - {fileID: 11400000, guid: c76fd842e1576e3428a47d703fadb5e5, type: 2}
+  RingIds: 010000000200000003000000

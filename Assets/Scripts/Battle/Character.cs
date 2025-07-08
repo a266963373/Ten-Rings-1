@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class Character
@@ -36,7 +33,7 @@ public class Character
         Rings = so.GetRings();
 
         // Load Attack Action
-        BattleActionSO newBattleAction = Resources.Load<BattleActionSO>("ScriptableObjects/RingRelated/AttackActionSO");
+        BattleActionSO newBattleAction = Resources.Load<BattleActionSO>("RingRelated/AttackActionSO");
         BattleActions.Add(newBattleAction);
 
         // Init Dict

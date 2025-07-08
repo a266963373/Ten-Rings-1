@@ -66,6 +66,6 @@ public class Damage
 
     public override string ToString()
     {
-        return $"{Value} {Form} {Element} damage to {Property} ({TargetType})";
+        return $"{Value} {Form} {Element}";
     }
 }

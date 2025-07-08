@@ -1,20 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using System;
+using UnityEngine.Localization.Components;
 
 public class ActionButton : MonoBehaviour
 {
     private BattleActionSO battleAction;
-    [SerializeField] TextMeshProUGUI text;
+    [SerializeField] LocalizeStringEvent localizeStringEvent;
     private ActionResolver resolver;
 
     public void Initialize(BattleActionSO b, ActionResolver r)
     {
         battleAction = b;
         resolver = r;
-        text.text = battleAction.name;
+        localizeStringEvent.StringReference.SetReference("Battle Action", b.Name);
     }
 
     public void OnClick()

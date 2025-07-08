@@ -42,6 +42,36 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fecef6faf6309d84e8a3c70af77063b5
+    m_Address: Assets/Localization/Tables/Battle Action Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6708e7ec8945c9646979429a252c91db
+    m_Address: Assets/Localization/Tables/Ring Name Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb9e3674a6d3ebe459006565bb76908b
+    m_Address: Assets/Localization/Tables/Ring Description Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dcf6daf0ddc7b184e886e6ffb9013194
+    m_Address: Assets/Localization/Tables/Action Description Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4efe992aca7fdc440b07ff5f127e55f1
+    m_Address: Assets/Localization/Tables/Damage Form Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d4ef71214bd7eb44ab13f2c7dcb3ee17
+    m_Address: Assets/Localization/Tables/Damage Element Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: ec387e5b6fe2306429a37e909a4e5bf5, type: 2}
   m_SchemaSet:

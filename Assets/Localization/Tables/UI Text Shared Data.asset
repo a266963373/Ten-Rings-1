@@ -103,6 +103,14 @@ MonoBehaviour:
     m_Key: AfterWinBattle
     m_Metadata:
       m_Items: []
+  - m_Id: 1518746705895424
+    m_Key: Some Gold
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1522072566669312
+    m_Key: AdditionalGoldSelected
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

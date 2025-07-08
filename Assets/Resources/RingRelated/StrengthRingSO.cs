@@ -5,10 +5,9 @@ public class StrengthRingSO : RingSO
 {
     protected override void InitStatModifiers()
     {
-        StatModifiers.Add(new()
-        {
-            Value = power,
-            StatType = StatType.STR
-        });
+        StatModifiers.Add(new(
+            value: power,
+            statType: StatType.STR
+            ));
     }
 }

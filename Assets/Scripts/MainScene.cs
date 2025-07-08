@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro.Examples;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainScene : MonoBehaviour
 {
@@ -26,5 +27,10 @@ public class MainScene : MonoBehaviour
         savePanel.gameObject.SetActive(!isActive);
 
         ToggleMenuPanel();
+    }
+
+    public void GoToLevelScene()
+    {
+        SceneManager.LoadScene("LevelScene");
     }
 }

@@ -10,6 +10,7 @@ public class ActionResolver : MonoBehaviour // receive choice from panels
     [NonSerialized] public BattleActionSO BattleActionSO;
     [SerializeField] BattleLogSystem battleLogSystem;
     [SerializeField] CharacterInfoPanel characterInfoPanel;
+    [SerializeField] GameObject actionPanel;
     private BattleAction battleAction;
     public Character Actor;
     public Character Target;
@@ -19,6 +20,7 @@ public class ActionResolver : MonoBehaviour // receive choice from panels
         if (IsTargetSelectMode)
         {
             Target = target;
+            actionPanel.SetActive(false);
             StartResolve();
             IsTargetSelectMode = false ;
         }

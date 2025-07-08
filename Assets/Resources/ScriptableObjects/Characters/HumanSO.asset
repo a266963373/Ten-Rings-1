@@ -24,3 +24,10 @@ MonoBehaviour:
     Value: 100
   - Type: 4
     Value: 100
+  - Type: 5
+    Value: 100
+  - Type: 6
+    Value: 100
+  - Type: 7
+    Value: 100
+  Rings: []

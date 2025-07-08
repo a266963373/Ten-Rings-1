@@ -30,7 +30,7 @@ public class LevelManager : MonoBehaviour
                 break;
 
             case BattleResult.None:
-                DisplayNextEncounter();
+                //DisplayNextEncounter();
                 break;
         }
 

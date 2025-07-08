@@ -20,12 +20,12 @@ public class ThornRingSO : RingSO
             scale: StatType.NON,
             element: DamageElement.Grass
             );
-        BattleAction reflectDamageAction = new(
-            name: "Reflect Damage",
+        BattleAction inflictDamageAction = new(
+            name: "Inflict Damage",
             actor: null,
             target: attacker,
             damage: damage
             );
-        reflectDamageAction.Resolve();
+        inflictDamageAction.Resolve();
     }
 }

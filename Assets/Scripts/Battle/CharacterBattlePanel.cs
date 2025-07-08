@@ -8,6 +8,7 @@ using UnityEngine.Localization.Components;
 public class CharacterBattlePanel : MonoBehaviour
 {
     [SerializeField] BarController HpBar;
+    [SerializeField] BarController MpBar;
     [SerializeField] BarController SpeedBar;
     [SerializeField] LocalizeStringEvent localizeStringEvent;
 
@@ -30,6 +31,7 @@ public class CharacterBattlePanel : MonoBehaviour
     {
         actionResolver = r;
         UpdateHpBar();
+        UpdateMpBar();
         UpdateActionGauge();
     }
 
@@ -38,6 +40,13 @@ public class CharacterBattlePanel : MonoBehaviour
         HpBar.LeftNum = character.Stats.GetStat(StatType.HP);
         HpBar.RightNum = character.Stats.GetStat(StatType.MHP);
         HpBar.LazyUpdate();
+    }
+
+    public void UpdateMpBar()
+    {
+        MpBar.LeftNum = character.Stats.GetStat(StatType.MP);
+        MpBar.RightNum = character.Stats.GetStat(StatType.MMP);
+        MpBar.LazyUpdate();
     }
 
     public void UpdateActionGauge()
@@ -49,6 +58,7 @@ public class CharacterBattlePanel : MonoBehaviour
     public void Subscribe() // need to be after BattleSystem.LoadBattle()
     {
         character.Stats.OnHpChanged += UpdateHpBar;
+        character.Stats.OnMpChanged += UpdateMpBar;
         character.OnActionGaugeChanged += UpdateActionGauge;
     }
 

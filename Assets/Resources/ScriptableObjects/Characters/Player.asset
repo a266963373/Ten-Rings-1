@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HumanSO
   CharacterName: Player
   StatEntries: []
+  Rings:
+  - {fileID: 11400000, guid: bd24ea43fbe361a4380592dc1e4361da, type: 2}

@@ -9,15 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a0b1c43c2e00444091b1c8bedf355c8, type: 3}
-  m_Name: AttackActionSO
+  m_Script: {fileID: 11500000, guid: eda4a8343cf283d45b96625cb8580730, type: 3}
+  m_Name: ThornRingSO
   m_EditorClassIdentifier: 
-  actionName: Attack
-  damage:
-    Value: 40
-    Scale: 3
-    Form: 1
-    Element: 0
-    TargetType: 0
-    Property: 0
-  targetType: 0
+  Id: 2
+  Name: Thorn Ring
+  power: 10
+  GrantedActions: []

@@ -6,7 +6,7 @@ public class RingSO : ScriptableObject
 {
     private bool initialized = false;
 
-    public int id;
+    public int Id;
     public string Name;
     public int power;    // for son rings' effect strength
 
@@ -43,6 +43,7 @@ public class RingSO : ScriptableObject
         foreach (BattleActionSO action in GrantedActions)
         {
             c.BattleActions.Add(action);
+            int temp = c.BattleActions.Count - 1;
         }
     }
 }

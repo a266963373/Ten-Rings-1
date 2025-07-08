@@ -7,16 +7,16 @@ public class CharacterSO : ScriptableObject
 {
     public string CharacterName;
     public List<StatEntry> StatEntries;
-    public List<RingSO> Rings;
+    //public List<RingSO> Rings;
+    public List<int> RingIds;
 
     public virtual CharacterStats GetStats() {  return new(StatEntries); }
     public virtual List<RingSO> GetRings()
     {
         List<RingSO> copies = new();
-        foreach (var ring in Rings)
+        foreach (var ringId in RingIds)
         {
-            var ringCopy = Instantiate(ring);
-            copies.Add(ringCopy);
+            copies.Add(RingLibrary.I.GetRingById(ringId));
         }
         return copies;
     }

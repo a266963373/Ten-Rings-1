@@ -6,5 +6,5 @@ public class EncounterSO : ScriptableObject
 {
     public string Name;  // Key to "A slime wants to teach you fight."
     public List<CharacterSO> Characters;
-    public int gold;
+    public int Gold;
 }

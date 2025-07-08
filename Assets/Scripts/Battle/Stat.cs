@@ -68,17 +68,32 @@ public class Stat
 public enum ModifierType { Flat, Percent, Set }
 public class StatModifier
 {
-    public StatType StatType = StatType.HP;
-    public ModifierType ModType = ModifierType.Flat;
-    public bool IsPermanent = false;
+    public StatType StatType;
+    public ModifierType ModType;
+    public bool IsPermanent;
     public float Value;
     public string Source;
     public Guid Id = Guid.NewGuid();
+
+    public StatModifier(
+        StatType statType = StatType.HP, 
+        ModifierType modType = ModifierType.Flat, 
+        bool isPermanent = false, 
+        float value = -1, 
+        string source = "None")
+    {
+        StatType = statType;
+        ModType = modType;
+        IsPermanent = isPermanent;
+        Value = value;
+        Source = source;
+    }
 }
 
 public class CharacterStats
 {
     public event Action OnHpChanged;
+    public event Action OnMpChanged;
 
     private Dictionary<StatType, Stat> stats = new();
 
@@ -135,6 +150,10 @@ public class CharacterStats
         if (mod.StatType == StatType.HP || mod.StatType == StatType.MHP)
         {
             OnHpChanged?.Invoke();
+        }
+        else if (mod.StatType == StatType.MP || mod.StatType == StatType.MMP)
+        {
+            OnMpChanged?.Invoke();
         }
     }
 }

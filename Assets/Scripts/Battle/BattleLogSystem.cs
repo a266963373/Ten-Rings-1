@@ -28,21 +28,26 @@ public class BattleLogSystem : MonoBehaviour
     public void ShowWhoseTurn(string name, Action onContinueCallback = null, bool isBlock = true)
     {
         LocalizedString locString = new LocalizedString("Battle Log", "ShowWhoseTurn");
-        locString.Arguments = new object[] { name };
+        locString.Arguments = new object[] { new LocalizedString("Character Name", name).GetLocalizedString() };
         ShowMessage(locString, onContinueCallback, isBlock);
     }
 
     public void ShowBattleAction(BattleAction battleAction, Action onContinueCallback = null, bool isBlock = true)
     {
         LocalizedString locString = new LocalizedString("Battle Log", "ShowBattleAction");
-        locString.Arguments = new object[] { battleAction.Actor.Name, battleAction.Target.Name, battleAction.Name };
+        string localizedActorName = new LocalizedString("Character Name", battleAction.Actor.Name).GetLocalizedString();
+        string localizedTargetName = new LocalizedString("Character Name", battleAction.Target.Name).GetLocalizedString();
+        string localizedBattleActionName = new LocalizedString("Battle Action", battleAction.Name).GetLocalizedString();
+
+        locString.Arguments = new object[] { localizedActorName, localizedTargetName, localizedBattleActionName };
         ShowMessage(locString, onContinueCallback, isBlock);
     }
 
     public void ShowActionResult(BattleAction battleAction, Action onContinueCallback = null, bool isBlock = true)
     {
         LocalizedString locString = new LocalizedString("Battle Log", "ShowActionResult");
-        locString.Arguments = new object[] { battleAction.Target.Name, battleAction.Damage.Value };
+        string localizedTargetName = new LocalizedString("Character Name", battleAction.Target.Name).GetLocalizedString();
+        locString.Arguments = new object[] { localizedTargetName, battleAction.Damage.Value };
         ShowMessage(locString, onContinueCallback, isBlock);
     }
 

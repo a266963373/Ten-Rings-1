@@ -100,14 +100,23 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 890268281884672
-    m_Localized: "\u4F60\u8D62\u5F97\u4E86{0}\u91D1\u5E01\uFF0C\u800C\u4E14\u4ED6\u4EEC\u60F3\u5E2E\u4F60\u8D62\u5F97\u63A5\u4E0B\u6765\u7684\u6218\u6597\u3002"
+    m_Localized: "\u4F60\u8D62\u5F97\u4E86{script.Gold}\u91D1\u5E01\uFF0C\u800C\u4E14\u4ED6\u4EEC\u60F3\u5E2E\u4F60\u8D62\u5F97\u63A5\u4E0B\u6765\u7684\u6218\u6597\u3002"
     m_Metadata:
       m_Items:
       - rid: 5901558444680282135
+  - m_Id: 1518746705895424
+    m_Localized: "{gold} \u91D1\u5E01"
+    m_Metadata:
+      m_Items:
+      - rid: 5901558444680282135
+  - m_Id: 1522072566669312
+    m_Localized: "\u4E00\u4E9B\u989D\u5916\u7684\u91D1\u5E01\u603B\u4E0D\u5DEE\uFF01"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
     - rid: 5901558444680282135
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 0050b2bcb1290300
+        m_Entries: 0050b2bcb129030000a0e8c54a650500
