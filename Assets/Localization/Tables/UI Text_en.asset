@@ -96,13 +96,13 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 890268281884672
-    m_Localized: You received {script.Gold} gold as you win the battle, and they
-      want to help you for the incoming battles.
+    m_Localized: You received {Gold} gold as you win the battle, and they want to
+      help you for the incoming battles.
     m_Metadata:
       m_Items:
       - rid: 5901558444680282134
   - m_Id: 1518746705895424
-    m_Localized: '{gold} Gold'
+    m_Localized: '{Gold} Gold'
     m_Metadata:
       m_Items:
       - rid: 5901558444680282134
@@ -110,10 +110,23 @@ MonoBehaviour:
     m_Localized: 'Some extra gold never hurts! '
     m_Metadata:
       m_Items: []
+  - m_Id: 1936170417721344
+    m_Localized: Deal!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1984524954701824
+    m_Localized: Yeah!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1985653415415808
+    m_Localized: 'Price: {Price}'
+    m_Metadata:
+      m_Items:
+      - rid: 5901558444680282134
   references:
     version: 2
     RefIds:
     - rid: 5901558444680282134
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 0050b2bcb129030000a0e8c54a650500
+        m_Entries: 0050b2bcb129030000a0e8c54a650500001079f6f00d0700

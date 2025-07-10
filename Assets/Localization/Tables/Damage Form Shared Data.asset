@@ -16,15 +16,15 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: 4efe992aca7fdc440b07ff5f127e55f1
   m_Entries:
   - m_Id: 5149073408
-    m_Key: sharp
+    m_Key: Sharp
     m_Metadata:
       m_Items: []
   - m_Id: 195490783232
-    m_Key: blunt
+    m_Key: Blunt
     m_Metadata:
       m_Items: []
   - m_Id: 249131737088
-    m_Key: thermal
+    m_Key: Thermal
     m_Metadata:
       m_Items: []
   m_Metadata:

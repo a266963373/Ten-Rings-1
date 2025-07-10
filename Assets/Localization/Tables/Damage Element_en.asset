@@ -19,19 +19,19 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 4813529088
-    m_Localized: bio
+    m_Localized: Bio
     m_Metadata:
       m_Items: []
   - m_Id: 70630547456
-    m_Localized: fire
+    m_Localized: Fire
     m_Metadata:
       m_Items: []
   - m_Id: 111021694976
-    m_Localized: water
+    m_Localized: Water
     m_Metadata:
       m_Items: []
   - m_Id: 132190347264
-    m_Localized: grass
+    m_Localized: Grass
     m_Metadata:
       m_Items: []
   references:

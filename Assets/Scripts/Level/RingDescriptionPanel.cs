@@ -40,8 +40,8 @@ public class RingDescriptionPanel : MonoBehaviour
         }
         else
         {
+            actionDescriptionText.BattleAction = ring.GrantedActions[0];
             actionDescriptionGO.SetActive(true);
-            ringDescriptionText.Ring = ring;
         }
     }
 }

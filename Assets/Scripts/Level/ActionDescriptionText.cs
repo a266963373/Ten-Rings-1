@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
+using UnityEngine.Localization.SmartFormat.PersistentVariables;
 
 public class ActionDescriptionText : MonoBehaviour
 {
@@ -24,6 +25,9 @@ public class ActionDescriptionText : MonoBehaviour
             Value = damage.Value;
             Form = new LocalizedString("Damage Form", damage.Form.ToString()).GetLocalizedString();
             Element = new LocalizedString("Damage Element", damage.Element.ToString()).GetLocalizedString();
+            localizeStringEvent.StringReference.Add("Value", new IntVariable { Value = Value });
+            localizeStringEvent.StringReference.Add("Form", new StringVariable { Value = Form });
+            localizeStringEvent.StringReference.Add("Element", new StringVariable { Value = Element });
 
             Show();
         }

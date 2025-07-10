@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Vendor Dialogue Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Vendor Dialogue
+  m_TableCollectionNameGuidString: 5cdaedfc79e4a864f98fb72ae0cd9710
+  m_Entries:
+  - m_Id: 4768468992
+    m_Key: welcome
+    m_Metadata:
+      m_Items: []
+  - m_Id: 297681883136
+    m_Key: ring selected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 639748345856
+    m_Key: dealed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1170931781632
+    m_Key: sponsor selected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1249856000000
+    m_Key: sponsored
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45425544990720
+    m_Key: ring all collected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51527984680960
+    m_Key: too poor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56186640076800
+    m_Key: not selected
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5901558518335143941
+  references:
+    version: 2
+    RefIds:
+    - rid: 5901558518335143941
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1752104102126

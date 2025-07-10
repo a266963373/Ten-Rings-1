@@ -16,7 +16,8 @@ public class GoldButton : MonoBehaviour
         set
         {
             gold = value;
-            localizeStringEvent.StringReference.Add("gold", new IntVariable { Value = gold });
+            localizeStringEvent.StringReference.Add("Gold", new IntVariable { Value = gold });
+            localizeStringEvent.StringReference.SetReference("UI Text", "Some Gold");
         }
     }
 

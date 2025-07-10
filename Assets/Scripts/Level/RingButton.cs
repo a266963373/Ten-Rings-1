@@ -7,7 +7,7 @@ using UnityEngine.Localization.Components;
 public class RingButton : MonoBehaviour
 {
     [SerializeField] LocalizeStringEvent localizeStringEvent;
-    public Action<RingSO> OnClickAction;
+    public Action<RingButton> OnClickAction;
     private RingSO ring;
     public RingSO Ring
     {
@@ -21,7 +21,7 @@ public class RingButton : MonoBehaviour
 
     public void OnClick()
     {
-        OnClickAction?.Invoke(ring);
+        OnClickAction?.Invoke(this);
     }
 
 }

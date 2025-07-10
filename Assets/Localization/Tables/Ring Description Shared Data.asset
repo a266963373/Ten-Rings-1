@@ -19,6 +19,14 @@ MonoBehaviour:
     m_Key: Strength Ring
     m_Metadata:
       m_Items: []
+  - m_Id: 303578090115072
+    m_Key: Thorn Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 304238512640000
+    m_Key: Fireball Ring
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

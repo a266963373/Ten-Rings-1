@@ -19,15 +19,15 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 195490783232
-    m_Localized: blunt
+    m_Localized: Blunt
     m_Metadata:
       m_Items: []
   - m_Id: 5149073408
-    m_Localized: sharp
+    m_Localized: Sharp
     m_Metadata:
       m_Items: []
   - m_Id: 249131737088
-    m_Localized: thermal
+    m_Localized: Thermal
     m_Metadata:
       m_Items: []
   references:

@@ -20,14 +20,24 @@ MonoBehaviour:
     - rid: 5901558492828794900
   m_TableData:
   - m_Id: 34152374272
-    m_Localized: 'You feel powerful. Gives you {script.Power} strength. '
+    m_Localized: 'You feel powerful. Gives you {Power} strength. '
     m_Metadata:
       m_Items:
       - rid: 5901558492828794900
+  - m_Id: 303578090115072
+    m_Localized: Hurt who dare touches you! When someone melee attacks you, deal
+      them {Power} Sharp Grass damage.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794900
+  - m_Id: 304238512640000
+    m_Localized: It's just hot. Grant you skill "Fireball".
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
     - rid: 5901558492828794900
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00e0a3f307000000
+        m_Entries: 00e0a3f307000000001039481a140100

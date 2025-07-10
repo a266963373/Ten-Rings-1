@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: FireballActionSO
   m_EditorClassIdentifier: 
   Name: Fireball
-  damage:
+  Damage:
     Value: 50
     Scale: 4
     Form: 2
     Element: 1
     TargetType: 0
     Property: 0
-  targetType: 0
-  manaCost: 20
+  TargetType: 0
+  ManaCost: 20

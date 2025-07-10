@@ -16,19 +16,19 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: d4ef71214bd7eb44ab13f2c7dcb3ee17
   m_Entries:
   - m_Id: 4813529088
-    m_Key: bio
+    m_Key: Bio
     m_Metadata:
       m_Items: []
   - m_Id: 70630547456
-    m_Key: fire
+    m_Key: Fire
     m_Metadata:
       m_Items: []
   - m_Id: 111021694976
-    m_Key: water
+    m_Key: Water
     m_Metadata:
       m_Items: []
   - m_Id: 132190347264
-    m_Key: grass
+    m_Key: Grass
     m_Metadata:
       m_Items: []
   m_Metadata:

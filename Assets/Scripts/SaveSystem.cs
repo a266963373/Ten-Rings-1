@@ -17,14 +17,9 @@ public class SaveSystem : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    private void OnDestroy()
+    public void Save(SaveData saveData, int saveId)
     {
-        I = null;
-    }
-
-    public void Save(SaveData saveData)
-    {
-        string path = Application.persistentDataPath + $"/save{saveData.saveId}.json";
+        string path = Application.persistentDataPath + $"/save{saveId}.json";
         string json = JsonUtility.ToJson(saveData, true);
         File.WriteAllText(path, json);
     }
@@ -44,11 +39,22 @@ public class SaveSystem : MonoBehaviour
 [System.Serializable]
 public class SaveData
 {
-    public int saveId;
-    public int gold = 0;
+    public int SaveId = 0;
+    public int Gold = 0;
+    public List<int> WornRingIds = new();
+    public List<int> StoredRingIds = new();
+    public ShopSetting ShopSetting = new();
 
     public SaveData(int saveId)
     {
-        this.saveId = saveId;
+        SaveId = saveId;
     }
+}
+
+[System.Serializable]
+public class ShopSetting
+{
+    public int ShopLevel = 1;
+    public int ShoppedNumber = 0;
+    public List<int> SellingRingIds = new();
 }

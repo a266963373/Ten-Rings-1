@@ -111,6 +111,18 @@ MonoBehaviour:
     m_Key: AdditionalGoldSelected
     m_Metadata:
       m_Items: []
+  - m_Id: 1936170417721344
+    m_Key: Deal!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1984524954701824
+    m_Key: Yeah!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1985653415415808
+    m_Key: Price
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

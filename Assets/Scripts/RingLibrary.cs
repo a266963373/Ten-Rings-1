@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class RingLibrary : MonoBehaviour
 {
     public static RingLibrary I { get; private set; }
 
     private Dictionary<int, RingSO> ringTemplates = new();
+    public int RingCount = 0;
 
     private void Awake()
     {
@@ -24,6 +26,7 @@ public class RingLibrary : MonoBehaviour
     private void LoadAllRings()
     {
         RingSO[] allRings = Resources.LoadAll<RingSO>("RingRelated");
+        RingCount = allRings.Length;
         foreach (var ring in allRings)
         {
             ringTemplates[ring.Id] = ring; // 保存原始引用，不做 Instantiate
@@ -42,12 +45,12 @@ public class RingLibrary : MonoBehaviour
         return null;
     }
 
-    public List<RingSO> GetRandomRings(int count, int minId = int.MinValue, int maxId = int.MaxValue)
+    public List<RingSO> GetRandomRings(int count, int minId = int.MinValue, int maxId = int.MaxValue, List<int> idBlacklist = null)
     {
         List<int> validIds = new();
         foreach (int id in ringTemplates.Keys)
         {
-            if (id >= minId && id <= maxId)
+            if (id >= minId && id <= maxId && (idBlacklist == null || !idBlacklist.Contains(id)))
                 validIds.Add(id);
         }
 
@@ -73,11 +76,38 @@ public class RingLibrary : MonoBehaviour
         List<RingSO> results = new();
         for (int i = 0; i < count; i++)
         {
-            int id = validIds[i];
-            results.Add(ScriptableObject.Instantiate(ringTemplates[id]));
+            results.Add(GetRingById(validIds[i]));
         }
 
         return results;
+    }
+
+    public void FillRandomIds(List<int> targetList, int targetCount)
+    {
+        int missingCount = targetCount - targetList.Count;
+        if (missingCount <= 0)
+            return;
+
+        List<int> validIds = new();
+        foreach (int id in ringTemplates.Keys)
+        {
+            if (!targetList.Contains(id))
+                validIds.Add(id);
+        }
+
+        if (validIds.Count < missingCount)
+        {
+            missingCount = validIds.Count;
+        }
+
+        // Fisher-Yates 洗牌
+        for (int i = validIds.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            (validIds[i], validIds[j]) = (validIds[j], validIds[i]);
+        }
+
+        targetList.AddRange(validIds.Take(missingCount));
     }
 
 }

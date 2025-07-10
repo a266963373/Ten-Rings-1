@@ -26,9 +26,9 @@ public class RewardPanel : MonoBehaviour
         goldButton.OnClickAction += GoldSelected;
     }
 
-    private void RingSelected(RingSO ring)
+    private void RingSelected(RingButton ringButton)
     {
-        ringDescriptionPanel.Ring = ring;
+        ringDescriptionPanel.Ring = ringButton.Ring;
         claimLSE.StringReference.SetReference("UI Text", "Borrow!");
     }
 

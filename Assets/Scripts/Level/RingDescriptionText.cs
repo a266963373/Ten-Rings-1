@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization.Components;
+using UnityEngine.Localization.SmartFormat.PersistentVariables;
 
 public class RingDescriptionText : MonoBehaviour
 {
     [SerializeField] LocalizeStringEvent localizeStringEvent;
+    [SerializeField] bool isInLevelScene;
     // for LSE augments
     public int Power;
     public int Gold;
@@ -18,6 +20,7 @@ public class RingDescriptionText : MonoBehaviour
         {
             ring = value;
             Power = ring.power;
+            localizeStringEvent.StringReference.Add("Power", new IntVariable { Value = Power });
             Show();
         }
     }
@@ -25,6 +28,9 @@ public class RingDescriptionText : MonoBehaviour
     private void Start()
     {
         Gold = BattleSession.Encounter.Gold;
+        localizeStringEvent.StringReference.Add("Gold", new IntVariable { Value = Gold });
+        if (isInLevelScene)
+            localizeStringEvent.StringReference.SetReference("UI Text", "AfterWinBattle");
     }
 
     private void Show()
