@@ -10,11 +10,13 @@ public class ActionDecider : MonoBehaviour
     [SerializeField] Transform actionPanelContent;
     [SerializeField] ActionButton actionButton;
     [SerializeField] ActionResolver actionResolver;
+    [SerializeField] Transform focusImage;
     private List<Character> characters;
 
     private void Awake()
     {
         actionPanel.SetActive(false);
+        focusImage.gameObject.SetActive(false);
     }
 
     public void Initialize(List<Character> c)
@@ -26,6 +28,7 @@ public class ActionDecider : MonoBehaviour
     {
         if (actor.IsPlayerControlled)
         {
+            focusImage.SetParent(actionPanel.transform, false);
             actionResolver.Actor = actor;
 
             foreach (Transform child in actionPanelContent)
@@ -36,7 +39,8 @@ public class ActionDecider : MonoBehaviour
             foreach (BattleActionSO battleAction in actor.BattleActions)
             {
                 ActionButton newActionButton = Instantiate(actionButton, actionPanelContent);
-                newActionButton.Initialize(battleAction, actionResolver);
+                newActionButton.OnClickAction += ActionButtonOnClick;
+                newActionButton.Initialize(battleAction);
             }
             actionPanel.SetActive(true);
         }
@@ -47,5 +51,22 @@ public class ActionDecider : MonoBehaviour
             actionResolver.Target = characters.Where(c => c != actor).FirstOrDefault();
             actionResolver.StartResolve();
         }
+    }
+
+    private void ActionButtonOnClick(BattleActionSO b, Transform t)
+    {
+        actionResolver.IsTargetSelectMode = true;
+        actionResolver.BattleActionSO = b;
+        focusImage.SetParent(t, false);
+        focusImage.SetSiblingIndex(0);
+        focusImage.gameObject.SetActive(true);
+    }
+
+    public void RemoveFocusAction()
+    {
+        focusImage.gameObject.SetActive(false);
+        actionResolver.IsTargetSelectMode = false;
+        actionResolver.BattleActionSO = null;
+        focusImage.SetParent(actionPanel.transform, false);
     }
 }

@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: AttackActionSO
   m_EditorClassIdentifier: 
   Name: Punch
-  damage:
+  Damage:
     Value: 40
     Scale: 3
     Form: 1
     Element: 0
     TargetType: 0
     Property: 0
-  targetType: 0
-  manaCost: 0
+  TargetType: 0
+  ManaCost: 0

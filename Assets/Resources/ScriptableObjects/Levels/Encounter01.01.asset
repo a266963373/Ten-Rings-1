@@ -15,4 +15,4 @@ MonoBehaviour:
   Name: 01.01
   Characters:
   - {fileID: 11400000, guid: 83557e3f071821b498ece09202738860, type: 2}
-  gold: 3
+  Gold: 3

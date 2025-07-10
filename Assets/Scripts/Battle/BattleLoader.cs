@@ -11,6 +11,8 @@ public class BattleLoader : MonoBehaviour
     [SerializeField] Transform enemySpot;
     [SerializeField] ActionResolver actionResolver;
 
+    public bool IsStarted = false;
+
     [Header("½ÇÉ«Ä£°å (ScriptableObject)")]
     public CharacterSO playerSO;
     public CharacterSO enemySO;
@@ -18,8 +20,12 @@ public class BattleLoader : MonoBehaviour
     public Character Player;
     public Character Enemy;
 
-    private void Awake()
+    private IEnumerator Start()
     {
+        while (RingLibrary.I == null)
+        {
+            yield return null;
+        }
         enemySO = BattleSession.Encounter.Characters[0];
 
         Player = new Character(playerSO);
@@ -35,5 +41,7 @@ public class BattleLoader : MonoBehaviour
         enemyPanel.Character = Enemy;
         playerPanel.Initialize(actionResolver);
         enemyPanel.Initialize(actionResolver);
+
+        IsStarted = true;
     }
 }

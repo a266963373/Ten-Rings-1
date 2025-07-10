@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro.Examples;
 using UnityEngine;
 
 public class ActionResolver : MonoBehaviour // receive choice from panels
@@ -9,8 +6,9 @@ public class ActionResolver : MonoBehaviour // receive choice from panels
     [NonSerialized] public bool IsTargetSelectMode = false;
     [NonSerialized] public BattleActionSO BattleActionSO;
     [SerializeField] BattleLogSystem battleLogSystem;
-    [SerializeField] CharacterInfoPanel characterInfoPanel;
+    [SerializeField] RingPanel ringPanel;
     [SerializeField] GameObject actionPanel;
+    [SerializeField] Transform focusImage;
     private BattleAction battleAction;
     public Character Actor;
     public Character Target;
@@ -26,12 +24,14 @@ public class ActionResolver : MonoBehaviour // receive choice from panels
         }
         else
         {
-            characterInfoPanel.ShowInfo(target);
+            ringPanel.LoadRings(target);
+            ringPanel.gameObject.SetActive(true);
         }
     }
 
     public void StartResolve()
     {
+        focusImage.gameObject.SetActive(false);
         battleAction = BattleActionSO.GetAction(Actor, Target);
         battleLogSystem.ShowBattleAction(battleAction, ProcessBattleAction, true);
     }
@@ -46,17 +46,5 @@ public class ActionResolver : MonoBehaviour // receive choice from panels
     private void ActionResolved()
     {
         BattleSystem.I.State = BattleState.Idle;
-    }
-
-    private void Attack()
-    {
-        float scaled = battleAction.Damage.Value * Actor.Stats.GetStat(battleAction.Damage.Scale) * 0.01f;
-        battleAction.Damage.Value = Mathf.RoundToInt(scaled);
-        StatModifier mod = new()
-        {
-            IsPermanent = true,
-            Value = -battleAction.Damage.Value,
-        };
-        Target.Stats.AddModifier(mod);
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Localization.Components;
 
@@ -5,18 +6,16 @@ public class ActionButton : MonoBehaviour
 {
     private BattleActionSO battleAction;
     [SerializeField] LocalizeStringEvent localizeStringEvent;
-    private ActionResolver resolver;
+    public Action<BattleActionSO, Transform> OnClickAction;
 
-    public void Initialize(BattleActionSO b, ActionResolver r)
+    public void Initialize(BattleActionSO b)
     {
         battleAction = b;
-        resolver = r;
         localizeStringEvent.StringReference.SetReference("Battle Action", b.Name);
     }
 
     public void OnClick()
     {
-        resolver.IsTargetSelectMode = true;
-        resolver.BattleActionSO = battleAction;
+        OnClickAction(battleAction, transform);
     }
 }

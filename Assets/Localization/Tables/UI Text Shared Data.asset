@@ -123,6 +123,10 @@ MonoBehaviour:
     m_Key: Price
     m_Metadata:
       m_Items: []
+  - m_Id: 2233615815086080
+    m_Key: CompletedLevel
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

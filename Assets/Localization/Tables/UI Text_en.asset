@@ -123,6 +123,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 5901558444680282134
+  - m_Id: 2233615815086080
+    m_Localized: 'Congrats! The boss wants to give you a gift. '
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

@@ -58,3 +58,9 @@ public class ShopSetting
     public int ShoppedNumber = 0;
     public List<int> SellingRingIds = new();
 }
+
+public class RunSession
+{
+    public List<int> WornRingIds = new();
+    public List<int> StoredRingIds = new();
+}

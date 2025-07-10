@@ -6,6 +6,8 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager I { get; private set; }
     [SerializeField] EncounterPanel encounterPanel;
+    [SerializeField] RewardPanel rewardPanel;
+    [SerializeField] RingPanel ringPanel;
     public LevelSO Level;
     private int currentEncounterIndex = 0;
 
@@ -15,14 +17,25 @@ public class LevelManager : MonoBehaviour
         else Destroy(gameObject);
 
         encounterPanel.gameObject.SetActive(false);
+        rewardPanel.gameObject.SetActive(false);
+        ringPanel.gameObject.SetActive(false);
     }
 
     private void Start()
     {
+        rewardPanel.OnClaimReward += RewardClaimed;
+        rewardPanel.IsLastEncounter = currentEncounterIndex == Level.Encounters.Count - 1;
+        if (currentEncounterIndex == 0)
+        {
+            GameSystem.I.Run.WornRingIds.Clear();
+            GameSystem.I.Run.StoredRingIds.Clear();
+        }
+
         switch (BattleSession.Result)
         {
             case BattleResult.Win:
                 //ShowReward(BattleSession.Encounter, () => ProceedToNextEnemy());
+                ShowReward();
                 break;
 
             case BattleResult.Lose:
@@ -30,7 +43,7 @@ public class LevelManager : MonoBehaviour
                 break;
 
             case BattleResult.None:
-                //DisplayNextEncounter();
+                ShowEncounter();
                 break;
         }
 
@@ -38,9 +51,46 @@ public class LevelManager : MonoBehaviour
         BattleSession.Result = BattleResult.None;
     }
 
-    private void DisplayNextEncounter()
+    private void ShowEncounter()
     {
         encounterPanel.Encounter = Level.Encounters[currentEncounterIndex];
         encounterPanel.gameObject.SetActive(true);
+    }
+
+    private void ShowReward()
+    {
+        rewardPanel.gameObject.SetActive(true);
+    }
+
+    private void RewardClaimed()
+    {
+        rewardPanel.gameObject.SetActive(false);
+        currentEncounterIndex++;
+        if (currentEncounterIndex >= Level.Encounters.Count)
+        {
+
+        }
+
+
+        if (rewardPanel.IsRingSelected)
+        {
+            ShowRingPanel();
+        }
+        else
+        {
+            ShowEncounter();
+        }
+
+    }
+
+    public void ShowRingPanel()
+    {
+        ringPanel.gameObject.SetActive(true);
+    }
+
+    public void ExitRingPanel()
+    {
+        ringPanel.gameObject.SetActive(false);
+        ShowEncounter();
     }
 }

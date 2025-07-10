@@ -2,26 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization.SmartFormat.PersistentVariables;
 
-public class CharacterInfoPanel : MonoBehaviour
+public class CharacterInfoPanel : MonoBehaviour     // not showing rings, that is RingPanel's job
 {
-    [SerializeField] TextMeshProUGUI text;
+    [SerializeField] LocalizeStringEvent nameLSE;
+    [SerializeField] LocalizeStringEvent strengthLSE;
+    [SerializeField] LocalizeStringEvent mindLSE;
+    [SerializeField] LocalizeStringEvent speedLSE;
 
-    private void Awake()
+    public void SetCharacter(Character c)
     {
-        gameObject.SetActive(false);
+        nameLSE.StringReference.SetReference("Character Name", c.Name);
+
+        strengthLSE.StringReference.SetReference("Stat", "Strength");
+        strengthLSE.StringReference.Arguments = new object[] { c.Stats.GetStat(StatType.STR) };
+        mindLSE.StringReference.SetReference("Stat", "Mind");
+        mindLSE.StringReference.Arguments = new object[] { c.Stats.GetStat(StatType.MND) };
+        speedLSE.StringReference.SetReference("Stat", "Speed");
+        speedLSE.StringReference.Arguments = new object[] { c.Stats.GetStat(StatType.SPD) };
+
     }
 
-    public void ShowInfo(Character c)
-    {
-        string finalText = "Rings: " + c.Rings.Count.ToString();
-        finalText += "\nSTR: " + c.Stats.GetStat(StatType.STR);
-        text.text = finalText;
-        gameObject.SetActive(true);
-    }
-
-    public void ClosePanel()
-    {
-        gameObject.SetActive(false);
-    }
 }

@@ -10,6 +10,7 @@ public class BattleLogSystem : MonoBehaviour
 {
     //[SerializeField] TextMeshProUGUI messageText;
     [SerializeField] LocalizeStringEvent localizeStringEvent;
+    [SerializeField] ActionDecider actionDecider;   // OnClick related
     private Action onContinue;
 
     public void ShowMessage(LocalizedString localizedString, Action onContinueCallback=null, bool isBlock=true)
@@ -56,5 +57,7 @@ public class BattleLogSystem : MonoBehaviour
         var callback = onContinue;
         onContinue = null;
         callback?.Invoke();
+
+        actionDecider.RemoveFocusAction();
     }
 }

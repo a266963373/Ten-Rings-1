@@ -30,7 +30,10 @@ public class RingDescriptionText : MonoBehaviour
         Gold = BattleSession.Encounter.Gold;
         localizeStringEvent.StringReference.Add("Gold", new IntVariable { Value = Gold });
         if (isInLevelScene)
+        {
             localizeStringEvent.StringReference.SetReference("UI Text", "AfterWinBattle");
+            localizeStringEvent.StringReference.SetReference("UI Text", "CompletedLevel");
+        }
     }
 
     private void Show()

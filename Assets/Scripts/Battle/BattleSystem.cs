@@ -23,6 +23,9 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] ActionDecider actionDecider;
     [SerializeField] ActionResolver actionResolver;
     [SerializeField] BattleLogSystem battleLogSystem;
+    [SerializeField] GameObject characterInfoPanel;
+
+    public bool IsStarted = false;
 
     private List<Character> characters = new();
     private bool hasCheckedEnd = false;
@@ -31,20 +34,24 @@ public class BattleSystem : MonoBehaviour
     {
         if (!I) I = this;
         else Destroy(gameObject);
+        characterInfoPanel.SetActive(false);
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return new WaitUntil(() => battleLoader.IsStarted);
         LoadBattle();
 
         timeSystem.Initialize(characters);
         timeSystem.OnGaugeFull += GaugeFull;
 
         actionDecider.Initialize(characters);
+        IsStarted = true;
     }
 
     private void Update()
     {
+        if (!IsStarted) return;
         if (State == BattleState.Idle)
         {
             if (!hasCheckedEnd)
@@ -65,7 +72,7 @@ public class BattleSystem : MonoBehaviour
     {
         Character player = battleLoader.Player;
         Character enemy = battleLoader.Enemy;
-        
+
         characters.Add(player);
         characters.Add(enemy);
     }

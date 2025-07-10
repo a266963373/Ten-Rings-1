@@ -10,6 +10,7 @@ public class GameSystem : MonoBehaviour
 {
     public static GameSystem I { get; private set; }
     public SaveData CurrentSave { get; private set; }
+    public RunSession Run { get; private set; } = new();
     public Action<int> OnGoldChange;
 
     void Awake()
