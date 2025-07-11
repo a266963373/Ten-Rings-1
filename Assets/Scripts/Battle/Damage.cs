@@ -1,5 +1,12 @@
 using UnityEngine;
 
+public enum DamageRange
+{
+    Melee,
+    Ranged,
+    Global  // for "insult skill"
+}
+
 public enum DamageForm
 {
     Sharp,   // ÈñÀû
@@ -33,6 +40,7 @@ public class Damage
     public int Value;
 
     public StatType Scale;
+    public DamageRange Range;
     public DamageForm Form;
     public DamageElement Element;
     public DamageTargetType TargetType;
@@ -41,6 +49,7 @@ public class Damage
     public Damage(
         int value,
         StatType scale = StatType.MND,
+        DamageRange range = DamageRange.Ranged,
         DamageForm form = DamageForm.Blunt,
         DamageElement element = DamageElement.Bio,
         DamageTargetType targetType = DamageTargetType.Single,
@@ -48,6 +57,7 @@ public class Damage
     {
         Value = value;
         Scale = scale;
+        Range = range;
         Form = form;
         Element = element;
         TargetType = targetType;
@@ -58,6 +68,7 @@ public class Damage
     {
         Value = other.Value;
         Scale = other.Scale;
+        Range = other.Range;
         Form = other.Form;
         Element = other.Element;
         TargetType = other.TargetType;
@@ -66,6 +77,6 @@ public class Damage
 
     public override string ToString()
     {
-        return $"{Value} {Form} {Element}";
+        return $"{Value} {Range} {Form} {Element}";
     }
 }

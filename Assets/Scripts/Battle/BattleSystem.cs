@@ -79,10 +79,13 @@ public class BattleSystem : MonoBehaviour
 
     private void GaugeFull(Character character)
     {
-        battleLogSystem.ShowWhoseTurn(character.Name, () => {
-            actionDecider.Decide(character);
-        }, isBlock: !character.IsPlayerControlled
-        );
+        StartCoroutine(ScGaugeFull(character));
+    }
+
+    private IEnumerator ScGaugeFull(Character character)
+    {
+        yield return battleLogSystem.ShowWhoseTurn(character.Name, isBlock: !character.IsPlayerControlled);
+        actionDecider.Decide(character);
     }
 
     private void CheckBattleEnd()

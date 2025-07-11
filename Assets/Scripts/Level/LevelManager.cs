@@ -8,6 +8,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] EncounterPanel encounterPanel;
     [SerializeField] RewardPanel rewardPanel;
     [SerializeField] RingPanel ringPanel;
+    [SerializeField] PenaltyPanel penaltyPanel;
+    [SerializeField] WithdrawPanel withdrawPanel;
     public LevelSO Level;
     private int currentEncounterIndex = 0;
 
@@ -19,6 +21,8 @@ public class LevelManager : MonoBehaviour
         encounterPanel.gameObject.SetActive(false);
         rewardPanel.gameObject.SetActive(false);
         ringPanel.gameObject.SetActive(false);
+        penaltyPanel.gameObject.SetActive(false);
+        withdrawPanel.gameObject.SetActive(false);
     }
 
     private void Start()
@@ -34,12 +38,11 @@ public class LevelManager : MonoBehaviour
         switch (BattleSession.Result)
         {
             case BattleResult.Win:
-                //ShowReward(BattleSession.Encounter, () => ProceedToNextEnemy());
                 ShowReward();
                 break;
 
             case BattleResult.Lose:
-                //ShowPenalty(BattleSession.Encounter, () => RetryOrExit());
+                ShowPenalty();
                 break;
 
             case BattleResult.None:
@@ -66,11 +69,6 @@ public class LevelManager : MonoBehaviour
     {
         rewardPanel.gameObject.SetActive(false);
         currentEncounterIndex++;
-        if (currentEncounterIndex >= Level.Encounters.Count)
-        {
-
-        }
-
 
         if (rewardPanel.IsRingSelected)
         {
@@ -92,5 +90,10 @@ public class LevelManager : MonoBehaviour
     {
         ringPanel.gameObject.SetActive(false);
         ShowEncounter();
+    }
+
+    private void ShowPenalty()
+    {
+        penaltyPanel.gameObject.SetActive(true);
     }
 }

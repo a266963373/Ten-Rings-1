@@ -127,6 +127,18 @@ MonoBehaviour:
     m_Localized: 'Congrats! The boss wants to give you a gift. '
     m_Metadata:
       m_Items: []
+  - m_Id: 2356059078987776
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2356843875209216
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2510320618246144
+    m_Localized: Bruh...
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

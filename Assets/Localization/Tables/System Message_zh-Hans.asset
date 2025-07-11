@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: System Message_zh-Hans
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: zh-Hans
+  m_SharedData: {fileID: 11400000, guid: 25880538e47bde344842c11bac88a7d2, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 5901558555063353347
+  m_TableData:
+  - m_Id: 6156783616
+    m_Localized: "\u4F60\u786E\u5B9A\u8981\u64A4\u9000\u5417\uFF1F\u672C\u6B21\u6311\u6218\u4F1A\u7ED3\u675F\uFF01"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 152975917518848
+    m_Localized: "\u4F60\u8F93\u4E86\uFF01\u4F46\u5E78\u8FD0\u7684\u662F\uFF0C\u4F60\u7684\u5BF9\u624B\u540C\u610F\u53EA\u90A3\u4F60{Gold}\u91D1\u5E01\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 5901558555063353347
+  references:
+    version: 2
+    RefIds:
+    - rid: 5901558555063353347
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 0010397b218b0000

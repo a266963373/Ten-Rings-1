@@ -1,4 +1,4 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "BattleAction/FireballActionSO")]
+[CreateAssetMenu(menuName = "BattleActions/FireballActionSO")]
 public class FireballActionSO : BattleActionSO { }

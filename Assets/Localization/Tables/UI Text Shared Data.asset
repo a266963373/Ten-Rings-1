@@ -127,6 +127,18 @@ MonoBehaviour:
     m_Key: CompletedLevel
     m_Metadata:
       m_Items: []
+  - m_Id: 2356059078987776
+    m_Key: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2356843875209216
+    m_Key: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2510320618246144
+    m_Key: Bruh...
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

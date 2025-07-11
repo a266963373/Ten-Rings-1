@@ -10,8 +10,9 @@ public class GameSystem : MonoBehaviour
 {
     public static GameSystem I { get; private set; }
     public SaveData CurrentSave { get; private set; }
-    public RunSession Run { get; private set; } = new();
+    public RunSession Run = new();
     public Action<int> OnGoldChange;
+    public bool IsStarted = false;
 
     void Awake()
     {
@@ -36,6 +37,7 @@ public class GameSystem : MonoBehaviour
         {
             UseDebugSave();
         }
+        IsStarted = true;
     }
 
     public void SaveSaveData(int saveId)

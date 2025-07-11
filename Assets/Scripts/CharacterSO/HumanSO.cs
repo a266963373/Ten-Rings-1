@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Character/HumanSO")]
+[CreateAssetMenu(menuName = "Characters/HumanSO")]
 public class HumanSO : CharacterSO
 {
     public override CharacterStats GetStats()

@@ -10,31 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: Battle Action Shared Data
+  m_Name: System Message Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: Battle Action
-  m_TableCollectionNameGuidString: fecef6faf6309d84e8a3c70af77063b5
+  m_TableCollectionName: System Message
+  m_TableCollectionNameGuidString: 25880538e47bde344842c11bac88a7d2
   m_Entries:
-  - m_Id: 6261198848
-    m_Key: Punch
+  - m_Id: 6156783616
+    m_Key: withdraw
     m_Metadata:
       m_Items: []
-  - m_Id: 182161920000
-    m_Key: Fireball
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1251894743339008
-    m_Key: Omni Lecture
+  - m_Id: 152975917518848
+    m_Key: Pentalty Message
     m_Metadata:
       m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 5901558479448440834
+    rid: 5901558545532583938
   references:
     version: 2
     RefIds:
-    - rid: 5901558479448440834
+    - rid: 5901558545532583938
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1751952411507
+        m_CustomEpoch: 1752203894623

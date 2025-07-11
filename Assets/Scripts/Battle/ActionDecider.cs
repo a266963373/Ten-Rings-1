@@ -49,7 +49,7 @@ public class ActionDecider : MonoBehaviour
             actionResolver.BattleActionSO = actor.BattleActions[0];
             actionResolver.Actor = actor;
             actionResolver.Target = characters.Where(c => c != actor).FirstOrDefault();
-            actionResolver.StartResolve();
+            StartCoroutine(actionResolver.StartResolve());
         }
     }
 

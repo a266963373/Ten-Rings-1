@@ -10,26 +10,17 @@ public class BattleAction   // it's BattleActionSO + actor and targets
     public Damage Damage;
     public BattleActionTargetType TargetType;
     public int ManaCost;
+    public bool HasExtraLog = false;
+    public BattleAction RelatedAction = null;
+    public bool IsDoRelatedActionInstead = false;
 
-    public BattleAction(
-        string name, 
-        Character actor, 
-        Character target, 
-        Damage damage, 
-        BattleActionTargetType targetType = BattleActionTargetType.Single, 
-        int manaCost = 0)
-    {
-        Name = name;
-        Actor = actor;
-        Target = target;
-        Damage = damage;
-        TargetType = targetType;
-        ManaCost = manaCost;
-    }
-
-    public void Resolve()
+    public BattleAction Resolve()
     {
         // actually do the action
+        if (IsDoRelatedActionInstead)
+        {
+            return RelatedAction.Resolve();
+        }
 
         if (ManaCost != 0)
         {
@@ -51,5 +42,6 @@ public class BattleAction   // it's BattleActionSO + actor and targets
         Target.Stats.AddModifier(mod);
 
         Target.Trigger(TriggerType.OnTakeDamage, this);
+        return this;
     }
 }

@@ -10,26 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: Battle Action_zh-Hans
+  m_Name: Extra Log_zh-Hans
   m_EditorClassIdentifier: 
   m_LocaleId:
     m_Code: zh-Hans
-  m_SharedData: {fileID: 11400000, guid: fecef6faf6309d84e8a3c70af77063b5, type: 2}
+  m_SharedData: {fileID: 11400000, guid: 652c16b77c81c7243beaa9126acb3bf8, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 5901558555063353360
   m_TableData:
-  - m_Id: 6261198848
-    m_Localized: "\u62F3\u51FB"
+  - m_Id: 4785246208
+    m_Localized: "\u5B83\u53D8\u6210\u4E86{RelatedAction}\uFF01"
     m_Metadata:
-      m_Items: []
-  - m_Id: 182161920000
-    m_Localized: "\u706B\u7403"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1251894743339008
-    m_Localized: "\u4E07\u80FD\u6559\u5B66"
-    m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 5901558555063353360
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 5901558555063353360
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 0010391d01000000

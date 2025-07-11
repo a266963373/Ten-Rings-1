@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Character/SlimeSO")]
+[CreateAssetMenu(menuName = "Characters/SlimeSO")]
 public class SlimeSO : CharacterSO
 {
     public override CharacterStats GetStats()

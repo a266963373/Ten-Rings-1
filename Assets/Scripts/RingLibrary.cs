@@ -45,13 +45,17 @@ public class RingLibrary : MonoBehaviour
         return null;
     }
 
-    public List<RingSO> GetRandomRings(int count, int minId = int.MinValue, int maxId = int.MaxValue, List<int> idBlacklist = null)
+    public List<RingSO> GetRandomRings(int count, int minId = int.MinValue, int maxId = int.MaxValue, List<int> idBlacklist = null, 
+        bool isSkillRing = false)
     {
         List<int> validIds = new();
         foreach (int id in ringTemplates.Keys)
         {
             if (id >= minId && id <= maxId && (idBlacklist == null || !idBlacklist.Contains(id)))
+            {
+                if (isSkillRing && GetRingById(id).GrantedActions.Count == 0) continue;
                 validIds.Add(id);
+            }
         }
 
         if (validIds.Count == 0)

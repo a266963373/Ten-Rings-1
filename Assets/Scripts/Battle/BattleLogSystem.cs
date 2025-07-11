@@ -5,59 +5,78 @@ using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
 using System;
+using UnityEngine.Localization.SmartFormat.PersistentVariables;
 
 public class BattleLogSystem : MonoBehaviour
 {
     //[SerializeField] TextMeshProUGUI messageText;
     [SerializeField] LocalizeStringEvent localizeStringEvent;
     [SerializeField] ActionDecider actionDecider;   // OnClick related
-    private Action onContinue;
+    //private Action onContinue;
+    private bool isClicked = false;
+    private bool IsClicked
+    {
+        get { 
+            if (isClicked)
+            {
+                isClicked = false;
+                return true;
+            }
+            return false;
+        }
+    }
 
-    public void ShowMessage(LocalizedString localizedString, Action onContinueCallback=null, bool isBlock=true)
+    public IEnumerator ShowMessage(LocalizedString localizedString, bool isBlock=true)
     {
         localizeStringEvent.StringReference = localizedString;
 
         if (isBlock)
         {
-            onContinue = onContinueCallback;
-        } else
-        {
-            onContinueCallback?.Invoke();
+            yield return new WaitUntil(() => IsClicked);
         }
     }
 
-    public void ShowWhoseTurn(string name, Action onContinueCallback = null, bool isBlock = true)
+    public IEnumerator ShowWhoseTurn(string name, bool isBlock = true)
     {
-        LocalizedString locString = new LocalizedString("Battle Log", "ShowWhoseTurn");
+        LocalizedString locString = new("Battle Log", "ShowWhoseTurn");
         locString.Arguments = new object[] { new LocalizedString("Character Name", name).GetLocalizedString() };
-        ShowMessage(locString, onContinueCallback, isBlock);
+        yield return ShowMessage(locString, isBlock);
     }
 
-    public void ShowBattleAction(BattleAction battleAction, Action onContinueCallback = null, bool isBlock = true)
+    public IEnumerator ShowBattleAction(BattleAction battleAction, bool isBlock = true)
     {
-        LocalizedString locString = new LocalizedString("Battle Log", "ShowBattleAction");
+        LocalizedString locString = new("Battle Log", "ShowBattleAction");
         string localizedActorName = new LocalizedString("Character Name", battleAction.Actor.Name).GetLocalizedString();
         string localizedTargetName = new LocalizedString("Character Name", battleAction.Target.Name).GetLocalizedString();
         string localizedBattleActionName = new LocalizedString("Battle Action", battleAction.Name).GetLocalizedString();
 
         locString.Arguments = new object[] { localizedActorName, localizedTargetName, localizedBattleActionName };
-        ShowMessage(locString, onContinueCallback, isBlock);
+        yield return ShowMessage(locString, isBlock);
+
+        if (battleAction.HasExtraLog)
+        {
+            locString = new("Extra Log", battleAction.Name);
+            string relatedActionName = new LocalizedString("Battle Action", battleAction.RelatedAction.Name).GetLocalizedString();
+            locString.Add("RelatedAction", new StringVariable { Value = relatedActionName });
+            yield return ShowMessage(locString, isBlock);
+        }
     }
 
-    public void ShowActionResult(BattleAction battleAction, Action onContinueCallback = null, bool isBlock = true)
+    public IEnumerator ShowActionResult(BattleAction battleAction, bool isBlock = true)
     {
-        LocalizedString locString = new LocalizedString("Battle Log", "ShowActionResult");
+        LocalizedString locString = new("Battle Log", "ShowActionResult");
         string localizedTargetName = new LocalizedString("Character Name", battleAction.Target.Name).GetLocalizedString();
         locString.Arguments = new object[] { localizedTargetName, battleAction.Damage.Value };
-        ShowMessage(locString, onContinueCallback, isBlock);
+        yield return ShowMessage(locString, isBlock);
     }
 
     public void OnClick()
     {
-        var callback = onContinue;
-        onContinue = null;
-        callback?.Invoke();
-
+        //var callback = onContinue;
+        //onContinue = null;
+        //callback?.Invoke();
+        
+        isClicked = true;
         actionDecider.RemoveFocusAction();
     }
 }

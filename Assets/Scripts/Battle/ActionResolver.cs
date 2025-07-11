@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class ActionResolver : MonoBehaviour // receive choice from panels
@@ -19,7 +20,7 @@ public class ActionResolver : MonoBehaviour // receive choice from panels
         {
             Target = target;
             actionPanel.SetActive(false);
-            StartResolve();
+            StartCoroutine(StartResolve());
             IsTargetSelectMode = false ;
         }
         else
@@ -29,18 +30,19 @@ public class ActionResolver : MonoBehaviour // receive choice from panels
         }
     }
 
-    public void StartResolve()
+    public IEnumerator StartResolve()
     {
         focusImage.gameObject.SetActive(false);
         battleAction = BattleActionSO.GetAction(Actor, Target);
-        battleLogSystem.ShowBattleAction(battleAction, ProcessBattleAction, true);
+        yield return battleLogSystem.ShowBattleAction(battleAction, true);
+        yield return ProcessBattleAction();
     }
 
-    private void ProcessBattleAction()
+    private IEnumerator ProcessBattleAction()
     {
-        battleAction.Resolve();
         // Battle Action Processed
-        battleLogSystem.ShowActionResult(battleAction, ActionResolved, true);
+        yield return battleLogSystem.ShowActionResult(battleAction.Resolve(), true);
+        ActionResolved();
     }
 
     private void ActionResolved()

@@ -28,7 +28,11 @@ public class BattleLoader : MonoBehaviour
         }
         enemySO = BattleSession.Encounter.Characters[0];
 
-        Player = new Character(playerSO);
+        CharacterSO playerSoCopy = Instantiate(playerSO);
+        yield return new WaitUntil(() => GameSystem.I.IsStarted);
+
+        playerSoCopy.RingIds = GameSystem.I.CurrentSave.WornRingIds;
+        Player = new Character(playerSoCopy);
         Enemy = new Character(enemySO);
         Player.IsPlayerSide = true;
         Player.IsPlayerControlled = true;
