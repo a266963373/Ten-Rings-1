@@ -117,7 +117,7 @@ public class CharacterStats
         }
     }
 
-    // when enter battle, copy stats
+    // nobody use yet
     public CharacterStats(CharacterStats other)
     {
         foreach (var kv in other.stats)
@@ -155,5 +155,11 @@ public class CharacterStats
         {
             OnMpChanged?.Invoke();
         }
+    }
+
+    public void InitBeforeBattle()
+    {
+        stats[StatType.HP].Value = GetStat(StatType.MHP);
+        stats[StatType.MP].Value = GetStat(StatType.MMP);
     }
 }

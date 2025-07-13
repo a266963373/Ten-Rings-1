@@ -44,6 +44,7 @@ public class Character
 
         // Load Rings
         LoadRings();
+        Stats.InitBeforeBattle();
     }
 
     private void HpChanged()

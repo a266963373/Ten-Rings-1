@@ -31,6 +31,10 @@ MonoBehaviour:
     m_Key: Slime Teacher
     m_Metadata:
       m_Items: []
+  - m_Id: 2935770678493184
+    m_Key: Strong Slime
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

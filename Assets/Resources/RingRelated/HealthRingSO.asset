@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 688b7310a29af9d4588c22ad8fc0f1a9, type: 3}
-  m_Name: Level01
+  m_Script: {fileID: 11500000, guid: 9724d8d913634ce479f5e752a67649d1, type: 3}
+  m_Name: HealthRingSO
   m_EditorClassIdentifier: 
-  Name: Grass Field
-  Encounters:
-  - {fileID: 11400000, guid: 702de479a4811a04fae39dfa57af1d11, type: 2}
-  - {fileID: 11400000, guid: 87479c915d403944ea593d378b7c4f20, type: 2}
+  Id: 5
+  Name: Health Ring
+  power: 50
+  GrantedActions: []

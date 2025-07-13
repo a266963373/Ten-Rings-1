@@ -22,6 +22,10 @@ MonoBehaviour:
     m_Localized: Slime Teacher
     m_Metadata:
       m_Items: []
+  - m_Id: 2472440285298688
+    m_Localized: Strong Slime
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

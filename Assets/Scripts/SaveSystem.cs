@@ -61,6 +61,7 @@ public class ShopSetting
 
 public class RunSession
 {
+    public int EncounterIndex = 0;
     public List<int> WornRingIds = new();
     public List<int> StoredRingIds = new();
 }

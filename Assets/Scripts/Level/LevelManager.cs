@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] PenaltyPanel penaltyPanel;
     [SerializeField] WithdrawPanel withdrawPanel;
     public LevelSO Level;
-    private int currentEncounterIndex = 0;
+    private RunSession run;
 
     private void Awake()
     {
@@ -27,9 +27,12 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        run = GameSystem.I.Run;
+
         rewardPanel.OnClaimReward += RewardClaimed;
-        rewardPanel.IsLastEncounter = currentEncounterIndex == Level.Encounters.Count - 1;
-        if (currentEncounterIndex == 0)
+        rewardPanel.IsLastEncounter = run.EncounterIndex == Level.Encounters.Count - 1;
+
+        if (run.EncounterIndex == 0)
         {
             GameSystem.I.Run.WornRingIds.Clear();
             GameSystem.I.Run.StoredRingIds.Clear();
@@ -56,7 +59,7 @@ public class LevelManager : MonoBehaviour
 
     private void ShowEncounter()
     {
-        encounterPanel.Encounter = Level.Encounters[currentEncounterIndex];
+        encounterPanel.Encounter = Level.Encounters[run.EncounterIndex];
         encounterPanel.gameObject.SetActive(true);
     }
 
@@ -68,7 +71,7 @@ public class LevelManager : MonoBehaviour
     private void RewardClaimed()
     {
         rewardPanel.gameObject.SetActive(false);
-        currentEncounterIndex++;
+        run.EncounterIndex++;
 
         if (rewardPanel.IsRingSelected)
         {

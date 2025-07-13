@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.Localization.Components;
 using UnityEngine.SceneManagement;
@@ -15,7 +16,17 @@ public class RewardPanel : MonoBehaviour
     [SerializeField] LocalizeStringEvent claimLSE;
     public Action OnClaimReward;
     public bool IsRingSelected = true;
-    public bool IsLastEncounter = false;
+    private bool isLastEncounter = false;
+    public bool IsLastEncounter
+    {
+        get { return isLastEncounter; }
+        set
+        {
+            isLastEncounter = value;
+            ringDescriptionText.IsLastEncounter = value;
+        }
+    }
+
 
     private void Awake()
     {

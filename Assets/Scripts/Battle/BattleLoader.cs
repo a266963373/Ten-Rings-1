@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BattleLoader : MonoBehaviour
@@ -34,6 +33,7 @@ public class BattleLoader : MonoBehaviour
         playerSoCopy.RingIds = GameSystem.I.CurrentSave.WornRingIds;
         Player = new Character(playerSoCopy);
         Enemy = new Character(enemySO);
+
         Player.IsPlayerSide = true;
         Player.IsPlayerControlled = true;
 
