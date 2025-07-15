@@ -8,6 +8,7 @@ public enum BattleState
 {
     Idle,
     AwaitForAction,
+    ActionResolved,
     PlayingAnimation,
     Busy,
 }
@@ -17,9 +18,10 @@ public class BattleSystem : MonoBehaviour
     public static BattleSystem I { get; private set; }
     [SerializeField] BattleLoader battleLoader;
 
-    private TimeSystem timeSystem = new();
     public BattleState State;
+    public bool IsLogging = false;
 
+    [SerializeField] TimeSystem timeSystem;
     [SerializeField] ActionDecider actionDecider;
     [SerializeField] ActionResolver actionResolver;
     [SerializeField] BattleLogSystem battleLogSystem;
@@ -65,6 +67,7 @@ public class BattleSystem : MonoBehaviour
         else
         {
             hasCheckedEnd = false; // 状态离开 Idle，允许下次再检查
+            if (!IsLogging) State = BattleState.Idle;
         }
     }
 

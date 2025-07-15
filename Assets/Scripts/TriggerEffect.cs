@@ -1,7 +1,14 @@
 using System;
 public enum TriggerType
 {
-    OnTakeDamage,
+    OnAfterTakeDamage,
+    OnAfterDealDamage,
+}
+
+public enum TimingType
+{
+    OnWorldTurn,
+    OnSelfTurn,
 }
 
 public class TriggerEffect

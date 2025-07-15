@@ -42,11 +42,6 @@ public class ActionResolver : MonoBehaviour // receive choice from panels
     {
         // Battle Action Processed
         yield return battleLogSystem.ShowActionResult(battleAction.Resolve(), true);
-        ActionResolved();
-    }
-
-    private void ActionResolved()
-    {
-        BattleSystem.I.State = BattleState.Idle;
+        BattleSystem.I.IsLogging = false;
     }
 }

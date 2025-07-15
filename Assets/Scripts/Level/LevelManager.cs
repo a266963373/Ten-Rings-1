@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -34,7 +35,7 @@ public class LevelManager : MonoBehaviour
 
         if (run.EncounterIndex == 0)
         {
-            GameSystem.I.Run.WornRingIds.Clear();
+            GameSystem.I.Run.WornRingIds = GameSystem.I.CurrentSave.WornRingIds.ToList();
             GameSystem.I.Run.StoredRingIds.Clear();
         }
 
@@ -98,5 +99,6 @@ public class LevelManager : MonoBehaviour
     private void ShowPenalty()
     {
         penaltyPanel.gameObject.SetActive(true);
+        penaltyPanel.Encounter = Level.Encounters[run.EncounterIndex];
     }
 }

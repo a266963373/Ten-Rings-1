@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HumanSO
   CharacterName: Debug Enemy
   StatEntries: []
-  RingIds: 010000000200000003000000
+  RingIds: 06000000

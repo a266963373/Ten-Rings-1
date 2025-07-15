@@ -8,7 +8,7 @@ public class RingSO : ScriptableObject
 
     public int Id;
     public string Name;
-    public int power;    // for son rings' effect strength
+    public int Power;    // for son rings' effect strength
 
     public List<StatModifier> StatModifiers = new();
     public List<TriggerEffect> TriggerEffects = new();
@@ -28,22 +28,21 @@ public class RingSO : ScriptableObject
     protected virtual void InitTriggerEffects() { }
     protected virtual void InitGrantedActions() { }
 
-    public void AffectCharacter(Character c)
-    {
-        foreach (StatModifier mod in StatModifiers)
-        {
-            c.Stats.AddModifier(mod);
-        }
+    //public void AffectCharacter(Character c)
+    //{
+    //    foreach (StatModifier mod in StatModifiers)
+    //    {
+    //        c.Stats.AddModifier(mod);
+    //    }
 
-        foreach (TriggerEffect trigFx in TriggerEffects)
-        {
-            c.TriggerEffects[trigFx.Trigger].Add(trigFx.Effect);
-        }
+    //    foreach (TriggerEffect trigFx in TriggerEffects)
+    //    {
+    //        c.TriggerEffects[trigFx.Trigger].Add(trigFx.Effect);
+    //    }
 
-        foreach (BattleActionSO action in GrantedActions)
-        {
-            c.BattleActions.Add(action);
-            int temp = c.BattleActions.Count - 1;
-        }
-    }
+    //    foreach (BattleActionSO action in GrantedActions)
+    //    {
+    //        c.BattleActions.Add(action);
+    //    }
+    //}
 }

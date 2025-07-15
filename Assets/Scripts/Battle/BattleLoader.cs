@@ -30,7 +30,7 @@ public class BattleLoader : MonoBehaviour
         CharacterSO playerSoCopy = Instantiate(playerSO);
         yield return new WaitUntil(() => GameSystem.I.IsStarted);
 
-        playerSoCopy.RingIds = GameSystem.I.CurrentSave.WornRingIds;
+        playerSoCopy.RingIds = GameSystem.I.Run.WornRingIds;
         Player = new Character(playerSoCopy);
         Enemy = new Character(enemySO);
 

@@ -6,7 +6,7 @@ public class ThornRingSO : RingSO
     protected override void InitTriggerEffects()
     {
         TriggerEffect trigFx = new(
-            trigger: TriggerType.OnTakeDamage,
+            trigger: TriggerType.OnAfterTakeDamage,
             effect: Effect
             );
         TriggerEffects.Add(trigFx);
@@ -16,11 +16,13 @@ public class ThornRingSO : RingSO
     {
         Character attacker = context.Actor;
         if (attacker == null || context.Damage.Range != DamageRange.Melee) return;
-        Damage damage = new(
-            value: power,
-            scale: StatType.NON,
-            element: DamageElement.Grass
-            );
+        Damage damage = new()
+        {
+            Value = Power,
+            Scale = StatType.NON,
+            Range = DamageRange.Indirect,
+            Element = DamageElement.Grass
+        };
         BattleAction inflictDamageAction = new()
         {
             Name = "Inflict Damage",

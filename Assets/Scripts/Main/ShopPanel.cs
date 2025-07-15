@@ -81,7 +81,7 @@ public class ShopPanel : MonoBehaviour
         focusImage.gameObject.SetActive(false);
         if (shopSetting.SellingRingIds.Count < RingLibrary.I.RingCount)
         {
-            dialogueLSE.StringReference.SetReference("Vendor Dialogue", "sponsored");
+            dialogueLSE.StringReference.SetReference("Vendor Dialogue", "sponsor selected");
             buttonLSE.StringReference.SetReference("UI Text", "Deal!");
         }
         else

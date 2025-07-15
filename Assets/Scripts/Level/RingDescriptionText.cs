@@ -20,7 +20,7 @@ public class RingDescriptionText : MonoBehaviour
         set
         {
             ring = value;
-            Power = ring.power;
+            Power = ring.Power;
             localizeStringEvent.StringReference.Add("Power", new IntVariable { Value = Power });
             Show();
         }

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 3
   Name: Fireball Ring
-  power: 0
+  Power: 50
   GrantedActions:
   - {fileID: 11400000, guid: 63dd41a1a3a5354469bd2380f55202f9, type: 2}

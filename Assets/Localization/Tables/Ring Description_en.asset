@@ -25,13 +25,23 @@ MonoBehaviour:
       m_Items:
       - rid: 5901558492828794900
   - m_Id: 303578090115072
-    m_Localized: Hurt who dare touches you! When someone melee attacks you, deal
+    m_Localized: Hurt who dare touches you! After someone melee attacks you, deal
       them {Power} Sharp Grass damage.
     m_Metadata:
       m_Items:
       - rid: 5901558492828794900
   - m_Id: 304238512640000
     m_Localized: It's just hot. Grant you skill "Fireball".
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2499787767967744
+    m_Localized: A ring inscribed with knowledge from all disciplines. Grant you
+      skill "Omni Lecture".
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2499795581956096
+    m_Localized: There is toxin circulating in your body. After you deal Bio damage,
+      apply one poison to your target.
     m_Metadata:
       m_Items: []
   references:

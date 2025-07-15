@@ -1,28 +1,33 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class TimeSystem
+public class TimeSystem : MonoBehaviour
 {
+    [SerializeField] TextMeshProUGUI worldTurnTmp;
+    [SerializeField] BarController worldTimeBar;
+
     private List<Character> characters;
     public event Action<Character> OnGaugeFull;
 
     private float actionThreshold = 100f;
     private int currentIndex = 0; // 从这个角色开始
+    private float worldTime = 0;
+    private int worldTurn = 1;
 
     public void Initialize(List<Character> chars)
     {
         characters = chars;
         currentIndex = 0;
+        worldTime = 0;
     }
 
     public void Tick()
     {
         if (characters == null || characters.Count == 0) return;
 
-        int checkedCount = 0;
-
-        while (checkedCount < characters.Count)
+        while (currentIndex < characters.Count)
         {
             var c = characters[currentIndex];
 
@@ -35,16 +40,40 @@ public class TimeSystem
                     c.ActionGauge = 0;
                     OnGaugeFull?.Invoke(c);
                     BattleSystem.I.State = BattleState.AwaitForAction;
+                    BattleSystem.I.IsLogging = true;
 
                     // 下次从下一个角色开始
-                    currentIndex = (currentIndex + 1) % characters.Count;
+                    currentIndex++;
                     return; // 立刻退出 Tick，等待下一帧
                 }
             }
 
             // 检查下一个
-            currentIndex = (currentIndex + 1) % characters.Count;
-            checkedCount++;
+            currentIndex++;
+        }
+        currentIndex = 0;
+        worldTime += 100 * Time.deltaTime;
+        if (worldTime >= 100)
+        {
+            worldTime = 0;
+            worldTurn++;
+            OnWorldTurn();
+        }
+        UpdateWorldTimeUI();
+    }
+
+    private void UpdateWorldTimeUI()
+    {
+        worldTurnTmp.text = worldTurn.ToString();
+        worldTimeBar.LeftNum = worldTime;
+        worldTimeBar.LazyUpdate();
+    }
+
+    private void OnWorldTurn()
+    {
+        foreach (Character c in characters)
+        {
+            c.OnWorldTurn();
         }
     }
 }

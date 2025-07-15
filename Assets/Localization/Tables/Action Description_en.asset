@@ -24,6 +24,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 5901558492828794898
+  - m_Id: 2488611919130624
+    m_Localized: Randomly use a skill.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

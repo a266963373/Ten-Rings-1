@@ -550,7 +550,6 @@ MonoBehaviour:
   actionDescriptionGO: {fileID: 1665103785}
   claimLSE: {fileID: 1992702519}
   IsRingSelected: 1
-  IsLastEncounter: 0
 --- !u!1001 &256005156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -709,6 +708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69efd194b0d421d42ad546431ecccd24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsStarted: 0
 --- !u!4 &272608851
 Transform:
   m_ObjectHideFlags: 0
@@ -1503,6 +1503,7 @@ MonoBehaviour:
   isInLevelScene: 1
   Power: 0
   Gold: 0
+  IsLastEncounter: 0
 --- !u!114 &526904306 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2236718600789894245, guid: a2c24c2fd4b75a642a6b60a6315d395f, type: 3}
@@ -4264,6 +4265,18 @@ PrefabInstance:
     - target: {fileID: 581015663591242461, guid: 0d10a1cc21ab6bf4d8b97fa41a871b47, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1023737045193877511, guid: 0d10a1cc21ab6bf4d8b97fa41a871b47, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 343412500}
+    - target: {fileID: 1023737045193877511, guid: 0d10a1cc21ab6bf4d8b97fa41a871b47, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitRingPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1023737045193877511, guid: 0d10a1cc21ab6bf4d8b97fa41a871b47, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3662839639910393825, guid: 0d10a1cc21ab6bf4d8b97fa41a871b47, type: 3}
       propertyPath: m_Name

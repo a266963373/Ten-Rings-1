@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
+
 
 public enum InScene { Menu, Level, Battle }
 
@@ -23,8 +25,9 @@ public class RingPanel : MonoBehaviour
         focusImage.gameObject.SetActive(false);
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return new WaitUntil(() => GameSystem.I.IsStarted);
         LoadRings();
     }
 

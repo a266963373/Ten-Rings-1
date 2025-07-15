@@ -5,9 +5,11 @@ public class HealthRingSO : RingSO
 {
     protected override void InitStatModifiers()
     {
-        StatModifiers.Add(new(
-            value: power,
-            statType: StatType.MHP
-            ));
+        StatModifiers.Add(new()
+        {
+            StatType = StatType.MHP,
+            Value = Power,
+            Source = name
+        });
     }
 }

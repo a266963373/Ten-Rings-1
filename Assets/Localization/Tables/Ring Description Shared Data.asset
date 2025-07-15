@@ -27,6 +27,14 @@ MonoBehaviour:
     m_Key: Fireball Ring
     m_Metadata:
       m_Items: []
+  - m_Id: 2499787767967744
+    m_Key: Omni Lecture Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2499795581956096
+    m_Key: Toxin Touch Ring
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

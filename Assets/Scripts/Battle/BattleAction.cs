@@ -24,24 +24,18 @@ public class BattleAction   // it's BattleActionSO + actor and targets
 
         if (ManaCost != 0)
         {
-            StatModifier manaCostMod = new(
-                statType: StatType.MP,
-                isPermanent: true,
-                value: -ManaCost
-                );
-            Actor.Stats.AddModifier(manaCostMod);
+            Actor.Stats.ChangeStat(StatType.MP, -ManaCost);
         }
 
         int scale = Actor != null ? Actor.Stats.GetStat(Damage.Scale) : 100;
         float scaledValue = Damage.Value * scale * 0.01f;
         Damage.Value = Mathf.RoundToInt(scaledValue);
-        StatModifier mod = new(
-            isPermanent: true,
-            value: -Damage.Value
-            );
-        Target.Stats.AddModifier(mod);
+        Target.Stats.ChangeStat(StatType.HP, -Damage.Value);
 
-        Target.Trigger(TriggerType.OnTakeDamage, this);
+        Actor?.Trigger(TriggerType.OnAfterDealDamage, this);
+        Target?.Trigger(TriggerType.OnAfterTakeDamage, this);
+
+        BattleSystem.I.State = BattleState.ActionResolved;
         return this;
     }
 }

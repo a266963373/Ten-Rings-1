@@ -4,7 +4,8 @@ public enum DamageRange
 {
     Melee,
     Ranged,
-    Global  // for "insult skill"
+    Global,  // for "insult skill"
+    Indirect, // for "poison skill"
 }
 
 public enum DamageForm
@@ -20,6 +21,7 @@ public enum DamageElement
     Fire,
     Water,
     Grass,
+    Poison,
 }
 
 public enum DamageTargetType
@@ -37,32 +39,16 @@ public enum DamageProperty
 [System.Serializable]
 public class Damage
 {
-    public int Value;
+    public int Value = 0;
 
-    public StatType Scale;
-    public DamageRange Range;
-    public DamageForm Form;
-    public DamageElement Element;
-    public DamageTargetType TargetType;
-    public DamageProperty Property;
+    public StatType Scale = StatType.MND;
+    public DamageRange Range = DamageRange.Ranged;
+    public DamageForm Form = DamageForm.Blunt;
+    public DamageElement Element = DamageElement.Bio;
+    public DamageTargetType TargetType = DamageTargetType.Single;
+    public DamageProperty Property = DamageProperty.HP;
 
-    public Damage(
-        int value,
-        StatType scale = StatType.MND,
-        DamageRange range = DamageRange.Ranged,
-        DamageForm form = DamageForm.Blunt,
-        DamageElement element = DamageElement.Bio,
-        DamageTargetType targetType = DamageTargetType.Single,
-        DamageProperty property = DamageProperty.HP)
-    {
-        Value = value;
-        Scale = scale;
-        Range = range;
-        Form = form;
-        Element = element;
-        TargetType = targetType;
-        Property = property;
-    }
+    public Damage() { }
 
     public Damage(Damage other)
     {

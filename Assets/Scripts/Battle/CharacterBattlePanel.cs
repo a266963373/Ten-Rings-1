@@ -11,6 +11,7 @@ public class CharacterBattlePanel : MonoBehaviour
     [SerializeField] BarController MpBar;
     [SerializeField] BarController SpeedBar;
     [SerializeField] LocalizeStringEvent localizeStringEvent;
+    [SerializeField] StatusPanel statusPanel;
 
     private ActionResolver actionResolver;
 
@@ -22,7 +23,9 @@ public class CharacterBattlePanel : MonoBehaviour
         {
             character = value;
             localizeStringEvent.StringReference.SetReference("Character Name", character.Name);
-            
+            statusPanel.Statuses = character.StatusSystem.Statuses;
+            character.StatusSystem.OnStatusChanged += statusPanel.UpdateContent;
+
             Subscribe();
         }
     }

@@ -30,6 +30,18 @@ MonoBehaviour:
     m_Localized: Fireball Ring
     m_Metadata:
       m_Items: []
+  - m_Id: 2293997719453696
+    m_Localized: Health Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2294051435905024
+    m_Localized: Toxin Touch Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2532027260497920
+    m_Localized: Omni Lecture Ring
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
