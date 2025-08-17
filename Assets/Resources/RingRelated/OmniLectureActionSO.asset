@@ -21,5 +21,7 @@ MonoBehaviour:
     Element: 0
     TargetType: 0
     Property: 0
-  TargetType: 0
   ManaCost: 50
+  Area: 0
+  Limit: 0
+  Prefer: 2

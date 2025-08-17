@@ -10,13 +10,15 @@ public class MainScene : MonoBehaviour
     [SerializeField] GameObject savePanel;
     [SerializeField] GameObject ringPanel;
     [SerializeField] GameObject shopPanel;
+    [SerializeField] GameObject competePanel;
 
     private void Start()
     {
         menuPanel.SetActive(true);
         savePanel.SetActive(false);
-        ringPanel.SetActive(false);
+        ringPanel.SetActive(true);      // it will close itself
         shopPanel.SetActive(false);
+        competePanel.SetActive(false);
     }
 
     public void ToggleMenuPanel()
@@ -49,9 +51,12 @@ public class MainScene : MonoBehaviour
         ToggleMenuPanel();
     }
 
-    public void GoToLevelScene()
+    public void ToggleCompetePanel()
     {
-        SceneManager.LoadScene("LevelScene");
+        bool isActive = competePanel.activeSelf;
+        competePanel.SetActive(!isActive);
+
+        ToggleMenuPanel();
     }
 
     public void SaveButtonClicked(int id)

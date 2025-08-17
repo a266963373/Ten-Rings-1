@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Localized Battle Log
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7a1487258835f85498cb875038b3fd88, type: 2}
-  m_sharedMaterial: {fileID: -9047045855294703858, guid: 7a1487258835f85498cb875038b3fd88, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0a4457a97a70e384384699f2e5c30030, type: 2}
+  m_sharedMaterial: {fileID: -5505614978006595042, guid: 0a4457a97a70e384384699f2e5c30030, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 58.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -151,7 +151,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:b80b02ebe1115c54880ca882f6664d5f
     m_TableEntryReference:
-      m_KeyId: 17187360768
+      m_KeyId: 14297689378816
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

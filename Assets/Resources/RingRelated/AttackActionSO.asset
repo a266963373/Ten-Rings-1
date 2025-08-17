@@ -16,9 +16,12 @@ MonoBehaviour:
   Damage:
     Value: 40
     Scale: 3
+    Range: 0
     Form: 1
     Element: 0
     TargetType: 0
     Property: 0
-  TargetType: 0
   ManaCost: 0
+  Area: 0
+  Limit: 0
+  Prefer: 2

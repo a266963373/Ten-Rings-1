@@ -1,9 +1,18 @@
 using UnityEngine;
 
-public enum BattleActionTargetType
+public enum AreaType
 {
     Single,
     Area
+}
+
+public enum TargetType
+{
+    None,
+    Self,
+    Enemy,
+    Ally,
+    Killable // ÐÂÔö
 }
 
 [CreateAssetMenu(menuName = "BattleActions/BattleActionSO")]
@@ -11,10 +20,11 @@ public class BattleActionSO : ScriptableObject
 {
     public string Name;
     public Damage Damage;
-    public BattleActionTargetType TargetType;
     public int ManaCost;
-    //public BattleAction RelatedAction = null;
-    //public bool HasExtraLog = false;
+    public AreaType Area;
+    public TargetType Limit;    // cannot target
+    public TargetType Prefer;   // prefer to target (used for npc)
+    public TargetType Favorate;   // prioritize target (used for npc)
 
     public virtual BattleAction GetAction(Character actor, Character target)
     {
@@ -24,8 +34,10 @@ public class BattleActionSO : ScriptableObject
             Name = Name,
             Actor = actor, 
             Target = target, 
-            Damage = runtimeDamage, 
-            TargetType = TargetType, 
+            Damage = runtimeDamage,
+            Area = Area,
+            Limit = Limit,
+            Prefer = Prefer,
             ManaCost = ManaCost
         };
     }

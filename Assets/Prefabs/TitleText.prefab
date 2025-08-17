@@ -66,10 +66,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Title
+  m_text: Welcome Back Home!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fe74e41608feacf4ea439b6df6139dd5, type: 2}
-  m_sharedMaterial: {fileID: -9047045855294703858, guid: fe74e41608feacf4ea439b6df6139dd5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f3abeeb787a7cbb4eaca6845fe3370eb, type: 2}
+  m_sharedMaterial: {fileID: -5505614978006595042, guid: f3abeeb787a7cbb4eaca6845fe3370eb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 71
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -151,7 +151,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:f8c04d8d0d08a8940a1e11b14183f69f
     m_TableEntryReference:
-      m_KeyId: 45500018610176
+      m_KeyId: 47157167149056
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

@@ -28,8 +28,7 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] GameObject characterInfoPanel;
 
     public bool IsStarted = false;
-
-    private List<Character> characters = new();
+    public List<Character> Characters => battleLoader.Allies.Concat(battleLoader.Enemies).ToList();
     private bool hasCheckedEnd = false;
 
     private void Awake()
@@ -42,12 +41,10 @@ public class BattleSystem : MonoBehaviour
     private IEnumerator Start()
     {
         yield return new WaitUntil(() => battleLoader.IsStarted);
-        LoadBattle();
 
-        timeSystem.Initialize(characters);
+        timeSystem.Initialize();
         timeSystem.OnGaugeFull += GaugeFull;
 
-        actionDecider.Initialize(characters);
         IsStarted = true;
     }
 
@@ -71,15 +68,6 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    private void LoadBattle()
-    {
-        Character player = battleLoader.Player;
-        Character enemy = battleLoader.Enemy;
-
-        characters.Add(player);
-        characters.Add(enemy);
-    }
-
     private void GaugeFull(Character character)
     {
         StartCoroutine(ScGaugeFull(character));
@@ -93,11 +81,11 @@ public class BattleSystem : MonoBehaviour
 
     private void CheckBattleEnd()
     {
-        bool allPlayersDead = characters
+        bool allPlayersDead = Characters
             .Where(c => c.IsPlayerSide)
             .All(c => c.IsDead);
 
-        bool allEnemiesDead = characters
+        bool allEnemiesDead = Characters
             .Where(c => !c.IsPlayerSide)
             .All(c => c.IsDead);
 

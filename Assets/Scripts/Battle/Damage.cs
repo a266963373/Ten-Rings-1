@@ -22,6 +22,7 @@ public enum DamageElement
     Water,
     Grass,
     Poison,
+    Iron,
 }
 
 public enum DamageTargetType

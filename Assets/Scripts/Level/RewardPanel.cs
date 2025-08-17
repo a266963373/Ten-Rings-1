@@ -16,17 +16,6 @@ public class RewardPanel : MonoBehaviour
     [SerializeField] LocalizeStringEvent claimLSE;
     public Action OnClaimReward;
     public bool IsRingSelected = true;
-    private bool isLastEncounter = false;
-    public bool IsLastEncounter
-    {
-        get { return isLastEncounter; }
-        set
-        {
-            isLastEncounter = value;
-            ringDescriptionText.IsLastEncounter = value;
-        }
-    }
-
 
     private void Awake()
     {
@@ -50,7 +39,7 @@ public class RewardPanel : MonoBehaviour
     {
         IsRingSelected = true;
         ringDescriptionPanel.Ring = ringButton.Ring;
-        if (IsLastEncounter)
+        if (BattleSession.IsLastEncounter)
         {
             claimLSE.StringReference.SetReference("UI Text", "Claim!");
         }
@@ -74,7 +63,12 @@ public class RewardPanel : MonoBehaviour
     {
         if (IsRingSelected)
         {
-            if (!IsLastEncounter)
+            if (ringDescriptionPanel.Ring == null)
+            {
+                return;
+            }
+
+            if (!BattleSession.IsLastEncounter)
             {
                 GameSystem.I.Run.StoredRingIds.Add(ringDescriptionPanel.Ring.Id);
             }
@@ -87,7 +81,7 @@ public class RewardPanel : MonoBehaviour
         {
             GameSystem.I.ModifyGold(BattleSession.Encounter.Gold);
         }
-        if (IsLastEncounter)
+        if (BattleSession.IsLastEncounter)
         {
             SceneManager.LoadScene("MainScene");
             return;

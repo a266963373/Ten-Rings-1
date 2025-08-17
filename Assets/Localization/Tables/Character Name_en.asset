@@ -34,6 +34,14 @@ MonoBehaviour:
     m_Localized: Strong Slime
     m_Metadata:
       m_Items: []
+  - m_Id: 4414679664062464
+    m_Localized: Toxic Slime
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14629130352898048
+    m_Localized: Slime Servant
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

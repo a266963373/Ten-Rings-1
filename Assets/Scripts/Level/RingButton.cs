@@ -8,6 +8,7 @@ public class RingButton : MonoBehaviour
 {
     [SerializeField] LocalizeStringEvent localizeStringEvent;
     public Action<RingButton> OnClickAction;
+    public int Index { get; set; }
     private RingSO ring;
     public RingSO Ring
     {
@@ -15,7 +16,8 @@ public class RingButton : MonoBehaviour
         set
         {
             ring = value;
-            localizeStringEvent.StringReference.SetReference("Ring Name", ring.Name);
+            if (ring != null)
+                localizeStringEvent.StringReference.SetReference("Ring Name", ring.Name);
         }
     }
 

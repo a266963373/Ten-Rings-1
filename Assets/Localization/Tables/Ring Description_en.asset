@@ -44,10 +44,30 @@ MonoBehaviour:
       apply one poison to your target.
     m_Metadata:
       m_Items: []
+  - m_Id: 6584876163842048
+    m_Localized: 'You feel healthy. Gives you {Power} max health. '
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794900
+  - m_Id: 6585035681611776
+    m_Localized: "From one comes two. After death, generate two weaker versions of
+      yourself\u2014one inherits your left-hand rings, the other your right-hand
+      rings. Your stats are split evenly between them."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13543129278754816
+    m_Localized: You feel hungry......
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13560337082003456
+    m_Localized: 'You feel hasty. Gives you {Power} speed. '
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794900
   references:
     version: 2
     RefIds:
     - rid: 5901558492828794900
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00e0a3f307000000001039481a140100
+        m_Entries: 00e0a3f307000000001039481a14010000c0a2f4e864170000b0ce020e2d3000

@@ -3,6 +3,7 @@ public enum TriggerType
 {
     OnAfterTakeDamage,
     OnAfterDealDamage,
+    OnAfterDeath,
 }
 
 public enum TimingType

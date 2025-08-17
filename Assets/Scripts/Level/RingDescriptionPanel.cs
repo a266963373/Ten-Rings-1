@@ -16,6 +16,12 @@ public class RingDescriptionPanel : MonoBehaviour
         set
         {
             ring = value;
+            if (ring == null)
+            {
+                ringDescriptionGO.SetActive(false);
+                actionDescriptionGO.SetActive(false);
+                return;
+            }
             ShowRingDescription();
             ShowActionDescription();
         }
@@ -29,6 +35,7 @@ public class RingDescriptionPanel : MonoBehaviour
 
     private void ShowRingDescription()
     {
+        ringDescriptionGO.SetActive(true);
         ringDescriptionText.Ring = ring;
     }
 

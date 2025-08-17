@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class CharacterStats
 {
@@ -31,12 +32,15 @@ public class CharacterStats
         }
     }
 
-    // nobody use yet
-    public CharacterStats(CharacterStats other)
+    public CharacterStats(CharacterStats other, float statMultiplier = 1)
     {
         foreach (var kv in other.stats)
         {
             stats[kv.Key] = kv.Value;
+            if (statMultiplier != 1)
+            {
+                stats[kv.Key].Value = (int)(kv.Value.Value * statMultiplier);
+            }
         }
     }
 
@@ -46,9 +50,12 @@ public class CharacterStats
 
         // 汇总所有戒指的StatModifier
         foreach (var ring in Owner.Rings)
+        {
+            if (ring == null) continue; // 跳过空戒指
             foreach (var mod in ring.StatModifiers)
                 if (mod.StatType == type)
                     modValue = ProcessMod(modValue, mod);
+        }
 
         // 汇总所有状态的StatModifier
         foreach (var status in Owner.StatusSystem.Statuses)
@@ -91,19 +98,6 @@ public class CharacterStats
         }
         return value;
     }
-
-    //public void AddModifier(StatModifier mod)
-    //{
-    //    stats[mod.StatType].AddMod(mod);
-    //    if (mod.StatType == StatType.HP || mod.StatType == StatType.MHP)
-    //    {
-    //        OnHpChanged?.Invoke();
-    //    }
-    //    else if (mod.StatType == StatType.MP || mod.StatType == StatType.MMP)
-    //    {
-    //        OnMpChanged?.Invoke();
-    //    }
-    //}
 
     public void ChangeStat(StatType type, int delta)
     {

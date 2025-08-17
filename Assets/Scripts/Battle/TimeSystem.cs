@@ -8,7 +8,7 @@ public class TimeSystem : MonoBehaviour
     [SerializeField] TextMeshProUGUI worldTurnTmp;
     [SerializeField] BarController worldTimeBar;
 
-    private List<Character> characters;
+    private List<Character> characters => BattleSystem.I.Characters;
     public event Action<Character> OnGaugeFull;
 
     private float actionThreshold = 100f;
@@ -16,9 +16,8 @@ public class TimeSystem : MonoBehaviour
     private float worldTime = 0;
     private int worldTurn = 1;
 
-    public void Initialize(List<Character> chars)
+    public void Initialize()
     {
-        characters = chars;
         currentIndex = 0;
         worldTime = 0;
     }

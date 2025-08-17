@@ -66,10 +66,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Localized
+  m_text: Encounter Description
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7a1487258835f85498cb875038b3fd88, type: 2}
-  m_sharedMaterial: {fileID: -9047045855294703858, guid: 7a1487258835f85498cb875038b3fd88, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0a4457a97a70e384384699f2e5c30030, type: 2}
+  m_sharedMaterial: {fileID: -5505614978006595042, guid: 0a4457a97a70e384384699f2e5c30030, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

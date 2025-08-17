@@ -139,6 +139,22 @@ MonoBehaviour:
     m_Key: Bruh...
     m_Metadata:
       m_Items: []
+  - m_Id: 15300474988048384
+    m_Key: Level Enter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15300498551648256
+    m_Key: Level Unlock
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15408540542742528
+    m_Key: Level Unlock Failed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15413648999493632
+    m_Key: Save Detail
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -23,7 +23,23 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2473219628924928
-    m_Localized: This well-trained slime won't go down so easily
+    m_Localized: This well-trained slime won't go down so easily.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3950847510474752
+    m_Localized: Normally it doesn't hurt when slimes hit you...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3964217873690624
+    m_Localized: Fission seems to be the privilege of slimes.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14868905689264128
+    m_Localized: Its whole body is stomach.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14869400143179776
+    m_Localized: He just learned how to swing a sword......
     m_Metadata:
       m_Items: []
   references:

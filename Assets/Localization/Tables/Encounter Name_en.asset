@@ -26,6 +26,14 @@ MonoBehaviour:
     m_Localized: Strong Slime
     m_Metadata:
       m_Items: []
+  - m_Id: 3949751647891456
+    m_Localized: Toxin Slimes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3963347463335936
+    m_Localized: Fission Slime
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

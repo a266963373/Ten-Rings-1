@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688b7310a29af9d4588c22ad8fc0f1a9, type: 3}
   m_Name: Level01
   m_EditorClassIdentifier: 
-  Name: Grass Field
+  Id: 1
+  Name: Grassfield
+  BackgroundImage: {fileID: 21300000, guid: 700066ab2465563488b29cbebef91123, type: 3}
   Encounters:
   - {fileID: 11400000, guid: 702de479a4811a04fae39dfa57af1d11, type: 2}
   - {fileID: 11400000, guid: 87479c915d403944ea593d378b7c4f20, type: 2}
+  - {fileID: 11400000, guid: 0a6f52715f3c2a548bb04c923cc0b218, type: 2}
+  - {fileID: 11400000, guid: b58d7e7618e738c4c8572f6490a5a426, type: 2}
+  - {fileID: 11400000, guid: 141e66922f30d454b99887524466d590, type: 2}

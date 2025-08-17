@@ -8,17 +8,20 @@ public class CharacterSO : ScriptableObject
     public string CharacterName;
     public List<StatEntry> StatEntries;
     //public List<RingSO> Rings;
-    public List<int> RingIds = new();
+    public int[] RingIds = new int[10];
 
     public virtual CharacterStats GetStats() {  return new(StatEntries); }
-    public virtual List<RingSO> GetRings()
+    public virtual RingSO[] GetRings()
     {
-        List<RingSO> copies = new();
-        foreach (var ringId in RingIds)
+        RingSO[] result = new RingSO[10];
+        for (int i = 0; i < result.Length; i++)
         {
-            copies.Add(RingLibrary.I.GetRingById(ringId));
+            if (i < RingIds.Length)
+                result[i] = RingLibrary.I.GetRingById(RingIds[i]);
+            else
+                result[i] = null;
         }
-        return copies;
+        return result;
     }
 }
 

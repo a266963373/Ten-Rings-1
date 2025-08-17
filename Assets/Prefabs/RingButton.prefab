@@ -161,7 +161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2236718600789894245, guid: fdc86dbe547b83b4394a6049cc7f1e17, type: 3}
       propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
-      value: 0
+      value: 6614878418812928
       objectReference: {fileID: 0}
     - target: {fileID: 2236718600789894245, guid: fdc86dbe547b83b4394a6049cc7f1e17, type: 3}
       propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
@@ -173,7 +173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4566628982215423986, guid: fdc86dbe547b83b4394a6049cc7f1e17, type: 3}
       propertyPath: m_fontSize
-      value: 51.85
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 7960855976408478045, guid: fdc86dbe547b83b4394a6049cc7f1e17, type: 3}
       propertyPath: m_Pivot.x

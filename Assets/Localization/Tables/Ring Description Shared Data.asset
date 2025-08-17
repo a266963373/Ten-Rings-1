@@ -35,6 +35,22 @@ MonoBehaviour:
     m_Key: Toxin Touch Ring
     m_Metadata:
       m_Items: []
+  - m_Id: 6584876163842048
+    m_Key: Health Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6585035681611776
+    m_Key: Fission Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13543129278754816
+    m_Key: Devour Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13560337082003456
+    m_Key: Speed Ring
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

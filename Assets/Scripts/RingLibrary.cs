@@ -38,6 +38,7 @@ public class RingLibrary : MonoBehaviour
     /// </summary>
     public RingSO GetRingById(int id)
     {
+        if (id == 0) return null; // 0 ID 通常表示无戒指
         if (ringTemplates.TryGetValue(id, out var template))
             return ScriptableObject.Instantiate(template); // 返回副本
 

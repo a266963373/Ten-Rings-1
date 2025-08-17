@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7f3c12967bd8224183a9c6b85c59608, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ca71393d2d794442b1596ccb1e9df84, type: 3}
   m_Name: OmniLectureRingSO
   m_EditorClassIdentifier: 
   Id: 4
   Name: Omni Lecture Ring
-  power: 0
+  Power: 0
   GrantedActions:
   - {fileID: 11400000, guid: 863e0d0bf14e9da469a636aaa046c9b1, type: 2}

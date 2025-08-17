@@ -25,4 +25,3 @@ public class StatModifier
     public string Source = "None";
     public Guid Id = Guid.NewGuid();
 }
-

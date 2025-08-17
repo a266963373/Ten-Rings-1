@@ -42,6 +42,22 @@ MonoBehaviour:
     m_Localized: Omni Lecture Ring
     m_Metadata:
       m_Items: []
+  - m_Id: 3362121692508160
+    m_Localized: Speed Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6614878418812928
+    m_Localized: ' '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6618344956542976
+    m_Localized: Fission Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13575451201941504
+    m_Localized: Devour Ring
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

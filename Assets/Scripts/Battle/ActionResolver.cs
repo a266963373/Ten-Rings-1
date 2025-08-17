@@ -14,6 +14,11 @@ public class ActionResolver : MonoBehaviour // receive choice from panels
     public Character Actor;
     public Character Target;
 
+    private void Start()
+    {
+        ringPanel.gameObject.SetActive(true);
+    }
+
     public void OnPanelClick(Character target)
     {
         if (IsTargetSelectMode)

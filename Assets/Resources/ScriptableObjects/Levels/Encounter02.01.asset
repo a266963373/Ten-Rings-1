@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30e05faf4649d694687334647e60181d, type: 3}
+  m_Name: Encounter02.01
+  m_EditorClassIdentifier: Assembly-CSharp::EncounterSO
+  Name: 02.01
+  Characters:
+  - {fileID: 11400000, guid: 196d00fbd43f2634288dfc8eec5f53a2, type: 2}
+  Gold: 5

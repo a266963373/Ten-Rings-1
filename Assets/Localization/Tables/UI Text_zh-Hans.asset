@@ -142,10 +142,29 @@ MonoBehaviour:
     m_Localized: "\u4E0D\u662F\u54E5\u4EEC\u2026\u2026"
     m_Metadata:
       m_Items: []
+  - m_Id: 15300474988048384
+    m_Localized: "\u662F\u5426\u8FDB\u5165{LevelName}\uFF1F"
+    m_Metadata:
+      m_Items:
+      - rid: 5901558444680282135
+  - m_Id: 15300498551648256
+    m_Localized: "\u662F\u5426\u7528{Gold}\u91D1\u89E3\u9501{LevelName}\uFF1F"
+    m_Metadata:
+      m_Items:
+      - rid: 5901558444680282135
+  - m_Id: 15408540542742528
+    m_Localized: "\u94B1\u4E0D\u591F\uFF01"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15413648999493632
+    m_Localized: "\u6212\u6307: {RingNumber}\n\u91D1\u5E01: {Gold}"
+    m_Metadata:
+      m_Items:
+      - rid: 5901558444680282135
   references:
     version: 2
     RefIds:
     - rid: 5901558444680282135
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 0050b2bcb129030000a0e8c54a650500001079f6f00d0700
+        m_Entries: 0050b2bcb129030000a0e8c54a650500001079f6f00d070000b08e70b35b360000b00eedb85b360000b04ed1a1c23600

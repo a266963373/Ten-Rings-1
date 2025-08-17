@@ -15,37 +15,37 @@ public class RingPanel : MonoBehaviour
     [SerializeField] Transform focusImage;
     [SerializeField] CharacterInfoPanel characterInfoPanel;
 
-    private List<RingSO> wornRings = new();
-    private List<RingSO> storedRings = new();   // or display stats in battle scene
-
+    private RingSO[] wornRings = new RingSO[10];
+    private List<RingSO> storedRings = new();
     private RingButton focusButton = null;
 
-    private void Awake()
-    {
-        focusImage.gameObject.SetActive(false);
-    }
+    private void Awake() => focusImage.gameObject.SetActive(false);
 
     private IEnumerator Start()
     {
         yield return new WaitUntil(() => GameSystem.I.IsStarted);
         LoadRings();
+        gameObject.SetActive(false);
     }
 
     public void LoadRings(Character character = null)
     {
+        ClearRingsUI();
+        System.Array.Clear(wornRings, 0, wornRings.Length);
+        storedRings.Clear();
+
         if (InScene == InScene.Level)
         {
-            UseIdToLoadListAndTransform(GameSystem.I.Run.WornRingIds, wornRings, wornTransform);
-            UseIdToLoadListAndTransform(GameSystem.I.Run.StoredRingIds, storedRings, storedTransform);
+            LoadRingList(GameSystem.I.Run.WornRingIds, wornRings, wornTransform);
+            LoadRingList(GameSystem.I.Run.StoredRingIds, storedRings, storedTransform);
         }
         else if (InScene == InScene.Menu)
         {
-            UseIdToLoadListAndTransform(GameSystem.I.CurrentSave.WornRingIds, wornRings, wornTransform);
-            UseIdToLoadListAndTransform(GameSystem.I.CurrentSave.StoredRingIds, storedRings, storedTransform);
+            LoadRingList(GameSystem.I.CurrentSave.WornRingIds, wornRings, wornTransform);
+            LoadRingList(GameSystem.I.CurrentSave.StoredRingIds, storedRings, storedTransform);
         }
-        else
+        else if (character != null)
         {
-            if (character == null) return;
             LoadCharacterInfo(character);
         }
     }
@@ -54,93 +54,195 @@ public class RingPanel : MonoBehaviour
     {
         if (InScene == InScene.Level)
         {
-            ExtractIdsFromRingList(wornRings, GameSystem.I.Run.WornRingIds);
-            ExtractIdsFromRingList(storedRings, GameSystem.I.Run.StoredRingIds);
+            SaveRingList(wornRings, GameSystem.I.Run.WornRingIds);
+            SaveRingList(storedRings, GameSystem.I.Run.StoredRingIds);
+        }
+        else if (InScene == InScene.Menu)
+        {
+            SaveRingList(wornRings, GameSystem.I.CurrentSave.WornRingIds);
+            SaveRingList(storedRings, GameSystem.I.CurrentSave.StoredRingIds);
+        }
+        else // Battle 或其他
+        {
+            // 可根据需要扩展
+            Debug.LogWarning("Saving rings in Battle scene is not implemented.");
+        }
+    }
+
+    private void LoadRingList(IEnumerable<int> ids, object rings, Transform parent)
+    {
+        int index = 0;
+        foreach (int id in ids)
+        {
+            RingSO ring = RingLibrary.I.GetRingById(id);
+            CreateRingButton(ring, parent, index);
+            if (rings is List<RingSO> list) list.Add(ring);
+            else if (rings is RingSO[] array && index < array.Length) array[index] = ring;
+            index++;
+        }
+    }
+
+    private void SaveRingList(object rings, object ids)
+    {
+        IEnumerable<RingSO> ringEnumerable = null;
+        if (rings is List<RingSO> ringList)
+            ringEnumerable = ringList;
+        else if (rings is RingSO[] ringArray)
+            ringEnumerable = ringArray;
+        else
+        {
+            Debug.LogError("Unsupported type for rings");
+            return;
+        }
+
+        if (ids is List<int> idList)
+        {
+            idList.Clear();
+            foreach (var ring in ringEnumerable)
+                idList.Add(ring == null ? 0 : ring.Id);
+        }
+        else if (ids is int[] idArray)
+        {
+            System.Array.Clear(idArray, 0, idArray.Length);
+            int i = 0;
+            foreach (var ring in ringEnumerable)
+                if (i < idArray.Length) idArray[i++] = ring == null ? 0 : ring.Id;
         }
         else
         {
-            ExtractIdsFromRingList(wornRings, GameSystem.I.CurrentSave.WornRingIds);
-            ExtractIdsFromRingList(storedRings, GameSystem.I.CurrentSave.StoredRingIds);
+            Debug.LogError("Unsupported type for ids");
         }
     }
 
-    private void UseIdToLoadListAndTransform(List<int> ids, List<RingSO> rings, Transform transform)
+    private void ClearRingsUI()
     {
-        foreach (int id in ids)
-        {
-            RingSO newRing = RingLibrary.I.GetRingById(id);
-            rings.Add(newRing);
-            RingButton newRingButton = Instantiate(ringButton, transform);
-            newRingButton.Ring = newRing;
-            newRingButton.OnClickAction = RingButtonClicked;
-        }
+        foreach (Transform c in wornTransform) Destroy(c.gameObject);
+        if (InScene == InScene.Battle) return; // Battle scene does not have stored rings
+        foreach (Transform c in storedTransform) Destroy(c.gameObject);
     }
 
-    private void ExtractIdsFromRingList(List<RingSO> rings, List<int> ids)
+    private void CreateRingButton(RingSO ring, Transform parent, int index = -1)
     {
-        ids.Clear(); // 可选：清空旧内容
-        foreach (RingSO ring in rings)
-        {
-            ids.Add(ring.Id); // 假设 RingSO 有 public int Id 属性
-        }
+        var btn = Instantiate(ringButton, parent);
+        btn.Ring = ring;
+        btn.OnClickAction = RingButtonClicked;
+        btn.Index = index;
     }
 
     private void LoadCharacterInfo(Character character)
     {
+        characterInfoPanel.gameObject.SetActive(true);
         characterInfoPanel.SetCharacter(character);
-
-        // don't destroy focusButton
-        focusImage.transform.SetParent(transform, false);
-        focusImage.gameObject.SetActive(false);
-        ringDescriptionPanel.gameObject.SetActive(false);
-
-        foreach (Transform child in wornTransform)
-        {
-            Destroy(child.gameObject);
-        }
+        SetFocusAndDescription(null, true);
+        ClearRingsUI();
         foreach (RingSO ring in character.Rings)
-        {
-            RingButton newRingButton = Instantiate(ringButton, wornTransform);
-            newRingButton.Ring = ring;
-            newRingButton.OnClickAction = RingButtonClicked;
-        }
+            CreateRingButton(ring, wornTransform);
     }
 
     private void RingButtonClicked(RingButton ringButton)
     {
-        ringDescriptionPanel.gameObject.SetActive(true);
-        focusImage.gameObject.SetActive(true);
-        focusImage.SetParent(ringButton.transform, false);
-        focusImage.SetSiblingIndex(0);
-        if (focusButton != ringButton)
+        if (InScene == InScene.Battle)
         {
-            focusButton = ringButton;
-            ringDescriptionPanel.Ring = ringButton.Ring;
+            SetFocusAndDescription(ringButton);
         }
         else
         {
-            if (InScene != InScene.Battle)
+            if (focusButton != ringButton)
             {
-                TransferRing(ringButton);
-                SaveRings();
+                if (ringButton.Ring != null)
+                {
+                    SetFocusAndDescription(ringButton);
+                }
+                else if (focusButton != null)
+                {
+                    // 直接用 ringButton.Index
+                    TransferRing(focusButton, ringButton.Index, focusButton.transform.parent == wornTransform);
+                }
+                else
+                {
+                    SetFocusAndDescription(null, true);
+                }
+            }
+            else
+            {
+                // set index according to source
+                int index = -1;
+                if (focusButton.transform.parent == wornTransform)
+                {
+                    // worn ring -> stored，直接用 focusButton.Index
+                    index = focusButton.Index;
+                }
+                else if (focusButton.transform.parent == storedTransform)
+                {
+                    // stored ring -> worn，找 wornRings 第一个空槽
+                    for (int i = 0; i < wornRings.Length; i++)
+                    {
+                        if (wornRings[i] == null)
+                        {
+                            index = i;
+                            break;
+                        }
+                    }
+                }
+                TransferRing(focusButton, index);
             }
         }
     }
 
-    private void TransferRing(RingButton ringButton)
+    /// <summary>
+    /// 设置当前选中的戒指按钮，并将焦点图片移动到该按钮
+    /// </summary>
+    private void SetFocusAndDescription(RingButton ringButton, bool isHide = false)
     {
-        if (ringButton.transform.parent == wornTransform)
+        if (isHide)
         {
-            ringButton.transform.SetParent(storedTransform);
-            wornRings.Remove(ringButton.Ring);
-            storedRings.Add(ringButton.Ring);
+            focusImage.transform.SetParent(transform, false);
+            focusImage.gameObject.SetActive(false);
+            ringDescriptionPanel.gameObject.SetActive(false);
         }
         else
         {
-            ringButton.transform.SetParent(wornTransform);
-            storedRings.Remove(ringButton.Ring);
-            wornRings.Add(ringButton.Ring);
+            focusImage.SetParent(ringButton.transform, false);
+            focusImage.SetSiblingIndex(0);
+            focusImage.gameObject.SetActive(true);
+            focusButton = ringButton;
+            ringDescriptionPanel.Ring = ringButton.Ring;
+            ringDescriptionPanel.gameObject.SetActive(true);
         }
+    }
+
+    private void TransferRing(RingButton ringButton, int wornButtonIndex = -1, bool isChangeWithinWorn = false)
+    {
+        if (ringButton.transform.parent == wornTransform)
+        {
+            if (isChangeWithinWorn)
+            {
+                int id = -1;
+                for (int i = 0; i < wornTransform.childCount; i++)
+                {
+                    if (wornTransform.GetChild(i) == ringButton.transform)
+                    {
+                        id = i;
+                        break;
+                    }
+                }
+                wornRings[id] = null;
+                wornRings[wornButtonIndex] = ringButton.Ring;
+            }
+            else
+            {
+                wornRings[wornButtonIndex] = null;
+                storedRings.Add(ringButton.Ring);
+            }
+        }
+        else
+        {
+            storedRings.Remove(ringButton.Ring);
+            wornRings[wornButtonIndex] = ringButton.Ring;
+        }
+        SetFocusAndDescription(null, true);
+        SaveRings();
+        LoadRings();
     }
 
     public void ExitOnClick()
@@ -149,5 +251,4 @@ public class RingPanel : MonoBehaviour
         focusButton = null;
         focusImage.gameObject.SetActive(false);
     }
-
 }

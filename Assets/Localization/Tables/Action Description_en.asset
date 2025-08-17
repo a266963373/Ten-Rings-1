@@ -28,10 +28,16 @@ MonoBehaviour:
     m_Localized: Randomly use a skill.
     m_Metadata:
       m_Items: []
+  - m_Id: 13506096778883072
+    m_Localized: Attempt to devour the target, dealing {Value} {Form} {Element} damage.
+      If the target dies from this action, absorb their highest stat.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
   references:
     version: 2
     RefIds:
     - rid: 5901558492828794898
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00a0e8e600000000
+        m_Entries: 00a0e8e60000000000b0ce34b9fb2f00

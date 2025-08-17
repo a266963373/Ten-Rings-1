@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] RingPanel ringPanel;
     [SerializeField] PenaltyPanel penaltyPanel;
     [SerializeField] WithdrawPanel withdrawPanel;
-    public LevelSO Level;
+    private LevelSO level;
     private RunSession run;
 
     private void Awake()
@@ -29,13 +29,14 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         run = GameSystem.I.Run;
+        level = run.Level;
 
         rewardPanel.OnClaimReward += RewardClaimed;
-        rewardPanel.IsLastEncounter = run.EncounterIndex == Level.Encounters.Count - 1;
+        BattleSession.IsLastEncounter = run.EncounterIndex == level.Encounters.Count - 1;
 
         if (run.EncounterIndex == 0)
         {
-            GameSystem.I.Run.WornRingIds = GameSystem.I.CurrentSave.WornRingIds.ToList();
+            GameSystem.I.Run.WornRingIds = GameSystem.I.CurrentSave.WornRingIds.ToArray();
             GameSystem.I.Run.StoredRingIds.Clear();
         }
 
@@ -60,7 +61,7 @@ public class LevelManager : MonoBehaviour
 
     private void ShowEncounter()
     {
-        encounterPanel.Encounter = Level.Encounters[run.EncounterIndex];
+        encounterPanel.Encounter = level.Encounters[run.EncounterIndex];
         encounterPanel.gameObject.SetActive(true);
     }
 
@@ -73,6 +74,7 @@ public class LevelManager : MonoBehaviour
     {
         rewardPanel.gameObject.SetActive(false);
         run.EncounterIndex++;
+        BattleSession.IsLastEncounter = run.EncounterIndex == level.Encounters.Count - 1;
 
         if (rewardPanel.IsRingSelected)
         {
@@ -99,6 +101,6 @@ public class LevelManager : MonoBehaviour
     private void ShowPenalty()
     {
         penaltyPanel.gameObject.SetActive(true);
-        penaltyPanel.Encounter = Level.Encounters[run.EncounterIndex];
+        penaltyPanel.Encounter = level.Encounters[run.EncounterIndex];
     }
 }

@@ -11,7 +11,6 @@ public class RingDescriptionText : MonoBehaviour
     // for LSE augments
     public int Power;
     public int Gold;
-    public bool IsLastEncounter = false;
 
     private RingSO ring;
     public RingSO Ring
@@ -20,6 +19,7 @@ public class RingDescriptionText : MonoBehaviour
         set
         {
             ring = value;
+            if (ring == null) return;
             Power = ring.Power;
             localizeStringEvent.StringReference.Add("Power", new IntVariable { Value = Power });
             Show();
@@ -32,7 +32,7 @@ public class RingDescriptionText : MonoBehaviour
         localizeStringEvent.StringReference.Add("Gold", new IntVariable { Value = Gold });
         if (isInLevelScene)
         {
-            if (IsLastEncounter)
+            if (BattleSession.IsLastEncounter)
             {
                 localizeStringEvent.StringReference.SetReference("UI Text", "CompletedLevel");
             }
