@@ -15,9 +15,10 @@ MonoBehaviour:
   Id: 2
   Name: Camp
   BackgroundImage: {fileID: 21300000, guid: 363553fa0456c9c4387f79b116c8a6cc, type: 3}
+  BattleImage: {fileID: 21300000, guid: 0f0fffa1996fb224bbb7d8f0b845b945, type: 3}
   Encounters:
   - {fileID: 11400000, guid: 6572eaefec54a704182d38646fad56c3, type: 2}
-  - {fileID: 11400000, guid: 87479c915d403944ea593d378b7c4f20, type: 2}
-  - {fileID: 11400000, guid: 0a6f52715f3c2a548bb04c923cc0b218, type: 2}
-  - {fileID: 11400000, guid: b58d7e7618e738c4c8572f6490a5a426, type: 2}
-  - {fileID: 11400000, guid: 141e66922f30d454b99887524466d590, type: 2}
+  - {fileID: 11400000, guid: 0e7c1a6366b673c4d9fa7127d2cfc0f9, type: 2}
+  - {fileID: 11400000, guid: 4580340ed1e647b4cae627361bc6ce42, type: 2}
+  - {fileID: 11400000, guid: 8f7e8330f0fbd934aa15487752368a3d, type: 2}
+  - {fileID: 11400000, guid: 99c9fadb18423d84fb7cb89f58f2ee58, type: 2}

@@ -3,13 +3,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Rings/ToxinTouchRingSO")]
 public class ToxinTouchRingSO : RingSO
 {
-    protected override void InitTriggerEffects()
+    protected override void InitRing(Ring ring)
     {
-        TriggerEffect trigFx = new(
-            trigger: TriggerType.OnAfterDealDamage,
-            effect: Effect
-            );
-        TriggerEffects.Add(trigFx);
+        TriggerEffect trigFx = new()
+        {
+            Trigger = TriggerType.OnAfterDealDamage,
+            Effect = Effect
+        };
+        ring.TriggerEffects.Add(trigFx);
     }
 
     private void Effect(BattleAction context)
@@ -20,7 +21,8 @@ public class ToxinTouchRingSO : RingSO
         // 检查是否造成了Bio伤害
         if (context.Damage.Element == DamageElement.Bio)
         {
-            target.StatusSystem.AddStatus(StatusLibrary.I.GetStatusByName("Poisoned"));
+            ActionResolver.I.ApplyStatusByName(
+                context.Actor, target, "Poisoned");
         }
     }
 }

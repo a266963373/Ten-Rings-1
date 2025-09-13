@@ -9,8 +9,8 @@ public class RingDescriptionPanel : MonoBehaviour
     [SerializeField] GameObject actionDescriptionGO;
     [SerializeField] ActionDescriptionText actionDescriptionText;
 
-    private RingSO ring;
-    public RingSO Ring
+    private Ring ring;
+    public Ring Ring
     {
         get { return ring; }
         set

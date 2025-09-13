@@ -6,7 +6,9 @@ using UnityEngine;
 
 public enum StatType
 {
-    NON, MHP, HP, STR, MND, SPD, MMP, MP
+    NON, MHP, HP, STR, MND, SPD, MMP, MP, 
+    EVS, ACC, CRT, BLK, 
+    HPR, MPR,
 }
 
 public class Stat
@@ -16,6 +18,7 @@ public class Stat
 }
 
 public enum ModifierType { Flat, Percent, Set }
+
 public class StatModifier
 {
     public StatType StatType = StatType.HP;
@@ -24,4 +27,16 @@ public class StatModifier
     public float Value = -1;
     public string Source = "None";
     public Guid Id = Guid.NewGuid();
+}
+
+public class RingDynamicStatMod
+{
+    public StatType CheckStatType;
+    public Action<Character> Updator;
+}
+
+public class StatusDynamicStatMod
+{
+    public StatType CheckStatType;
+    public Action Updator;
 }

@@ -34,10 +34,68 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 5901558492828794898
+  - m_Id: 14958831114039296
+    m_Localized: A sword attack that deals {Value} {Form} {Element} damage. Scales
+      with your Strength, Speed, Crit, and Evasion, each contributing 25%.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
+  - m_Id: 16307022837231616
+    m_Localized: "A dagger attack that deals {Value} {Form} {Element} damage. Accuracy
+      exceeding the target\u2019s Evasion becomes Crit."
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
+  - m_Id: 17500030634995712
+    m_Localized: 'Shoot an arrow using a bow, dealing {Value} {Form} {Element} damage. '
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
+  - m_Id: 17500051774287872
+    m_Localized: Fire a bullet using a gun, dealing {Value} {Form} {Element} damage
+      that doesn't scale with any stats.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
+  - m_Id: 19180492475985920
+    m_Localized: You circle your prey in a tightening spiral, breaking down its guard.
+      Till your next round, for each 1 Speed you are higher than the target, reduce
+      their Block by 2.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
+  - m_Id: 19207497300963328
+    m_Localized: 'Bite your target fiercely! Deal {Value} {Form} {Element} damage. '
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
+  - m_Id: 19271998104793088
+    m_Localized: Taunt the target so that their action's target must be you. Scale
+      with your Mind.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23653712965181440
+    m_Localized: 'Unleash a gentle radiance to heal the wound. Heal {Power} HP for
+      the target. '
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
+  - m_Id: 23692202041974784
+    m_Localized: Drive the pickaxe deep into the target, dealing {Value} {Form} {Element}
+      damage. Ignores damage reduction up to 50% of the damage.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
+  - m_Id: 24202281175109632
+    m_Localized: Hurl a handful of sand into the target's eyes, dealing {Value} {Form}
+      {Element} damage and reducing their accuracy.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
   references:
     version: 2
     RefIds:
     - rid: 5901558492828794898
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00a0e8e60000000000b0ce34b9fb2f00
+        m_Entries: 00a0e8e60000000000b0ce34b9fb2f0000b0ce46fa24350000b08e9f26ef390000b08e652f2c3e0000b08e51342c3e0000f0a5688e24440000f0a5f51d3d440000a0e836ed08540000a0a8a6ee2b5400005032b4d8fb5500

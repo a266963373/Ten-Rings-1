@@ -7,13 +7,25 @@ public class CharacterStats
     public event Action OnHpChanged;
     public event Action OnMpChanged;
     public Character Owner;
+    public List<StatModifier> TempStatMods = new(); // action like "stab" gives a temp stat boost
 
     public string Explanation = "";
+
+    // hidden stats
+    public int EvsGauge = 50;
+    public int CrtGauge = 50;
 
     private Dictionary<StatType, Stat> stats = new();
 
     public CharacterStats()
     {
+        //List<StatType> defaultIsZeroStats = new()
+        //{
+        //    StatType.EVS,
+        //    StatType.CRT,
+        //    StatType.AGI,
+        //    StatType.LUK,
+        //};
         foreach (StatType type in Enum.GetValues(typeof(StatType)))
         {
             stats[type] = new()
@@ -22,6 +34,8 @@ public class CharacterStats
                 Value = 100,
             };
         }
+        stats[StatType.HPR].Value = 0;
+        stats[StatType.MPR].Value = 10;
     }
 
     public CharacterStats(List<StatEntry> statEntries) : this()
@@ -46,6 +60,7 @@ public class CharacterStats
 
     public int GetStat(StatType type)
     {
+        Owner.UpdateDynamicStatMods(type); // 更新动态StatModifier
         float modValue = stats[type].Value;
 
         // 汇总所有戒指的StatModifier
@@ -62,6 +77,15 @@ public class CharacterStats
             foreach (var mod in status.StatModifiers)
                 if (mod.StatType == type)
                     modValue = ProcessMod(modValue, mod);
+
+        // 汇总临时StatModifier
+        foreach (var tempStatMod in TempStatMods)
+        {
+            if (tempStatMod.StatType == type)
+            {
+                modValue = ProcessMod(modValue, tempStatMod);
+            }
+        }
 
         int finalValue = (int)modValue;
 
@@ -115,6 +139,6 @@ public class CharacterStats
     public void InitBeforeBattle()
     {
         stats[StatType.HP].Value = GetStat(StatType.MHP);
-        stats[StatType.MP].Value = GetStat(StatType.MMP);
+        stats[StatType.MP].Value = GetStat(StatType.MMP) / 2;
     }
 }

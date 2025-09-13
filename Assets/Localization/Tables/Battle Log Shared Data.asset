@@ -28,11 +28,31 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 14274394214400
-    m_Key: ShowActionResult
+    m_Key: ShowResultDamage
     m_Metadata:
       m_Items: []
   - m_Id: 14297689378816
     m_Key: Default
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16773880560398336
+    m_Key: ShowActionMissed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16773989566164992
+    m_Key: ShowActionCrit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16774052782714880
+    m_Key: ShowActionBlocked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16776842166841344
+    m_Key: ShowIndirectActionResult
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24410128323747840
+    m_Key: ShowResultHeal
     m_Metadata:
       m_Items: []
   m_Metadata:

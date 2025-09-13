@@ -9,8 +9,8 @@ public class RingButton : MonoBehaviour
     [SerializeField] LocalizeStringEvent localizeStringEvent;
     public Action<RingButton> OnClickAction;
     public int Index { get; set; }
-    private RingSO ring;
-    public RingSO Ring
+    private Ring ring;
+    public Ring Ring
     {
         get { return ring; }
         set

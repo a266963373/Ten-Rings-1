@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8062eafdecfb66b4a806f7c40b901dc2, type: 3}
+  m_Name: DefendActionSO
+  m_EditorClassIdentifier: 
+  Name: Defend
+  Damage:
+    Value: 0
+    Reduction: 0
+    Shield: 0
+    Range: 1
+    Form: 1
+    Element: 0
+    TargetType: 0
+    Property: 0
+  Status: {fileID: 11400000, guid: 06c4ce4ac83d25e41a94e01857a9c2e8, type: 2}
+  Power: 100
+  ManaCost: 0
+  Area: 0
+  Must: 1
+  Prefer: 0
+  Favorate: 0
+  IsDamage: 0
+  IsStatus: 1
+  Scale: 0

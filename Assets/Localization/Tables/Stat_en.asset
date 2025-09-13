@@ -34,10 +34,30 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 5901558532654497803
+  - m_Id: 15554890580275200
+    m_Localized: 'Accuracy: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 5901558532654497803
+  - m_Id: 15555085376335872
+    m_Localized: 'Evasion: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 5901558532654497803
+  - m_Id: 15555147514949632
+    m_Localized: 'Critical Hit: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 5901558532654497803
+  - m_Id: 15555202477109248
+    m_Localized: 'Block: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 5901558532654497803
   references:
     version: 2
     RefIds:
     - rid: 5901558532654497803
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 0010b900010000000010796c4a1800000010f9f245180000
+        m_Entries: 0010b900010000000010796c4a1800000010f9f24518000000b08e2f1743370000b00e025343370000b00ece5f43370000b04e8a44433700

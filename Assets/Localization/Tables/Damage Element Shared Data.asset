@@ -31,6 +31,18 @@ MonoBehaviour:
     m_Key: Grass
     m_Metadata:
       m_Items: []
+  - m_Id: 16084835001872384
+    m_Key: Metal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24216021622738944
+    m_Key: Earth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24216043231793152
+    m_Key: Electric
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

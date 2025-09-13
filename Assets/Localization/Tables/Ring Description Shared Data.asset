@@ -51,6 +51,90 @@ MonoBehaviour:
     m_Key: Speed Ring
     m_Metadata:
       m_Items: []
+  - m_Id: 14975008838168576
+    m_Key: Sword Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16311391087407104
+    m_Key: Beginner's Luck
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16324970045943808
+    m_Key: Dagger Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16333934615769088
+    m_Key: Accuracy Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16334937016676352
+    m_Key: Evasion Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16335291418587136
+    m_Key: Critical Hit Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16335323093970944
+    m_Key: Block Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16338478468870144
+    m_Key: Raise the Stakes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16373856353562624
+    m_Key: Armor Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16374985858658304
+    m_Key: Shield Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17519276920320000
+    m_Key: Bow Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17519281047515136
+    m_Key: Gun Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17536988161683456
+    m_Key: Frontline Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17536989403197440
+    m_Key: Backline Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19198036524003328
+    m_Key: Predator Spiral Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19226502078263296
+    m_Key: Savage Bite RIng
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19290622710378496
+    m_Key: Taunt Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22974090926559232
+    m_Key: Staff Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23710886634496000
+    m_Key: Pickaxe Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23941880600481792
+    m_Key: Hammer Tempered
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24234634882732032
+    m_Key: Sand Toss Ring
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

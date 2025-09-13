@@ -16,18 +16,4 @@ MonoBehaviour:
   StatEntries:
   - Type: 0
     Value: 100
-  - Type: 1
-    Value: 100
-  - Type: 2
-    Value: 100
-  - Type: 3
-    Value: 100
-  - Type: 4
-    Value: 100
-  - Type: 5
-    Value: 100
-  - Type: 6
-    Value: 100
-  - Type: 7
-    Value: 100
-  Rings: []
+  RingIds: 00000000000000000000000000000000000000000000000000000000000000000000000000000000

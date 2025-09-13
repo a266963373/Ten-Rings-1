@@ -31,6 +31,62 @@ MonoBehaviour:
     m_Key: Devour
     m_Metadata:
       m_Items: []
+  - m_Id: 15169790554320896
+    m_Key: Slash
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16248943223418880
+    m_Key: Thorn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16248994121297920
+    m_Key: Poisoned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16529336564625408
+    m_Key: Stab
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17000561241927680
+    m_Key: Defend
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17711938021535744
+    m_Key: Shoot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17711943788703744
+    m_Key: Fire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19391588323422208
+    m_Key: Predator Spiral
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19418271654998016
+    m_Key: Savage Bite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19483264719122432
+    m_Key: Taunt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23171712975048704
+    m_Key: Bash
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23171771301040128
+    m_Key: Healing Light
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23903050987511808
+    m_Key: Pick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24413238379827200
+    m_Key: Sand Toss
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

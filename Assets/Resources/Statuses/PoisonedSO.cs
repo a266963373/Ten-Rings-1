@@ -5,26 +5,29 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Status/PoisonedSO")]
 public class PoisonedSO : StatusSO
 {
-    public override void OnWorldTurnEffect(Character c)
+    protected override void InitStatus(Status status)
     {
-        int stack = (int)Mathf.Max(Stack, 1);
-        int last = 11 - stack;
-        Power = stack * (10 + last) / 2;
-        Power = Mathf.Min(Power, 50);
-
-        Damage damage = new()
+        status.OnWorldTurnEffect = () =>
         {
-            Value = Power,
-            Scale = StatType.NON,
-            Range = DamageRange.Indirect,
-            Element = DamageElement.Poison,
-        };
+            int stack = status.EffectiveStack;
+            int last = status.Power + 1 - stack;
+            int dmg = stack * (status.Power + last) / 2;
+            dmg = Mathf.Min(dmg, 50);
 
-        BattleAction battleAction = new()
-        {
-            Damage = damage,
-            Target = c,
+            Damage damage = new()
+            {
+                Value = dmg,
+                Range = DamageRange.Indirect,
+                Element = DamageElement.Poison,
+            };
+
+            BattleAction battleAction = new()
+            {
+                Name = "Poisoned",
+                Damage = damage,
+                Target = status.Bearer,
+            };
+            ActionResolver.I.Resolve(battleAction, true);
         };
-        battleAction.Resolve();
     }
 }

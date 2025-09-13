@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 1
   Name: Poisoned
-  Power: 5
-  Duration: 0
+  Power: 10
   IsBuff: 0
-  IsStackable: 0
+  StartStack: 1
+  IsStackable: 1
+  DecayTrigger: 0
+  DecayStatType: 1

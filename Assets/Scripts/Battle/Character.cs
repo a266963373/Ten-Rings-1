@@ -2,18 +2,22 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEditor;
 
 public class Character
 {
     public string Name;
     public CharacterStats Stats;
-    public RingSO[] Rings = new RingSO[10];
-    //public List<RingSO> LeftHandRings => Rings
-    //    .Where((r, i) => i % 2 == 0)
-    //    .ToList();
-    //public List<RingSO> RightHandRings => Rings
-    //    .Where((r, i) => i % 2 != 0)
-    //    .ToList();
+    public List<Status> Statuses => StatusSystem.Statuses;
+    public Ring[] Rings = new Ring[10];
+    public List<Func<Damage, Damage>> DealDamageModifiers =>
+        Rings.Where(ring => ring != null && ring.DealDamageModifier != null)
+             .Select(ring => ring.DealDamageModifier)
+             .ToList();
+    public List<Func<Damage, Damage>> TakeDamageModifiers =>
+        Rings.Where(ring => ring != null && ring.TakeDamageModifier != null)
+             .Select(ring => ring.TakeDamageModifier)
+             .ToList();
 
     private List<BattleActionSO> battleActions = new();
     public List<BattleActionSO> BattleActions
@@ -28,6 +32,9 @@ public class Character
                 {
                     newBattleActions.Add(action);
                 }
+                
+                if (ring.Empowerment != null)
+                    ring.Empowerment.Target = newBattleActions.LastOrDefault();
             }
             return newBattleActions;
         }
@@ -39,6 +46,10 @@ public class Character
     public bool IsPlayerSide = false;
     public bool IsPlayerControlled = false;
     public bool IsDead = false;
+    public List<Character> Allies;
+    public Character TauntedApplier => Statuses.Where(s => s.Id == 4)
+                                               .Select(s => s.Applier)
+                                               .FirstOrDefault();
 
     private float actionGauge = 0f;
     public float ActionGauge
@@ -63,6 +74,8 @@ public class Character
         // Load Attack Action
         BattleActionSO basicAttackAction = Resources.Load<BattleActionSO>("RingRelated/AttackActionSO");
         battleActions.Add(basicAttackAction);
+        BattleActionSO basicDefendAction = Resources.Load<BattleActionSO>("RingRelated/DefendActionSO");
+        battleActions.Add(basicDefendAction);
 
         Stats.InitBeforeBattle();
         StatusSystem.Owner = this; // 设置 StatusSystem 的所有者为当前 Character 实例
@@ -79,7 +92,7 @@ public class Character
         Stats.OnHpChanged += HpChanged;
 
         // 初始化Rings为长度10的数组
-        Rings = new RingSO[10];
+        Rings = new Ring[10];
         if (ringInheritType == RingInheritType.All)
         {
             for (int i = 0; i < 10; i++)
@@ -99,9 +112,6 @@ public class Character
         }
         // None: 全部为空，已初始化
 
-        // 深拷贝 BattleActions（引用 ScriptableObject，通常可直接赋值）
-        BattleActions = new List<BattleActionSO>(original.BattleActions);
-
         // 新建 StatusSystem，复制已有状态
         StatusSystem = new StatusSystem
         {
@@ -117,6 +127,11 @@ public class Character
         //IsDead = original.IsDead;
         ActionGauge = original.ActionGauge;
         Stats.InitBeforeBattle();
+    }
+
+    public int GetStat(StatType type)
+    {
+        return Stats.GetStat(type);
     }
 
     private void HpChanged()
@@ -136,7 +151,7 @@ public class Character
     public void Trigger(TriggerType type, BattleAction context)
     {
         // 动态收集所有来源的 TriggerEffect
-        List<Action<BattleAction>> effects = new();
+        //List<Action<BattleAction>> effects = new();
 
         // 戒指的触发器
         foreach (var ring in Rings)
@@ -145,20 +160,59 @@ public class Character
             foreach (var effect in ring.TriggerEffects)
             {
                 if (effect.Trigger == type && effect.Effect != null)
-                    effects.Add(effect.Effect);
+                    //effects.Add(effect.Effect);
+                    effect.Effect(context);
             }
         }
 
         // 统一执行
-        foreach (var fx in effects)
+        //foreach (var fx in effects)
+        //{
+        //    fx(context);
+        //}
+    }
+
+    public void UpdateDynamicStatMods(StatType statType)    // for beginner's luck & chased status
+    {
+        foreach (var ring in Rings)
         {
-            fx(context);
+            if (ring == null) continue;
+            foreach (var dynamicStatMod in ring.DynamicStatMods)
+            {
+                if (dynamicStatMod.CheckStatType == statType)
+                {
+                    dynamicStatMod.Updator(this);
+                }
+            }
+        }
+
+        foreach (var status in StatusSystem.Statuses)
+        {
+            foreach (var dynamicStatMod in status.DynamicStatMods)
+            {
+                if (dynamicStatMod.CheckStatType == statType)
+                {
+                    dynamicStatMod.Updator();
+                }
+            }
         }
     }
 
     public void OnWorldTurn()
     {
-        StatusSystem.OnWorldTurn();
+        StatusSystem.OnTurn(StatusDecayTrigger.OnWorldTurn);
+        Stats.ChangeStat(StatType.HP, Stats.GetStat(StatType.HPR));
+        Stats.ChangeStat(StatType.MP, Stats.GetStat(StatType.MPR));
+    }
+
+    public void OnCharacterTurnBegin()
+    {
+        StatusSystem.OnTurn(StatusDecayTrigger.OnCharacterTurnBegin);
+    }
+
+    public void OnCharacterTurnEnd()
+    {
+        StatusSystem.OnTurn(StatusDecayTrigger.OnCharacterTurnEnd);
     }
 }
 

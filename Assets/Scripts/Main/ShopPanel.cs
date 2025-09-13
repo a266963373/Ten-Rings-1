@@ -40,7 +40,7 @@ public class ShopPanel : MonoBehaviour
 
         foreach (int id in shopSetting.SellingRingIds)
         {
-            RingSO newRing = RingLibrary.I.GetRingById(id);
+            Ring newRing = RingLibrary.I.GetRingById(id);
             RingButton newRingButton = Instantiate(ringButton, goodsPanel);
             newRingButton.OnClickAction = RingButtonClicked;
             newRingButton.Ring = newRing;

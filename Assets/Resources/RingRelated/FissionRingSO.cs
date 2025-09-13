@@ -1,15 +1,16 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Rings/FissionRingSO")]
 public class FissionRingSO : RingSO
 {
-    protected override void InitTriggerEffects()
+    protected override void InitRing(Ring ring)
     {
-        TriggerEffect trigFx = new(
-            trigger: TriggerType.OnAfterDeath,
-            effect: Effect
-            );
-        TriggerEffects.Add(trigFx);
+        ring.TriggerEffects.Add(new()
+        {
+            Trigger = TriggerType.OnAfterDeath,
+            Effect = Effect
+        });
     }
 
     private void Effect(BattleAction context)
@@ -19,7 +20,7 @@ public class FissionRingSO : RingSO
         // 将当前戒指从角色的 Rings 数组中移除（设为 null）
         for (int i = 0; i < actor.Rings.Length; i++)
         {
-            if (actor.Rings[i] == this)
+            if (actor.Rings[i]?.Id == Id)
             {
                 actor.Rings[i] = null;
                 break;

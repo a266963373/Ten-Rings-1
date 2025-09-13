@@ -16,7 +16,7 @@ public class MusicManager : MonoBehaviour
         { "SaveScene", "TitleMusic" },
         { "MainScene", "MainMusic" },
         { "LevelScene", "Level" },
-        { "BattleScene", "Battle" },
+        //{ "BattleScene", "Battle" },
         // ¿É¼ÌÐøÌí¼Ó
     };
 
@@ -80,7 +80,13 @@ public class MusicManager : MonoBehaviour
             }
             else if (musicName == "Level")
             {
-                PlayMusic(GameSystem.I.Run.Level.Name);
+                if (GameSystem.I.Run.Level == null)
+                {
+                    PlayMusic("MainMusic");
+                } else
+                {
+                    PlayMusic(GameSystem.I.Run.Level.Name);
+                }
             }
             else
             {

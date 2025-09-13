@@ -1,6 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
 
 
 public enum InScene { Menu, Level, Battle }
@@ -15,17 +15,17 @@ public class RingPanel : MonoBehaviour
     [SerializeField] Transform focusImage;
     [SerializeField] CharacterInfoPanel characterInfoPanel;
 
-    private RingSO[] wornRings = new RingSO[10];
-    private List<RingSO> storedRings = new();
+    private Ring[] wornRings = new Ring[10];
+    private List<Ring> storedRings = new();
     private RingButton focusButton = null;
 
     private void Awake() => focusImage.gameObject.SetActive(false);
 
     private IEnumerator Start()
     {
-        yield return new WaitUntil(() => GameSystem.I.IsStarted);
-        LoadRings();
-        gameObject.SetActive(false);
+        while (!GameSystem.I.IsStarted)
+            yield return new WaitUntil(() => GameSystem.I.IsStarted);
+        if (InScene != InScene.Battle) LoadRings();     // otherwise it will wipe the rings on first start
     }
 
     public void LoadRings(Character character = null)
@@ -72,22 +72,39 @@ public class RingPanel : MonoBehaviour
     private void LoadRingList(IEnumerable<int> ids, object rings, Transform parent)
     {
         int index = 0;
-        foreach (int id in ids)
+
+        if (rings is List<Ring> list)
         {
-            RingSO ring = RingLibrary.I.GetRingById(id);
-            CreateRingButton(ring, parent, index);
-            if (rings is List<RingSO> list) list.Add(ring);
-            else if (rings is RingSO[] array && index < array.Length) array[index] = ring;
-            index++;
+            foreach (int id in ids)
+            {
+                Ring ring = RingLibrary.I.GetRingById(id);
+                CreateRingButton(ring, parent, index);
+                list.Add(ring);
+                index++;
+            }
+        }
+        else if (rings is Ring[] array)
+        {
+            foreach (int id in ids)
+            {
+                Ring ring = RingLibrary.I.GetRingById(id);
+                if (index < array.Length)
+                    array[index] = ring;
+                index++;
+            }
+            for (index = 0; index < array.Length; index++)
+            {
+                CreateRingButton(array[index], parent, index);
+            }
         }
     }
 
     private void SaveRingList(object rings, object ids)
     {
-        IEnumerable<RingSO> ringEnumerable = null;
-        if (rings is List<RingSO> ringList)
+        IEnumerable<Ring> ringEnumerable = null;
+        if (rings is List<Ring> ringList)
             ringEnumerable = ringList;
-        else if (rings is RingSO[] ringArray)
+        else if (rings is Ring[] ringArray)
             ringEnumerable = ringArray;
         else
         {
@@ -121,7 +138,7 @@ public class RingPanel : MonoBehaviour
         foreach (Transform c in storedTransform) Destroy(c.gameObject);
     }
 
-    private void CreateRingButton(RingSO ring, Transform parent, int index = -1)
+    private void CreateRingButton(Ring ring, Transform parent, int index = -1)
     {
         var btn = Instantiate(ringButton, parent);
         btn.Ring = ring;
@@ -135,8 +152,11 @@ public class RingPanel : MonoBehaviour
         characterInfoPanel.SetCharacter(character);
         SetFocusAndDescription(null, true);
         ClearRingsUI();
-        foreach (RingSO ring in character.Rings)
+        wornTransform.gameObject.SetActive(true);
+        foreach (Ring ring in character.Rings)
+        {
             CreateRingButton(ring, wornTransform);
+        }
     }
 
     private void RingButtonClicked(RingButton ringButton)

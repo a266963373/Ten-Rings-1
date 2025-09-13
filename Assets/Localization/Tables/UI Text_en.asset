@@ -160,10 +160,20 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 5901558444680282134
+  - m_Id: 18977965653012480
+    m_Localized: '{0}: {1}'
+    m_Metadata:
+      m_Items:
+      - rid: 5901558444680282134
+  - m_Id: 18978181269598208
+    m_Localized: '{0}'
+    m_Metadata:
+      m_Items:
+      - rid: 5901558444680282134
   references:
     version: 2
     RefIds:
     - rid: 5901558444680282134
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 0050b2bcb129030000a0e8c54a650500001079f6f00d070000b08e70b35b360000b00eedb85b360000b04ed1a1c23600
+        m_Entries: 0050b2bcb129030000a0e8c54a650500001079f6f00d070000b08e70b35b360000b00eedb85b360000b04ed1a1c2360000b04ef55b6c430000b00e298e6c4300

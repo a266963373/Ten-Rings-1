@@ -1,48 +1,34 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Rings/RingSO")]
 public class RingSO : ScriptableObject
 {
-    private bool initialized = false;
-
     public int Id;
     public string Name;
     public int Power;    // for son rings' effect strength
 
-    public List<StatModifier> StatModifiers = new();
-    public List<TriggerEffect> TriggerEffects = new();
-    public List<BattleActionSO> GrantedActions = new();
 
-    protected virtual void OnEnable()
+    public Ring GetRing()
     {
-        if (initialized) return;
-        initialized = true;
+        Ring ring = new()
+        {
+            Id = Id,
+            Name = Name,
+            Power = Power,
+        };
+        InitRing(ring);
 
-        InitStatModifiers();
-        InitTriggerEffects();
-        InitGrantedActions();
+        return ring;
     }
 
-    protected virtual void InitStatModifiers() { }
-    protected virtual void InitTriggerEffects() { }
-    protected virtual void InitGrantedActions() { }
+    //protected virtual void SetStatModifiers(List<StatModifier> StatModifiers) { }
+    //protected virtual void SetTriggerEffects(List<TriggerEffect> TriggerEffects) { }
+    //protected virtual void SetGrantedActions(List<BattleActionSO> GrantedActions) { }
+    //protected virtual void SetDealDamageModifier(Func<Damage, Damage> DealDamageModifier) { }
+    //protected virtual void SetTakeDamageModifier(Func<Damage, Damage> TakeDamageModifier) { }
+    //public virtual void UpdateContext(Character character) { }
 
-    //public void AffectCharacter(Character c)
-    //{
-    //    foreach (StatModifier mod in StatModifiers)
-    //    {
-    //        c.Stats.AddModifier(mod);
-    //    }
-
-    //    foreach (TriggerEffect trigFx in TriggerEffects)
-    //    {
-    //        c.TriggerEffects[trigFx.Trigger].Add(trigFx.Effect);
-    //    }
-
-    //    foreach (BattleActionSO action in GrantedActions)
-    //    {
-    //        c.BattleActions.Add(action);
-    //    }
-    //}
+    protected virtual void InitRing(Ring ring) { }
 }

@@ -161,19 +161,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2236718600789894245, guid: fdc86dbe547b83b4394a6049cc7f1e17, type: 3}
       propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
-      value: 6614878418812928
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2236718600789894245, guid: fdc86dbe547b83b4394a6049cc7f1e17, type: 3}
       propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
-      value: GUID:6708e7ec8945c9646979429a252c91db
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4566628982215423986, guid: fdc86dbe547b83b4394a6049cc7f1e17, type: 3}
       propertyPath: m_text
-      value: Ring 1
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4566628982215423986, guid: fdc86dbe547b83b4394a6049cc7f1e17, type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566628982215423986, guid: fdc86dbe547b83b4394a6049cc7f1e17, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5505614978006595042, guid: 0a4457a97a70e384384699f2e5c30030, type: 2}
+    - target: {fileID: 4566628982215423986, guid: fdc86dbe547b83b4394a6049cc7f1e17, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7960855976408478045, guid: fdc86dbe547b83b4394a6049cc7f1e17, type: 3}
       propertyPath: m_Pivot.x

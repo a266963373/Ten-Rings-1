@@ -15,14 +15,17 @@ MonoBehaviour:
   Name: Devour
   Damage:
     Value: 20
-    Scale: 3
     Range: 0
     Form: 1
     Element: 0
     TargetType: 0
     Property: 0
+  Status: {fileID: 0}
   ManaCost: 10
   Area: 0
-  Limit: 0
+  Must: 0
   Prefer: 2
   Favorate: 4
+  IsDamage: 1
+  IsStatus: 0
+  Scale: 3

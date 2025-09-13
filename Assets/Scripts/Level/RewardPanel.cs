@@ -24,7 +24,7 @@ public class RewardPanel : MonoBehaviour
 
     private void Start()
     {
-        List<RingSO> rings = RingLibrary.I.GetRandomRings(2);
+        List<Ring> rings = RingLibrary.I.GetRandomRings(2);
         ringButton1.Ring = rings[0];
         ringButton1.OnClickAction += RingSelected;
 
@@ -79,7 +79,7 @@ public class RewardPanel : MonoBehaviour
         }
         else
         {
-            GameSystem.I.ModifyGold(BattleSession.Encounter.Gold);
+            GameSystem.I.ModifyGold(BattleSession.EncounterGold);
         }
         if (BattleSession.IsLastEncounter)
         {

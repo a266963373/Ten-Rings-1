@@ -1,7 +1,6 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using UnityEngine;
-using System; // for Action
+using UnityEngine.Localization.PropertyVariants.TrackedProperties; // for Action
 
 public class BattleAction   // it's BattleActionSO + actor and targets
 {
@@ -9,43 +8,34 @@ public class BattleAction   // it's BattleActionSO + actor and targets
     public Character Actor;
     public Character Target;
     public Damage Damage;
+    public Status Status;
+    public StatType Scale;
+    public int Power = 100; // multiply with dmg/status power
     public AreaType Area;
-    public TargetType Limit;
-    public TargetType Prefer;
     public int ManaCost;
     public bool HasExtraLog = false;
     public BattleAction RelatedAction = null;
     public bool IsDoRelatedActionInstead = false;
+    public bool IsMissed = false;
+    public bool IsCrit = false;
+    public bool IsBlocked = false;
+    public StatModifier ActorTempStatMod;
+    public bool IsDamage = true;
+    public bool IsStatus;
+
+    public float scaledValue; // store the calculated damage/status value after scaling
 
     // 新增：行动后回调（用于像吞噬这种结算后判断的效果）
-    public Action<BattleAction> AfterResolve;
+    public List<TriggerEffect> TriggerEffects = new();
 
-    public BattleAction Resolve()
+    public void Trigger(TriggerType triggerType)    // eg. for update shield value
     {
-        // actually do the action
-        if (IsDoRelatedActionInstead)
+        foreach (var te in TriggerEffects)
         {
-            return RelatedAction.Resolve();
+            if (te.Trigger == triggerType)
+            {
+                te.Effect?.Invoke(this);
+            }
         }
-
-        if (ManaCost != 0)
-        {
-            Actor.Stats.ChangeStat(StatType.MP, -ManaCost);
-        }
-
-        int scale = Actor != null ? Actor.Stats.GetStat(Damage.Scale) : 100;
-        float scaledValue = Damage.Value * scale * 0.01f;
-        Damage.Value = Mathf.RoundToInt(scaledValue);
-        Target.Stats.ChangeStat(StatType.HP, -Damage.Value);
-
-        Actor?.Trigger(TriggerType.OnAfterDealDamage, this);
-        Target?.Trigger(TriggerType.OnAfterTakeDamage, this);
-
-        BattleSystem.I.State = BattleState.ActionResolved;
-
-        // 新增：行动后回调
-        AfterResolve?.Invoke(this);
-
-        return this;
     }
 }

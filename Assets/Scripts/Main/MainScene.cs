@@ -16,7 +16,7 @@ public class MainScene : MonoBehaviour
     {
         menuPanel.SetActive(true);
         savePanel.SetActive(false);
-        ringPanel.SetActive(true);      // it will close itself
+        ringPanel.SetActive(false);
         shopPanel.SetActive(false);
         competePanel.SetActive(false);
     }

@@ -9,6 +9,11 @@ using UnityEngine.Localization.SmartFormat.PersistentVariables;
 
 public class BattleLogSystem : MonoBehaviour
 {
+    public static BattleLogSystem I;
+    private void Awake()
+    {
+        I = this;
+    }
     //[SerializeField] TextMeshProUGUI messageText;
     [SerializeField] LocalizeStringEvent localizeStringEvent;
     [SerializeField] ActionDecider actionDecider;   // OnClick related
@@ -64,9 +69,51 @@ public class BattleLogSystem : MonoBehaviour
 
     public IEnumerator ShowActionResult(BattleAction battleAction, bool isBlock = true)
     {
-        LocalizedString locString = new("Battle Log", "ShowActionResult");
+        LocalizedString locString;
         string localizedTargetName = new LocalizedString("Character Name", battleAction.Target.Name).GetLocalizedString();
-        locString.Arguments = new object[] { localizedTargetName, battleAction.Damage.Value };
+        if (battleAction.Damage.Range == DamageRange.Indirect)
+        {
+            locString = new("Battle Log", "ShowIndirectActionResult");
+            string localizedSourceName = new LocalizedString("Battle Action", battleAction.Name).GetLocalizedString();
+            locString.Arguments = new object[] { localizedTargetName, battleAction.Damage.Value, localizedSourceName };
+        }
+        else if (!battleAction.Damage.IsHealing)
+        {
+            locString = new("Battle Log", "ShowResultDamage")
+            {
+                Arguments = new object[] { localizedTargetName, battleAction.Damage.Value }
+            };
+        }
+        else
+        {
+            locString = new("Battle Log", "ShowResultHeal")
+            {
+                Arguments = new object[] { localizedTargetName, -battleAction.Damage.Value }
+            };
+        }
+        yield return ShowMessage(locString, isBlock);
+    }
+
+    public IEnumerator ShowActionCheck(BattleAction battleAction, bool isBlock = true)
+    {
+        LocalizedString locString;
+        if (battleAction.IsMissed)
+        {
+            locString = new LocalizedString("Battle Log", "ShowActionMissed");
+        }
+        else if (battleAction.IsCrit)
+        {
+            locString = new LocalizedString("Battle Log", "ShowActionCrit");
+        }
+        else if (battleAction.IsBlocked)
+        {
+            locString = new LocalizedString("Battle Log", "ShowActionBlocked");
+        }
+        else
+        {
+            yield break;
+        }
+
         yield return ShowMessage(locString, isBlock);
     }
 

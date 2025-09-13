@@ -29,7 +29,23 @@ public class SaveSystem : MonoBehaviour
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
-            return JsonUtility.FromJson<SaveData>(json);
+            var data = JsonUtility.FromJson<SaveData>(json);
+
+            // 检查并补齐 WornRingIds 长度
+            if (data.WornRingIds == null)
+            {
+                data.WornRingIds = new int[10];
+            }
+            else if (data.WornRingIds.Length < 10)
+            {
+                int[] newArr = new int[10];
+                for (int i = 0; i < data.WornRingIds.Length; i++)
+                    newArr[i] = data.WornRingIds[i];
+                // 剩余部分自动为0
+                data.WornRingIds = newArr;
+            }
+
+            return data;
         }
         return new(saveId);
     }

@@ -34,6 +34,34 @@ MonoBehaviour:
     m_Localized: Fission Slime
     m_Metadata:
       m_Items: []
+  - m_Id: 15595262173949952
+    m_Localized: King Slime
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16944861669142528
+    m_Localized: Newbie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16944981525573632
+    m_Localized: Ninja Apprentice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17052031601520640
+    m_Localized: Rich Adventurer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19808948234612736
+    m_Localized: Hunter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19809326745382912
+    m_Localized: Team
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24855976254525440
+    m_Localized: Mischief Duo
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

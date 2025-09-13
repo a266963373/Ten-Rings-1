@@ -33,10 +33,61 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 5901558492828794897
+  - m_Id: 14958831114039296
+    m_Localized: "\u4E00\u6B21\u5251\u51FB\uFF0C\u9020\u6210{Value}{Form}{Element}
+      \u4F24\u5BB3\u3002\u5176\u5A01\u529B\u7531\u529B\u91CF\u3001\u901F\u5EA6\u3001\u66B4\u51FB\u3001\u95EA\u907F\u56DB\u9879\u5C5E\u6027\u51B3\u5B9A\uFF0C\u6BCF\u9879\u536025%\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794897
+  - m_Id: 16307022837231616
+    m_Localized: "\u4E00\u6B21\u5315\u9996\u653B\u51FB\uFF0C\u9020\u6210{Value}{Form}{Element}\u4F24\u5BB3\u3002\u9AD8\u4E8E\u76EE\u6807\u95EA\u907F\u7684\u547D\u4E2D\u4F1A\u8F6C\u5316\u4E3A\u66B4\u51FB\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794897
+  - m_Id: 17500030634995712
+    m_Localized: "\u7528\u5F13\u5C04\u51FA\u4E00\u7BAD\uFF0C\u9020\u6210{Value}{Form}{Element}\u4F24\u5BB3\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794897
+  - m_Id: 17500051774287872
+    m_Localized: "\u7528\u67AA\u5C04\u51FA\u4E00\u53D1\u5B50\u5F39\uFF0C\u9020\u6210{Value}{Form}{Element}\u4F24\u5BB3\uFF0C\u8BE5\u4F24\u5BB3\u4E0D\u968F\u4EFB\u4F55\u5C5E\u6027\u6210\u957F\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794897
+  - m_Id: 19180492475985920
+    m_Localized: "\u4F60\u7ED5\u7740\u730E\u7269\u4E0D\u65AD\u6536\u7D27\u87BA\u65CB\uFF0C\u9010\u6B65\u74E6\u89E3\u5176\u9632\u5FA1\u3002\u5728\u4F60\u7684\u4E0B\u56DE\u5408\u524D\uFF0C\u6BCF\u5F53\u4F60\u7684\u901F\u5EA6\u6BD4\u76EE\u6807\u9AD81\u70B9\uFF0C\u4FBF\u4F7F\u5176\u683C\u6321\u964D\u4F4E2\u70B9\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794897
+  - m_Id: 19207497300963328
+    m_Localized: "\u72E0\u72E0\u6495\u54AC\u76EE\u6807\uFF01\u9020\u6210{Value}{Form}{Element}\u4F24\u5BB3\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794897
+  - m_Id: 19271998104793088
+    m_Localized: "\u5632\u8BBD\u5BF9\u624B\uFF0C\u4F7F\u5176\u7684\u6280\u80FD\u76EE\u6807\u5FC5\u987B\u662F\u4F60\u3002\u968F\u4F60\u7684\u7CBE\u795E\u589E\u5F3A\u3002"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23653712965181440
+    m_Localized: "\u91CA\u653E\u67D4\u548C\u8F89\u5149\uFF0C\u7597\u6108\u4F24\u53E3\uFF0C\u4E3A\u76EE\u6807\u6062\u590D{Power}\u70B9\u751F\u547D\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794897
+  - m_Id: 23692202041974784
+    m_Localized: "\u5C06\u9550\u5F3A\u529B\u51FF\u5165\u76EE\u6807\uFF0C\u9020\u6210
+      {Value}{Form}{Element} \u4F24\u5BB3\u3002\u65E0\u89C6\u6700\u9AD850%\u7684\u4F24\u5BB3\u51CF\u514D\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794897
+  - m_Id: 24202281175109632
+    m_Localized: "\u5C06\u4E00\u628A\u6C99\u5B50\u63B7\u5411\u76EE\u6807\u773C\u90E8\uFF0C\u9020\u6210{Value}{Form}{Element}\u4F24\u5BB3\u5E76\u964D\u4F4E\u5176\u547D\u4E2D\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794897
   references:
     version: 2
     RefIds:
     - rid: 5901558492828794897
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00a0e8e60000000000b0ce34b9fb2f00
+        m_Entries: 00a0e8e60000000000b0ce34b9fb2f0000b0ce46fa24350000b08e9f26ef390000b08e652f2c3e0000b08e51342c3e0000f0a5688e24440000f0a5f51d3d440000a0e836ed08540000a0a8a6ee2b5400005032b4d8fb5500

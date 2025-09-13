@@ -42,6 +42,42 @@ MonoBehaviour:
     m_Localized: Slime Servant
     m_Metadata:
       m_Items: []
+  - m_Id: 17403784486367232
+    m_Localized: Newbie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17409069632368640
+    m_Localized: Ninja Apprentice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17517942439587840
+    m_Localized: Rich Adventurer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20281019792224256
+    m_Localized: Hunter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20281021734187008
+    m_Localized: Hound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20385889736060928
+    m_Localized: Tank
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24035056644722688
+    m_Localized: Archer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24035855101792256
+    m_Localized: Priest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25321189902798848
+    m_Localized: Mischief Boy
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

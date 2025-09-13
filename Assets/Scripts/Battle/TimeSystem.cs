@@ -37,9 +37,9 @@ public class TimeSystem : MonoBehaviour
                 if (c.ActionGauge >= actionThreshold)
                 {
                     c.ActionGauge = 0;
-                    OnGaugeFull?.Invoke(c);
+                    BattleSystem.I.LogCount++;
                     BattleSystem.I.State = BattleState.AwaitForAction;
-                    BattleSystem.I.IsLogging = true;
+                    OnGaugeFull?.Invoke(c);
 
                     // 下次从下一个角色开始
                     currentIndex++;

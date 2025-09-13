@@ -43,16 +43,100 @@ MonoBehaviour:
     m_Key: Speed Ring
     m_Metadata:
       m_Items: []
-  - m_Id: 6614878418812928
-    m_Key: empty
-    m_Metadata:
-      m_Items: []
   - m_Id: 6618344956542976
     m_Key: Fission Ring
     m_Metadata:
       m_Items: []
   - m_Id: 13575451201941504
     m_Key: Devour Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15007069858869248
+    m_Key: Sword Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16343321040302080
+    m_Key: Beginner's Luck
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16357154580508672
+    m_Key: Dagger Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16367914975145984
+    m_Key: Accuracy Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16367952455446528
+    m_Key: Evasion Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16367978757926912
+    m_Key: Critical Hit Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16368012824064000
+    m_Key: Block Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16370925659140096
+    m_Key: Raise the Stakes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16407193919074304
+    m_Key: Armor Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16407238399668224
+    m_Key: Shield Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17551489200205824
+    m_Key: Bow Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17551553826041856
+    m_Key: Gun Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17569220012191744
+    m_Key: Frontline Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17569221316620288
+    m_Key: Backline Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19230256211030016
+    m_Key: Predator Spiral Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19230261420355584
+    m_Key: Savage Bite RIng
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19322921996906496
+    m_Key: Taunt Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23006387948163072
+    m_Key: Staff Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23704058815094784
+    m_Key: Healing Light Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23743739460100096
+    m_Key: Pickaxe Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23974115160510464
+    m_Key: Hammer Tempered
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23974226796105728
+    m_Key: Sand Toss Ring
     m_Metadata:
       m_Items: []
   m_Metadata:

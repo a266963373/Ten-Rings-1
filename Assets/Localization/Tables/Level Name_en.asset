@@ -26,6 +26,10 @@ MonoBehaviour:
     m_Localized: Camp
     m_Metadata:
       m_Items: []
+  - m_Id: 818058014720
+    m_Localized: Cave
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

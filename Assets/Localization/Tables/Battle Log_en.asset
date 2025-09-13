@@ -38,10 +38,31 @@ MonoBehaviour:
     m_Localized: ' '
     m_Metadata:
       m_Items: []
+  - m_Id: 16773880560398336
+    m_Localized: It missed!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16773989566164992
+    m_Localized: Critical hit!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16774052782714880
+    m_Localized: It got blocked!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16776842166841344
+    m_Localized: '{0} takes {1} damage due to {2}.'
+    m_Metadata:
+      m_Items:
+      - rid: 5901558444680282116
+  - m_Id: 24410128323747840
+    m_Localized: '{0} healed for {1}. '
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
     - rid: 5901558444680282116
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 005032cc0b0000000050726a4200000000503284fb0c0000
+        m_Entries: 005032cc0b0000000050726a4200000000503284fb0c000000b0cef5729a3b00

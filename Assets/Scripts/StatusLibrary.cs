@@ -35,12 +35,13 @@ public class StatusLibrary : MonoBehaviour
     /// <summary>
     /// 获取指定名称的 status 副本，可安全修改
     /// </summary>
-    public StatusSO GetStatusByName(string name)
+    public Status GetStatusByName(Character applier, Character bearer, string name)
     {
         if (statusTemplates.TryGetValue(name, out var template))
         {
             // 返回副本，避免直接修改原始模板
-            return Instantiate(template);
+            Status status = template.GetStatus(applier, bearer);
+            return status;
         }
         return null;
     }

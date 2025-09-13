@@ -12,6 +12,10 @@ public class CharacterInfoPanel : MonoBehaviour     // not showing rings, that i
     [SerializeField] LocalizeStringEvent strengthLSE;
     [SerializeField] LocalizeStringEvent mindLSE;
     [SerializeField] LocalizeStringEvent speedLSE;
+    [SerializeField] LocalizeStringEvent accuracyLSE;
+    [SerializeField] LocalizeStringEvent evasionLSE;
+    [SerializeField] LocalizeStringEvent criticalHitLSE;
+    [SerializeField] LocalizeStringEvent blockLSE;
 
     public void SetCharacter(Character c)
     {
@@ -19,11 +23,23 @@ public class CharacterInfoPanel : MonoBehaviour     // not showing rings, that i
 
         strengthLSE.StringReference.SetReference("Stat", "Strength");
         strengthLSE.StringReference.Arguments = new object[] { c.Stats.GetStat(StatType.STR) };
+
         mindLSE.StringReference.SetReference("Stat", "Mind");
         mindLSE.StringReference.Arguments = new object[] { c.Stats.GetStat(StatType.MND) };
+
         speedLSE.StringReference.SetReference("Stat", "Speed");
         speedLSE.StringReference.Arguments = new object[] { c.Stats.GetStat(StatType.SPD) };
 
-    }
+        accuracyLSE.StringReference.SetReference("Stat", "Accuracy");
+        accuracyLSE.StringReference.Arguments = new object[] { c.Stats.GetStat(StatType.ACC) };
 
+        evasionLSE.StringReference.SetReference("Stat", "Evasion");
+        evasionLSE.StringReference.Arguments = new object[] { c.Stats.GetStat(StatType.EVS) };
+
+        criticalHitLSE.StringReference.SetReference("Stat", "Critical Hit");
+        criticalHitLSE.StringReference.Arguments = new object[] { c.Stats.GetStat(StatType.CRT) };
+
+        blockLSE.StringReference.SetReference("Stat", "Block");
+        blockLSE.StringReference.Arguments = new object[] { c.Stats.GetStat(StatType.BLK) };
+    }
 }

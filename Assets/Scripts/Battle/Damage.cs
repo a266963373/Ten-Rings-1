@@ -12,7 +12,8 @@ public enum DamageForm
 {
     Sharp,   // 锐利
     Blunt,   // 钝打
-    Thermal  // 温度（泛指火热或寒冷）
+    Thermal,  // 温度（泛指火热或寒冷）
+    Radiant, // 辐射
 }
 
 public enum DamageElement
@@ -21,8 +22,12 @@ public enum DamageElement
     Fire,
     Water,
     Grass,
+    Earth,
+    Electric,
     Poison,
-    Iron,
+    Metal,
+    Light,
+    Dark,
 }
 
 public enum DamageTargetType
@@ -41,8 +46,10 @@ public enum DamageProperty
 public class Damage
 {
     public int Value = 0;
+    public int Reduction = 0;   // reduce damage
+    public int Shield = 0;  // reduce "reduction"
 
-    public StatType Scale = StatType.MND;
+    //public StatType Scale = StatType.MND;
     public DamageRange Range = DamageRange.Ranged;
     public DamageForm Form = DamageForm.Blunt;
     public DamageElement Element = DamageElement.Bio;
@@ -50,11 +57,12 @@ public class Damage
     public DamageProperty Property = DamageProperty.HP;
 
     public Damage() { }
+    public bool IsHealing => Value < 0;
 
     public Damage(Damage other)
     {
         Value = other.Value;
-        Scale = other.Scale;
+        //Scale = other.Scale;
         Range = other.Range;
         Form = other.Form;
         Element = other.Element;
@@ -65,5 +73,9 @@ public class Damage
     public override string ToString()
     {
         return $"{Value} {Range} {Form} {Element}";
+    }
+    public void FinalizeValue()
+    {
+        Value = Value - Mathf.Max(0, Reduction - Shield);
     }
 }

@@ -36,17 +36,17 @@ public class RingLibrary : MonoBehaviour
     /// <summary>
     /// 获取指定 ID 的 ring 副本，可安全修改
     /// </summary>
-    public RingSO GetRingById(int id)
+    public Ring GetRingById(int id)
     {
         if (id == 0) return null; // 0 ID 通常表示无戒指
         if (ringTemplates.TryGetValue(id, out var template))
-            return ScriptableObject.Instantiate(template); // 返回副本
+            return template.GetRing(); // 返回副本
 
         Debug.LogWarning($"Ring with id {id} not found.");
         return null;
     }
 
-    public List<RingSO> GetRandomRings(int count, int minId = int.MinValue, int maxId = int.MaxValue, List<int> idBlacklist = null, 
+    public List<Ring> GetRandomRings(int count, int minId = int.MinValue, int maxId = int.MaxValue, List<int> idBlacklist = null, 
         bool isSkillRing = false)
     {
         List<int> validIds = new();
@@ -78,7 +78,7 @@ public class RingLibrary : MonoBehaviour
             (validIds[i], validIds[j]) = (validIds[j], validIds[i]);
         }
 
-        List<RingSO> results = new();
+        List<Ring> results = new();
         for (int i = 0; i < count; i++)
         {
             results.Add(GetRingById(validIds[i]));

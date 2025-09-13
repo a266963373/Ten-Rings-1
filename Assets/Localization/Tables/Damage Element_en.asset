@@ -34,6 +34,18 @@ MonoBehaviour:
     m_Localized: Grass
     m_Metadata:
       m_Items: []
+  - m_Id: 16084835001872384
+    m_Localized: Metal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24216021622738944
+    m_Localized: Earth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24216043231793152
+    m_Localized: Electric
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

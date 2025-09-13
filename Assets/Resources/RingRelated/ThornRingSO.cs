@@ -3,13 +3,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Rings/ThornRingSO")]
 public class ThornRingSO : RingSO
 {
-    protected override void InitTriggerEffects()
+    protected override void InitRing(Ring ring)
     {
-        TriggerEffect trigFx = new(
-            trigger: TriggerType.OnAfterTakeDamage,
-            effect: Effect
-            );
-        TriggerEffects.Add(trigFx);
+        TriggerEffect trigFx = new()
+        {
+            Trigger = TriggerType.OnAfterTakeDamage,
+            Effect = Effect
+        };
+        ring.TriggerEffects.Add(trigFx);
     }
 
     private void Effect(BattleAction context)
@@ -19,17 +20,16 @@ public class ThornRingSO : RingSO
         Damage damage = new()
         {
             Value = Power,
-            Scale = StatType.NON,
             Range = DamageRange.Indirect,
             Element = DamageElement.Grass
         };
         BattleAction inflictDamageAction = new()
         {
-            Name = "Inflict Damage",
+            Name = "Thorn",
             Actor = null,
             Target = attacker,
             Damage = damage,
         };
-        inflictDamageAction.Resolve();
+        ActionResolver.I.Resolve(inflictDamageAction, true);
     }
 }

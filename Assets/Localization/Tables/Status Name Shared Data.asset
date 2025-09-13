@@ -19,6 +19,22 @@ MonoBehaviour:
     m_Key: Poisoned
     m_Metadata:
       m_Items: []
+  - m_Id: 14264889766752256
+    m_Key: Defending
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16650276738297856
+    m_Key: Chased
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16688181699538944
+    m_Key: Taunted
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21684253673803776
+    m_Key: Sand In Eyes
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -67,6 +67,6 @@ public class CharacterBattlePanel : MonoBehaviour
 
     public void OnClick()
     {
-        actionResolver.OnPanelClick(character);
+        actionResolver.SelectTarget(character);
     }
 }

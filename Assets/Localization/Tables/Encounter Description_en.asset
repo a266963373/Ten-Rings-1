@@ -42,6 +42,26 @@ MonoBehaviour:
     m_Localized: He just learned how to swing a sword......
     m_Metadata:
       m_Items: []
+  - m_Id: 16942725191348224
+    m_Localized: A ninja who trained his basics well.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17052557642739712
+    m_Localized: In one sense he is well prepared.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19810632591601664
+    m_Localized: They are happy to have a training match with you.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19810425896300544
+    m_Localized: When you walk to him, he is still patting his dog.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24857606169448448
+    m_Localized: 'They were also playing before they invited you. '
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

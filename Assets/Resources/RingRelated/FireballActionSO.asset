@@ -15,13 +15,17 @@ MonoBehaviour:
   Name: Fireball
   Damage:
     Value: 50
-    Scale: 4
     Range: 1
     Form: 2
     Element: 1
     TargetType: 0
     Property: 0
-  ManaCost: 20
+  Status: {fileID: 0}
+  ManaCost: 50
   Area: 0
-  Limit: 0
+  Must: 0
   Prefer: 2
+  Favorate: 0
+  IsDamage: 1
+  IsStatus: 0
+  Scale: 4

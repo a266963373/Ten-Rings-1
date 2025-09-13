@@ -11,9 +11,9 @@ public class CharacterSO : ScriptableObject
     public int[] RingIds = new int[10];
 
     public virtual CharacterStats GetStats() {  return new(StatEntries); }
-    public virtual RingSO[] GetRings()
+    public virtual Ring[] GetRings()
     {
-        RingSO[] result = new RingSO[10];
+        Ring[] result = new Ring[10];
         for (int i = 0; i < result.Length; i++)
         {
             if (i < RingIds.Length)

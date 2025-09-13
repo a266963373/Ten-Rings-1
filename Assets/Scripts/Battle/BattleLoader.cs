@@ -19,6 +19,7 @@ public class BattleLoader : MonoBehaviour
     public Character Player;
     public List<Character> Allies = new();
     public List<Character> Enemies = new(); // 支持多个敌人
+    public List<Character> Deads = new();
 
     private void Awake()
     {
@@ -70,11 +71,13 @@ public class BattleLoader : MonoBehaviour
         {
             Allies.Add(character);
             spawnSpot = playerSpot;
+            character.Allies = Allies;
         }
         else
         {
             Enemies.Add(character);
             spawnSpot = enemySpot;
+            character.Allies = Enemies;
         }
         CharacterBattlePanel characterBattlePanel = Instantiate(templateBattlePanel, spawnSpot).GetComponent<CharacterBattlePanel>();
         characterBattlePanel.Character = character;
@@ -90,6 +93,7 @@ public class BattleLoader : MonoBehaviour
             Allies.Remove(character);
         else
             Enemies.Remove(character);
+        Deads.Add(character);
 
         // 2. 销毁对应的面板
         Transform parent = character.IsPlayerSide ? playerSpot : enemySpot;

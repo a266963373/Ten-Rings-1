@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   localizeStringEvent: {fileID: 8403483508828392441}
+  button: {fileID: 1001655570632999451}
 --- !u!1001 &7752172759056576412
 PrefabInstance:
   m_ObjectHideFlags: 0

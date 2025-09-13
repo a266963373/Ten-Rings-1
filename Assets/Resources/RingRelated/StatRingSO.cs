@@ -4,9 +4,9 @@ using UnityEngine;
 public class StatRingSO : RingSO
 {
     public StatType StatType = StatType.STR;
-    protected override void InitStatModifiers()
+    protected override void InitRing(Ring ring)
     {
-        StatModifiers.Add(new()
+        ring.StatModifiers.Add(new()
         {
             StatType = StatType,
             Value = Power,

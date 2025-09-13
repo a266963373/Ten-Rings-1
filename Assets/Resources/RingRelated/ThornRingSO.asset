@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 2
   Name: Thorn Ring
-  Power: 5
+  Power: 10
+  IsDynamic: 0
   GrantedActions: []

@@ -64,10 +64,119 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 5901558492828794900
+  - m_Id: 14975008838168576
+    m_Localized: It summons a sword into your hand, embodying balance.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16311391087407104
+    m_Localized: Fortune smiles upon the untried. Every empty ring slot grants you
+      {Power} critical hit and evasion.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794900
+  - m_Id: 16324970045943808
+    m_Localized: It summons a dagger into your hand, embodying deadliness.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16333934615769088
+    m_Localized: Your gaze becomes clear. Gain {Power} Accuracy.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794900
+  - m_Id: 16334937016676352
+    m_Localized: Your steps grow lighter. Gain {Power} Evasion.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794900
+  - m_Id: 16335291418587136
+    m_Localized: Your hand grows steadier. Gain {Power} Critical Hit.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794900
+  - m_Id: 16335323093970944
+    m_Localized: Your guard hardens. Gain {Power} Block.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794900
+  - m_Id: 16338478468870144
+    m_Localized: The wager grows riskier. At the end of battle, money gained or lost
+      is increased by {Power}%.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794900
+  - m_Id: 16373856353562624
+    m_Localized: It summons an armor upon your body. Reduces {Power} Blunt damage,
+      and reduces double that amount against Sharp damage.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794900
+  - m_Id: 16374985858658304
+    m_Localized: It summons a shield in your hand. When you block, reduce damage
+      again by {Power}.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794900
+  - m_Id: 17519281047515136
+    m_Localized: It summons a gun into your hand. Modern in form, yet no stronger
+      than any other ring's gift.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17519276920320000
+    m_Localized: It summons a bow into your hands. Distance is the promise of hunters'
+      safety.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17536989403197440
+    m_Localized: Whoever stands in the front gets hit first. When there is any other
+      frontline ally, the direct damage you take is {Power} % less effective.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794900
+  - m_Id: 17536988161683456
+    m_Localized: The closer you get, the more accurate. Gain +{Power} ACC on your
+      melee actions.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794900
+  - m_Id: 19198036524003328
+    m_Localized: You've learned how to force enemies to reveal flaws in their frantic
+      escape.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19226502078263296
+    m_Localized: Tooth is the hardest substance in human body. Why not use it to
+      fight?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19290622710378496
+    m_Localized: A sudden urge compels you to mock your foes.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22974090926559232
+    m_Localized: Summons a staff into your hand. Actions scaling with Mind are {Power}%
+      more effective. Can also be used to bash enemies.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794900
+  - m_Id: 23710886634496000
+    m_Localized: 'Summons a pickaxe into your hand. Great for mining ores, or breaking
+      armors. '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23941880600481792
+    m_Localized: 'Apply to the next equipped action: After each use, that action''s
+      power increases by {Power}%.'
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794900
+  - m_Id: 24234634882732032
+    m_Localized: 'It teaches you the best angle to toss sand. '
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
     - rid: 5901558492828794900
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00e0a3f307000000001039481a14010000c0a2f4e864170000b0ce020e2d3000
+        m_Entries: 00e0a3f307000000001039481a14010000c0a2f4e864170000b0ce020e2d300000b08eaf1ff3390000b08e82a0073a0000b04ee689083a0000b04e6adc083a0000b04ecae3083a0000b08e83ef2b3a0000b04e75c20b3a0000b04e7ff62c3a0000b0ce87cc4d3e0000b0ce3dcc4d3e0000507278030f55000010b760d09e5100

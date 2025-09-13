@@ -15,6 +15,7 @@ MonoBehaviour:
   Id: 1
   Name: Grassfield
   BackgroundImage: {fileID: 21300000, guid: 700066ab2465563488b29cbebef91123, type: 3}
+  BattleImage: {fileID: 21300000, guid: 715c1b38ddea4714b924c4d83511c1ca, type: 3}
   Encounters:
   - {fileID: 11400000, guid: 702de479a4811a04fae39dfa57af1d11, type: 2}
   - {fileID: 11400000, guid: 87479c915d403944ea593d378b7c4f20, type: 2}

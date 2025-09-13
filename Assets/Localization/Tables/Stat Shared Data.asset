@@ -27,6 +27,22 @@ MonoBehaviour:
     m_Key: Speed
     m_Metadata:
       m_Items: []
+  - m_Id: 15554890580275200
+    m_Key: Accuracy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15555085376335872
+    m_Key: Evasion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15555147514949632
+    m_Key: Critical Hit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15555202477109248
+    m_Key: Block
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

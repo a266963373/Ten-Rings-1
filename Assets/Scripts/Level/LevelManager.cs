@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager I { get; private set; }
+    [SerializeField] Image backgroundImage;
     [SerializeField] EncounterPanel encounterPanel;
     [SerializeField] RewardPanel rewardPanel;
     [SerializeField] RingPanel ringPanel;
@@ -30,6 +32,14 @@ public class LevelManager : MonoBehaviour
     {
         run = GameSystem.I.Run;
         level = run.Level;
+        if (level == null)
+        {
+            level = Resources.Load<LevelSO>("ScriptableObjects/Levels/Level01");
+        }
+        backgroundImage.sprite = level.BackgroundImage;
+
+        // enter battle from level is not Debug
+        BattleSession.IsDebug = false;
 
         rewardPanel.OnClaimReward += RewardClaimed;
         BattleSession.IsLastEncounter = run.EncounterIndex == level.Encounters.Count - 1;
@@ -38,6 +48,7 @@ public class LevelManager : MonoBehaviour
         {
             GameSystem.I.Run.WornRingIds = GameSystem.I.CurrentSave.WornRingIds.ToArray();
             GameSystem.I.Run.StoredRingIds.Clear();
+            BattleSession.BackgroundImage = level.BattleImage;
         }
 
         switch (BattleSession.Result)
@@ -67,6 +78,7 @@ public class LevelManager : MonoBehaviour
 
     private void ShowReward()
     {
+        GameSystem.I.ModifyGold(BattleSession.EncounterGold);
         rewardPanel.gameObject.SetActive(true);
     }
 
@@ -84,7 +96,6 @@ public class LevelManager : MonoBehaviour
         {
             ShowEncounter();
         }
-
     }
 
     public void ShowRingPanel()

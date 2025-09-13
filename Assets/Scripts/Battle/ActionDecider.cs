@@ -1,8 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class ActionDecider : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ActionDecider : MonoBehaviour
     [SerializeField] ActionResolver actionResolver;
     [SerializeField] Transform focusImage;
     private List<Character> characters => BattleSystem.I.Characters;
+    private Character currentCharacter;
 
     private void Awake()
     {
@@ -21,6 +23,7 @@ public class ActionDecider : MonoBehaviour
 
     public void Decide(Character actor)
     {
+        currentCharacter = actor;
         if (actor.IsPlayerControlled)
         {
             PlayerDecide(actor);
@@ -41,11 +44,17 @@ public class ActionDecider : MonoBehaviour
             Destroy(child.gameObject);
         }
 
+        int currentMp = actor.Stats.GetStat(StatType.MP);
+
         foreach (BattleActionSO battleAction in actor.BattleActions)
         {
             ActionButton newActionButton = Instantiate(actionButton, actionPanelContent);
             newActionButton.OnClickAction += ActionButtonOnClick;
             newActionButton.Initialize(battleAction);
+
+            // 设置按钮可用性
+            bool canAfford = battleAction.ManaCost <= currentMp;
+            newActionButton.SetInteractable(canAfford);
         }
         actionPanel.SetActive(true);
     }
@@ -57,7 +66,7 @@ public class ActionDecider : MonoBehaviour
 
         // 1. 获取可支付的技能
         int currentMp = actor.Stats.GetStat(StatType.MP);
-        var affordableActions = actor.BattleActions
+        List<BattleActionSO> affordableActions = actor.BattleActions
             .Where(a => a.ManaCost <= currentMp)
             .ToList();
 
@@ -72,11 +81,17 @@ public class ActionDecider : MonoBehaviour
             }
         }
 
+
         if (chosenTarget == null)
         {
-            // if no favorate action, randomly choose one
-            chosenAction = affordableActions.Count > 0
-                ? affordableActions[UnityEngine.Random.Range(0, affordableActions.Count)]
+            // if no favorate action, randomly choose one except the first two (basic attack and defend); 
+            // get rid of favorate actions
+            affordableActions = affordableActions
+                .Where(a => a.Favorate == TargetType.None)
+                .ToList();
+            // if not enough actions, use the first one (usually basic attack)
+            chosenAction = affordableActions.Count > 2
+                ? affordableActions[UnityEngine.Random.Range(2, affordableActions.Count)]
                 : actor.BattleActions[0];
 
             chosenTarget = FindChosenTarget(actor, chosenAction, chosenAction.Prefer);
@@ -110,6 +125,16 @@ public class ActionDecider : MonoBehaviour
             case TargetType.Killable:
                 chosenTarget = FindKillableTarget(actor, action, candidates);
                 break;
+            case TargetType.WithoutMyStatus:
+                if (action.Status.IsBuff)
+                    chosenTarget = candidates.Where(c => c.IsPlayerSide == actor.IsPlayerSide
+                    && !c.Statuses.Any(s => s.Id == action.Status.Id))
+                        .FirstOrDefault();
+                else
+                    chosenTarget = candidates.Where(c => c.IsPlayerSide != actor.IsPlayerSide
+                    && !c.Statuses.Any(s => s.Id == action.Status.Id))
+                        .FirstOrDefault();
+                break;
             case TargetType.Enemy:
                 var enemies = candidates.Where(c => c.IsPlayerSide).ToList();
                 if (enemies.Count > 0)
@@ -127,7 +152,7 @@ public class ActionDecider : MonoBehaviour
                 if (candidates.Count > 0)
                     chosenTarget = candidates[UnityEngine.Random.Range(0, candidates.Count)];
                 break;
-        }
+            }
         return chosenTarget;
     }
 
@@ -138,6 +163,15 @@ public class ActionDecider : MonoBehaviour
         focusImage.SetParent(t, false);
         focusImage.SetSiblingIndex(0);
         focusImage.gameObject.SetActive(true);
+
+        if (b.Must == TargetType.Self)
+        {   // this won't be taunted
+            actionResolver.SelectTarget(currentCharacter);
+        }
+        else if (currentCharacter.TauntedApplier != null)
+        {
+            actionResolver.SelectTarget(currentCharacter.TauntedApplier);
+        }
     }
 
     public void RemoveFocusAction()
@@ -154,7 +188,7 @@ public class ActionDecider : MonoBehaviour
         {
             if (target == null || target.IsDead || target == actor) continue;
             var action = actionSO.GetAction(actor, target);
-            int scale = actor.Stats.GetStat(action.Damage.Scale);
+            int scale = actor.Stats.GetStat(action.Scale);
             int damage = Mathf.RoundToInt(action.Damage.Value * scale * 0.01f);
             if (target.Stats.GetStat(StatType.HP) <= damage)
             {

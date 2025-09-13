@@ -1,9 +1,15 @@
 using System;
 public enum TriggerType
 {
+    OnBeforeAction,
+    OnBeforeTakeDamage,
+    OnBeforeDealDamage,
     OnAfterTakeDamage,
     OnAfterDealDamage,
     OnAfterDeath,
+    OnBlocking,
+
+    OnAfterResolve,
 }
 
 public enum TimingType
@@ -16,10 +22,4 @@ public class TriggerEffect
 {
     public TriggerType Trigger;
     public Action<BattleAction> Effect;
-
-    public TriggerEffect (TriggerType trigger, Action<BattleAction> effect)
-    {
-        Trigger = trigger;
-        Effect = effect;
-    }
 }
