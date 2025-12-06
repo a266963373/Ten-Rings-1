@@ -20,8 +20,7 @@ MonoBehaviour:
     - rid: 1998738010735116296
   m_TableData:
   - m_Id: 8961519616
-    m_Localized: First stack deals {Power} Bio damage; each additional stack deals
-      1 less, up to 50 total. Decay with Max Health.
+    m_Localized: 'Each round takes {Value} Poison damage, capped at 50. '
     m_Metadata:
       m_Items:
       - rid: 1998738010735116296
@@ -32,7 +31,7 @@ MonoBehaviour:
       - rid: 1998738010735116296
   - m_Id: 886208589824
     m_Localized: Each point of the applier's Speed above the bearer reduces the bearer's
-      Speed by {Power}.
+      Block by {Power}.
     m_Metadata:
       m_Items:
       - rid: 1998738010735116296
@@ -41,7 +40,77 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5005393918054400
-    m_Localized: 'Reduce Accuracy from {Power} to 50. '
+    m_Localized: Reduce {Value} Accuracy.
+    m_Metadata:
+      m_Items:
+      - rid: 1998738010735116296
+  - m_Id: 5789155484389376
+    m_Localized: Takes Fire damage -{Value}, Electic and Ice damage +{Value}.
+    m_Metadata:
+      m_Items:
+      - rid: 1998738010735116296
+  - m_Id: 5884247608020992
+    m_Localized: Evasion -{Value}, Melee action Accuracy -{Value}.
+    m_Metadata:
+      m_Items:
+      - rid: 1998738010735116296
+  - m_Id: 6101176885071872
+    m_Localized: 'Each round takes {Value} Fire damage, capped at 50. '
+    m_Metadata:
+      m_Items:
+      - rid: 1998738010735116296
+  - m_Id: 6595601302179840
+    m_Localized: Strength +{Value}, Mind -{Value}.
+    m_Metadata:
+      m_Items:
+      - rid: 1998738010735116296
+  - m_Id: 10087364159340544
+    m_Localized: Burning never goes below 1, and melee contact inflicts the current
+      Burn stacks on the target.
+    m_Metadata:
+      m_Items:
+      - rid: 1998738010735116296
+  - m_Id: 21354146466336768
+    m_Localized: Chased by a lump of fire, this target get {Power} Burning each turn.
+    m_Metadata:
+      m_Items:
+      - rid: 1998738010735116296
+  - m_Id: 22459278268534784
+    m_Localized: Speed -{Value}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22592854746173440
+    m_Localized: On take Fire or Ice damage, it converts to Burning or Frozen.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24211041728303104
+    m_Localized: Melee and Ranged damage taken is divided by {Power}. This is twice
+      effective towards Fire damage.
+    m_Metadata:
+      m_Items:
+      - rid: 1998738010735116296
+  - m_Id: 24212234479308800
+    m_Localized: Speed -{Power}. Each turn takes {Power2} Water Internal damage.
+    m_Metadata:
+      m_Items:
+      - rid: 1998738010735116296
+  - m_Id: 24230684559904768
+    m_Localized: Accuracy -{Value}. Your attacker -{Value} Critical Hit.
+    m_Metadata:
+      m_Items:
+      - rid: 1998738010735116296
+  - m_Id: 24689865221967872
+    m_Localized: Heal {Value} HP each turn.
+    m_Metadata:
+      m_Items:
+      - rid: 1998738010735116296
+  - m_Id: 24944213110882304
+    m_Localized: HP regeneration -{Power}, MP regeneration -{Power2}.
+    m_Metadata:
+      m_Items:
+      - rid: 1998738010735116296
+  - m_Id: 31294613976133632
+    m_Localized: Enemy CRT -{Value} when targeting this character.
     m_Metadata:
       m_Items:
       - rid: 1998738010735116296
@@ -51,4 +120,4 @@ MonoBehaviour:
     - rid: 1998738010735116296
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00f025160200000000f02546bf00000000f02556ce0000000050721661c81100
+        m_Entries: 00f025160200000000f02546bf00000000f02556ce0000000050721661c81100005032cc3491140000507228b1e714000050f2f0fcac15000050b218aa6e17000000707d67d6230000909baa7bdd4b000090db6dd003560000905b23e60456000090dbe1ad15560000901b364db757000000ad31a19e580000306e1d492e6f00

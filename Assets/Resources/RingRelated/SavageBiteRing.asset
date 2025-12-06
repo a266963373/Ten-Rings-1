@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: SavageBiteRing
   m_EditorClassIdentifier: 
   Id: 25
-  Name: Savage Bite RIng
+  Name: Savage Bite Ring
   Power: 0
+  Type: 0
   GrantedActions:
   - {fileID: 11400000, guid: 7d220cfb23966c0448dd1b730310a28c, type: 2}
+  level: 1
+  Element: 0

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d36ee8f4fb74eb649b77449f270b7aee, type: 3}
+  m_Name: BipolarSprayActionSO
+  m_EditorClassIdentifier: 
+  Name: Bipolar Spray
+  Damage:
+    Value: 0
+    Reduction: 0
+    Shield: 0
+    Power: 100
+    Form: 1
+    Element: 0
+    Property: 0
+  Statuses:
+  - {fileID: 11400000, guid: ec7989716d9a49c4394c25427752a0ca, type: 2}
+  StatusStacks: 03000000
+  Power: 100
+  RecoveryTime: 100
+  ManaCost: 30
+  Range: 1
+  Area: 0
+  Must: 0
+  Prefer: 2
+  Favorate: 0
+  IsDamage: 0
+  Scale: 4
+  FollowUpAction: {fileID: 0}

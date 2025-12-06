@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ca71393d2d794442b1596ccb1e9df84, type: 3}
+  m_Script: {fileID: 11500000, guid: 8dadec3e2d4750c40b34132cdda8e6f0, type: 3}
   m_Name: GunRingSO
   m_EditorClassIdentifier: 
   Id: 21
   Name: Gun Ring
   Power: 0
-  IsDynamic: 0
   GrantedActions:
   - {fileID: 11400000, guid: 92a78df38d1bfc3419c8a027a55639be, type: 2}

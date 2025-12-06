@@ -9,9 +9,9 @@ public class OmniLectureActionSO : BattleActionSO
         baseAction.HasExtraLog = true;
         baseAction.RelatedAction = RingLibrary.I.GetRandomRings(1, idBlacklist: new(){4}, isSkillRing: true)
             [0].GrantedActions[0].GetAction(actor, target);
-        baseAction.RelatedAction.ManaCost = baseAction.ManaCost;
+        //baseAction.RelatedAction.ManaCost = baseAction.ManaCost;
+        baseAction.RelatedAction.ManaCost = 0;
         baseAction.IsDoRelatedActionInstead = true;
         return baseAction;
     }
-
 }

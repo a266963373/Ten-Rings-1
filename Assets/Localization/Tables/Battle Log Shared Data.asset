@@ -55,6 +55,18 @@ MonoBehaviour:
     m_Key: ShowResultHeal
     m_Metadata:
       m_Items: []
+  - m_Id: 25463393602392064
+    m_Key: ShowActivateWeapon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25463420987002880
+    m_Key: ShowSelfAction
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44544647923208192
+    m_Key: ShowCeaseAction
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -125,6 +125,30 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0f593079e9e170418786877a7bb9585
+    m_Address: Misc_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f595e858d2bbbf43842e3375123883c
+    m_Address: Stat Type_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: af307f10611d3344d971cb472bae5da8
+    m_Address: Field_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d781223609ed9b4b8295f56111e2075
+    m_Address: Field Description_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: ec387e5b6fe2306429a37e909a4e5bf5, type: 2}
   m_SchemaSet:

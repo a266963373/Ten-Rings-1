@@ -92,10 +92,151 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 5901558492828794898
+  - m_Id: 24797778587832320
+    m_Localized: Form a sphere of water and hurl it at the target, dealing {Value}
+      {Form} {Element} damage and inflicting {Stack} Wet.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
+  - m_Id: 25098107170738176
+    m_Localized: Cause vines to grow and bind the target's feet, applying {Stack}
+      Entangled and hindering their movement.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
+  - m_Id: 25748090832179200
+    m_Localized: Rub your burning hands across the target's body, inflicting {Stack}
+      Burning, but scorch yourself for 5 Fire damage.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
+  - m_Id: 25802395836633088
+    m_Localized: Turn fire into wrath, provoking the target's inner mind and inflicting
+      {Stack} layers of Anger.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
+  - m_Id: 26156638284173312
+    m_Localized: Raise a wall of fire between you and enemies for {Duration} turns.
+      Any unit passing through it takes Fire damage.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
+  - m_Id: 26466067810504704
+    m_Localized: Emit a continous blazing ray to the target, dealing {Value} {Form}
+      {Element} damage for 5 times.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
+  - m_Id: 27821305943445504
+    m_Localized: Enshroud yourself in unending flame. Your Burning never falls below
+      1, and melee contact inflicts your current Burn stacks on the target.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29424932650745856
+    m_Localized: Unleash a cataclysmic blast, scorching all enemies with {Value}
+      {Form} {Element} damage.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
+  - m_Id: 29441117383557120
+    m_Localized: Steadily intone mystical words, restoring 30% of your max mana.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40566345692844032
+    m_Localized: Become fire to chase the targte, inflicting {Stack} Burning each
+      turn.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
+  - m_Id: 40567723123249152
+    m_Localized: Summon a huge lump of fire that chases enemies and explodes on death.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41322344498302976
+    m_Localized: Reduce {Stack} stacks to one stackable debuff of the target. If
+      not, heal {Value} their HP or MP, whichever has the lower percentage.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
+  - m_Id: 41804186095685632
+    m_Localized: Spray a volatile solution onto the target, making them easier to
+      burn or freeze.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43441774086819840
+    m_Localized: Holding the target in a gigantic water sphere to constrain their
+      movement and suffocate, but take less direct damage.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43441771670900736
+    m_Localized: Draw the underground water upward for {Duration} turns, so earth
+      holds water and water softens earth. Water and Earth actions cost less mana.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
+  - m_Id: 43441751135588352
+    m_Localized: Command the water to rise and fall to many, dealing {Value} {Form}
+      {Element} damage and inflicting {Stack} Wet.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
+  - m_Id: 43441750200258560
+    m_Localized: Form the water as a shield to protect you, halving direct damage
+      towards you.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43441723289604096
+    m_Localized: Apply {Stack} stacks of Crying to the target, blurring their vision
+      and softening enemy's heart against them.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
+  - m_Id: 43441749155876864
+    m_Localized: Kindly ask the sky to rain for {Duration} turns.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
+  - m_Id: 43890647062253568
+    m_Localized: Grow a huge watermelon and toss it at the enemy to deal {Value}
+      {Element} {Form} damage, or let an ally eat it to heal {Value} HP.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
+  - m_Id: 43899591780438016
+    m_Localized: Walk up and apply herb to the target, providing {Stack} stacks of
+      Herb Infusion.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
+  - m_Id: 44153669715558400
+    m_Localized: "Implant a parasitic root that progressively weakens the target\u2019s
+      regeneration."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44492608427065344
+    m_Localized: Feed the target a miraculous mushroom that sparks inspiration, permanently
+      increasing their Mind by {Value}.
+    m_Metadata:
+      m_Items:
+      - rid: 5901558492828794898
+  - m_Id: 45048505675087872
+    m_Localized: Summon a regenerative tree.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45048525052772352
+    m_Localized: Summon a cactus-like plant that has the shape of a human.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50505843819294720
+    m_Localized: Use flowers to decorate the target, making they beautiful, so the
+      enemies will hesitate hurting them.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
     - rid: 5901558492828794898
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00a0e8e60000000000b0ce34b9fb2f0000b0ce46fa24350000b08e9f26ef390000b08e652f2c3e0000b08e51342c3e0000f0a5688e24440000f0a5f51d3d440000a0e836ed08540000a0a8a6ee2b5400005032b4d8fb5500
+        m_Entries: 00a0e8e60000000000b0ce34b9fb2f0000b0ce46fa24350000b08e9f26ef390000b08e652f2c3e0000b08e51342c3e0000f0a5688e24440000f0a5f51d3d440000a0e836ed08540000a0a8a6ee2b5400005032b4d8fb55000050f2bf7219580000507272982a59000050b28fc0795b000050326e24ab5b000050729abf065e0000003002d28968000090db60e01e900000901b1174ce92000090dbe00a569a00005072ed52ed5c000090db6a0a569a0000901b6504569a000090dba80f569a0000901b9b4fee9b000090db3572f69b0000006da8ca119e00

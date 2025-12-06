@@ -9,18 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75ee84ba4a26d794fa5421da20a6923d, type: 3}
+  m_Script: {fileID: 11500000, guid: d36ee8f4fb74eb649b77449f270b7aee, type: 3}
   m_Name: FireballActionSO
   m_EditorClassIdentifier: 
   Name: Fireball
   Damage:
     Value: 50
+    Reduction: 0
+    Shield: 0
     Range: 1
     Form: 2
     Element: 1
     TargetType: 0
     Property: 0
   Status: {fileID: 0}
+  Power: 100
   ManaCost: 50
   Area: 0
   Must: 0

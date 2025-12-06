@@ -9,7 +9,6 @@ public class RingDescriptionText : MonoBehaviour
     [SerializeField] LocalizeStringEvent localizeStringEvent;
     [SerializeField] bool isInLevelScene;
     // for LSE augments
-    public int Power;
     public int Gold;
 
     private Ring ring;
@@ -20,8 +19,8 @@ public class RingDescriptionText : MonoBehaviour
         {
             ring = value;
             if (ring == null) return;
-            Power = ring.Power;
-            localizeStringEvent.StringReference.Add("Power", new IntVariable { Value = Power });
+            localizeStringEvent.StringReference.Add("Power", new IntVariable { Value = ring.Power });
+            localizeStringEvent.StringReference.Add("Power2", new IntVariable { Value = ring.Power2 });
             Show();
         }
     }

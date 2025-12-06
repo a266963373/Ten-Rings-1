@@ -30,6 +30,7 @@ public class FissionRingSO : RingSO
         // 3. 创建两个新角色
         Character fission1 = new(actor, 0.5f, RingInheritType.LeftHand);
         Character fission2 = new(actor, 0.5f, RingInheritType.RightHand);
+
         BattleLoader.I.LoadCharacter(fission1);
         BattleLoader.I.LoadCharacter(fission2);
     }

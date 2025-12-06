@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Misc Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Misc
+  m_TableCollectionNameGuidString: c5749b4587bebb04ab22157af06ced9f
+  m_Entries:
+  - m_Id: 5602693120
+    m_Key: Action Stat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 204096589156352
+    m_Key: Status Stat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1649815988621312
+    m_Key: Ring Stat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4520275608600576
+    m_Key: Status Stat Upkeep
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15557371520323584
+    m_Key: Ring Requirement
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 2745771138701328392
+  references:
+    version: 2
+    RefIds:
+    - rid: 2745771138701328392
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1757915017886

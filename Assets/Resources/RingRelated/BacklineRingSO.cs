@@ -8,25 +8,20 @@ public class BacklineRingSO : RingSO
     {
         ring.TriggerEffects.Add(new TriggerEffect
         {
-            Trigger = TriggerType.OnBeforeTakeDamage,
+            Trigger = TriggerType.OnBeforeTargeted,
             Effect = (BattleAction ba) =>
             {
-                if (ba.Target.Allies.Any(c => c != ba.Target && c.Rings.Any
+                if (ba.Actor != null &&
+                ba.Actor != ba.Target &&
+                ba.Range != RangeType.Indirect &&
+                ba.Range != RangeType.Self &&
+                ba.Actor.IsPlayerSide != ba.Target.IsPlayerSide &&
+                ba.Target.Teammates.Any(c => c.Rings.Any
                 (r => r?.Id == 22)))
                 {
-                    ring.TakeDamageModifier = Effect;
-                } else
-                {
-                    ring.TakeDamageModifier = null;
+                    ba.Power = ba.Power * (100 - Power) / 100;
                 }
             }
         });
-    }
-
-    private Damage Effect(Damage dmg)
-    {
-        if (dmg.Range != DamageRange.Indirect)
-            dmg.Value = dmg.Value * (100 - Power) / 100;
-        return dmg;
     }
 }

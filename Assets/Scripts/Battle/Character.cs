@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using UnityEditor;
+using Unity.VisualScripting.FullSerializer;
 
 public class Character
 {
@@ -10,13 +10,19 @@ public class Character
     public CharacterStats Stats;
     public List<Status> Statuses => StatusSystem.Statuses;
     public Ring[] Rings = new Ring[10];
+    public Ring[] EffectiveRings => Rings.Where(ring => ring != null && ring.IRF(this)).ToArray();
+    public Ring[] ERings => EffectiveRings;
     public List<Func<Damage, Damage>> DealDamageModifiers =>
-        Rings.Where(ring => ring != null && ring.DealDamageModifier != null)
+        ERings.Where(ring => ring.DealDamageModifier != null)
              .Select(ring => ring.DealDamageModifier)
+             .Concat(Statuses.Where(status => status != null && status.DealDamageModifier != null)
+                             .Select(status => status.DealDamageModifier))
              .ToList();
     public List<Func<Damage, Damage>> TakeDamageModifiers =>
-        Rings.Where(ring => ring != null && ring.TakeDamageModifier != null)
+        ERings.Where(ring => ring.TakeDamageModifier != null)
              .Select(ring => ring.TakeDamageModifier)
+             .Concat(Statuses.Where(status => status != null && status.TakeDamageModifier != null)
+                             .Select(status => status.TakeDamageModifier))
              .ToList();
 
     private List<BattleActionSO> battleActions = new();
@@ -25,14 +31,35 @@ public class Character
         get
         {
             var newBattleActions = new List<BattleActionSO>(battleActions);
-            foreach (var ring in Rings)
+
+            for (int i = 0; i < ERings.Length; i++)
             {
-                if (ring == null) continue; // 跳过空戒指
+                var ring = ERings[i];
+
                 foreach (var action in ring.GrantedActions)
                 {
                     newBattleActions.Add(action);
+                    if (action == ActivatedWeaponActionSO)
+                    {
+                        //ActivateWeaponActionSO activateWeaponActionSO = action as ActivateWeaponActionSO;
+                        //newBattleActions.AddRange(activateWeaponActionSO.GrantedActions);
+                        newBattleActions.AddRange(ActivatedWeaponActionSO.GrantedActions);
+                    }
                 }
-                
+
+                if (ring.Enchantment != null)
+                {
+                    for (int j = i - 1; j >= 0; --j)
+                    {
+                        if (ERings[j].Type == RingType.Weapon)
+                        {
+                            ActivateWeaponActionSO activateWeaponActionSO = ERings[j].GrantedActions[0] as ActivateWeaponActionSO;
+                            ring.Enchantment.Empowerment.Target = activateWeaponActionSO.GrantedActions[0];
+                            break;
+                        }
+                    }
+                }
+
                 if (ring.Empowerment != null)
                     ring.Empowerment.Target = newBattleActions.LastOrDefault();
             }
@@ -42,11 +69,48 @@ public class Character
         set { battleActions = value; }
     }
     public StatusSystem StatusSystem = new();
+    public List<TriggerEffect> TriggerEffects = new();  // for timing effects, like on world/character turn
+    List<TriggerEffect> AllTriggerEffects => ERings
+            .SelectMany(r => r.TriggerEffects)
+            .Concat(Statuses.Where(s => s != null)
+            .SelectMany(s => s.TriggerEffects))
+            .Concat(TriggerEffects).ToList();
+    public event Action<Character> OnApplierTurnBegin;
 
     public bool IsPlayerSide = false;
-    public bool IsPlayerControlled = false;
+    public bool IsPlayerControlled
+    {
+        get { return IsPlayerSide && !ERings.Any(r => r.Id == 49); }
+    }
     public bool IsDead = false;
-    public List<Character> Allies;
+    public ActivateWeaponActionSO ActivatedWeaponActionSO;
+    public List<Character> Allies   // with self
+    {
+        get
+        {
+            return BattleSystem.I.Characters
+                .Where(c => c.IsPlayerSide == this.IsPlayerSide)
+                .ToList();
+        }
+    }
+    public List<Character> Teammates   // without self
+    {
+        get
+        {
+            return BattleSystem.I.Characters
+                .Where(c => c != this && c.IsPlayerSide == this.IsPlayerSide)
+                .ToList();
+        }
+    }
+    public List<Character> Enemies
+    {
+        get
+        {
+            return BattleSystem.I.Characters
+                .Where(c => c.IsPlayerSide != this.IsPlayerSide)
+                .ToList();
+        }
+    }
     public Character TauntedApplier => Statuses.Where(s => s.Id == 4)
                                                .Select(s => s.Applier)
                                                .FirstOrDefault();
@@ -62,23 +126,36 @@ public class Character
         }
     }
     public event Action OnActionGaugeChanged;
+    public Character LastTarget;
+    public Character RandomOther
+    {
+        get
+        {
+            var selectableCharacters = BattleSystem.I.Characters
+                .Where(c => c != this && !c.IsDead)
+                .ToList();
+
+            if (selectableCharacters.Count == 0)
+                return null;
+
+            return selectableCharacters[UnityEngine.Random.Range(0, selectableCharacters.Count)];
+        }
+    }
 
     public Character(CharacterSO so)
     {
         Name = so.CharacterName;
         Stats = so.GetStats(); // 运行时副本
         Stats.Owner = this; // 设置 Stats 的所有者为当前 Character 实例
-        Stats.OnHpChanged += HpChanged;
         Rings = so.GetRings();
 
         // Load Attack Action
-        BattleActionSO basicAttackAction = Resources.Load<BattleActionSO>("RingRelated/AttackActionSO");
-        battleActions.Add(basicAttackAction);
-        BattleActionSO basicDefendAction = Resources.Load<BattleActionSO>("RingRelated/DefendActionSO");
-        battleActions.Add(basicDefendAction);
+        LoadBasicActions();
 
         Stats.InitBeforeBattle();
-        StatusSystem.Owner = this; // 设置 StatusSystem 的所有者为当前 Character 实例
+        StatusSystem.Init(this); // 设置 StatusSystem 的所有者为当前 Character 实例
+
+        InitTriggerEffects();
     }
 
     public Character(Character original, float statModifier = 1f, RingInheritType ringInheritType = RingInheritType.None)
@@ -89,7 +166,6 @@ public class Character
         {
             Owner = this
         };
-        Stats.OnHpChanged += HpChanged;
 
         // 初始化Rings为长度10的数组
         Rings = new Ring[10];
@@ -112,21 +188,20 @@ public class Character
         }
         // None: 全部为空，已初始化
 
+        LoadBasicActions();
+
         // 新建 StatusSystem，复制已有状态
-        StatusSystem = new StatusSystem
-        {
-            Owner = this
-        };
+        StatusSystem.Init(this);
         foreach (var status in original.StatusSystem.Statuses)
         {
-            StatusSystem.AddStatus(status);
+            StatusSystem.ApplyStatus(status);
         }
 
         IsPlayerSide = original.IsPlayerSide;
-        IsPlayerControlled = original.IsPlayerControlled;
         //IsDead = original.IsDead;
         ActionGauge = original.ActionGauge;
         Stats.InitBeforeBattle();
+        InitTriggerEffects();
     }
 
     public int GetStat(StatType type)
@@ -134,52 +209,42 @@ public class Character
         return Stats.GetStat(type);
     }
 
-    private void HpChanged()
+    public void Trigger(TriggerType type, BattleAction context=null, Status status=null)
     {
-        if (Stats.GetStat(StatType.HP) <= 0)
+        foreach (var effect in AllTriggerEffects)
         {
-            IsDead = true;
-            BattleAction ba = new()
+            if (effect.Trigger == type)
             {
-                Actor = this
-            };
-            Trigger(TriggerType.OnAfterDeath, ba);
-            BattleLoader.I.DestroyCharacter(this);
+                if (effect.Effect != null)
+                {
+                    effect.Effect(context);
+                }
+                else
+                {
+                    effect.EffectOnStatus?.Invoke(status);
+                }
+            }
         }
     }
 
-    public void Trigger(TriggerType type, BattleAction context)
+    public void Trigger(TimingType timing)
     {
-        // 动态收集所有来源的 TriggerEffect
-        //List<Action<BattleAction>> effects = new();
-
-        // 戒指的触发器
-        foreach (var ring in Rings)
+        foreach (var triggerEffect in AllTriggerEffects)
         {
-            if (ring == null) continue; // 跳过空戒指
-            foreach (var effect in ring.TriggerEffects)
+            if (triggerEffect.Timing == timing)
             {
-                if (effect.Trigger == type && effect.Effect != null)
-                    //effects.Add(effect.Effect);
-                    effect.Effect(context);
+                triggerEffect.EffectOnTime?.Invoke();
             }
         }
-
-        // 统一执行
-        //foreach (var fx in effects)
-        //{
-        //    fx(context);
-        //}
     }
 
     public void UpdateDynamicStatMods(StatType statType)    // for beginner's luck & chased status
     {
-        foreach (var ring in Rings)
+        foreach (var ring in ERings)
         {
-            if (ring == null) continue;
             foreach (var dynamicStatMod in ring.DynamicStatMods)
             {
-                if (dynamicStatMod.CheckStatType == statType)
+                if (dynamicStatMod.TypeEquals(statType))
                 {
                     dynamicStatMod.Updator(this);
                 }
@@ -190,7 +255,7 @@ public class Character
         {
             foreach (var dynamicStatMod in status.DynamicStatMods)
             {
-                if (dynamicStatMod.CheckStatType == statType)
+                if (dynamicStatMod.TypeEquals(statType))
                 {
                     dynamicStatMod.Updator();
                 }
@@ -198,21 +263,51 @@ public class Character
         }
     }
 
-    public void OnWorldTurn()
+    private void InitTriggerEffects()
     {
-        StatusSystem.OnTurn(StatusDecayTrigger.OnWorldTurn);
-        Stats.ChangeStat(StatType.HP, Stats.GetStat(StatType.HPR));
-        Stats.ChangeStat(StatType.MP, Stats.GetStat(StatType.MPR));
+        TriggerEffects.Add(new TriggerEffect()
+        {
+            Trigger = TriggerType.OnAfterAction,
+            Effect = (ba) =>
+            {
+                LastTarget = ba.Target;
+            }
+        });
+
+        TriggerEffects.Add(new TriggerEffect()
+        {
+            Timing = TimingType.OnWorldTurn,
+            EffectOnTime = () => {
+                StatusSystem.OnTurn(TimingType.OnWorldTurn);
+                Stats.ChangeStat(StatType.HP, Stats.GetStat(StatType.HPR));
+                Stats.ChangeStat(StatType.MP, Stats.GetStat(StatType.MPR));
+            }
+        });
+        TriggerEffects.Add(new TriggerEffect()
+        {
+            Timing = TimingType.OnSelfTurnBegin,
+            EffectOnTime = () =>
+            {
+                StatusSystem.OnTurn(TimingType.OnSelfTurnBegin);
+                OnApplierTurnBegin?.Invoke(this);
+            }
+        });
+        TriggerEffects.Add(new TriggerEffect()
+        {
+            Timing = TimingType.OnSelfTurnEnd,
+            EffectOnTime = () => {
+                StatusSystem.OnTurn(TimingType.OnSelfTurnEnd);
+            }
+        });
     }
 
-    public void OnCharacterTurnBegin()
+    private void LoadBasicActions()
     {
-        StatusSystem.OnTurn(StatusDecayTrigger.OnCharacterTurnBegin);
-    }
-
-    public void OnCharacterTurnEnd()
-    {
-        StatusSystem.OnTurn(StatusDecayTrigger.OnCharacterTurnEnd);
+        // Load Attack Action
+        BattleActionSO basicAttackAction = Resources.Load<BattleActionSO>("RingRelated/AttackActionSO");
+        battleActions.Add(basicAttackAction);
+        BattleActionSO basicDefendAction = Resources.Load<BattleActionSO>("RingRelated/DefendActionSO");
+        battleActions.Add(basicDefendAction);
     }
 }
 

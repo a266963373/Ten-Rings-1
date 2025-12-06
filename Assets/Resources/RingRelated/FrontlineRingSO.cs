@@ -11,7 +11,7 @@ public class FrontlineRingSO : RingSO
             Trigger = TriggerType.OnBeforeAction,
             Effect = (BattleAction ba) =>
             {
-                if (ba.Damage.Range == DamageRange.Melee)
+                if (ba.Range == RangeType.Melee)
                 {
                     ba.Actor.Stats.TempStatMods.Add(new StatModifier
                     {

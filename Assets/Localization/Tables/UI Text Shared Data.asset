@@ -163,6 +163,10 @@ MonoBehaviour:
     m_Key: Status Non Stackable
     m_Metadata:
       m_Items: []
+  - m_Id: 27722352187035648
+    m_Key: Field
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

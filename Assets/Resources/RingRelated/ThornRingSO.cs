@@ -16,12 +16,12 @@ public class ThornRingSO : RingSO
     private void Effect(BattleAction context)
     {
         Character attacker = context.Actor;
-        if (attacker == null || context.Damage.Range != DamageRange.Melee) return;
+        if (attacker == null || context.Range != RangeType.Melee) return;
         Damage damage = new()
         {
             Value = Power,
-            Range = DamageRange.Indirect,
-            Element = DamageElement.Grass
+            Form = DamageForm.Sharp,
+            Element = Element.Grass
         };
         BattleAction inflictDamageAction = new()
         {

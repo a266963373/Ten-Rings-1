@@ -30,14 +30,19 @@ public class BattleLogSystem : MonoBehaviour
             return false;
         }
     }
+    //public bool IsShowingMessage = false;
 
     public IEnumerator ShowMessage(LocalizedString localizedString, bool isBlock=true)
     {
         localizeStringEvent.StringReference = localizedString;
+        localizeStringEvent.RefreshString();
 
         if (isBlock)
         {
+            //IsShowingMessage = true;
+            isClicked = false;  // necessary because player might clicked before using skill to make it positive
             yield return new WaitUntil(() => IsClicked);
+            //IsShowingMessage = false;
         }
     }
 
@@ -50,12 +55,32 @@ public class BattleLogSystem : MonoBehaviour
 
     public IEnumerator ShowBattleAction(BattleAction battleAction, bool isBlock = true)
     {
-        LocalizedString locString = new("Battle Log", "ShowBattleAction");
+        LocalizedString locString;
         string localizedActorName = new LocalizedString("Character Name", battleAction.Actor.Name).GetLocalizedString();
-        string localizedTargetName = new LocalizedString("Character Name", battleAction.Target.Name).GetLocalizedString();
         string localizedBattleActionName = new LocalizedString("Battle Action", battleAction.Name).GetLocalizedString();
 
-        locString.Arguments = new object[] { localizedActorName, localizedTargetName, localizedBattleActionName };
+        if (battleAction.Name == "Activate")
+        {
+            locString = new("Battle Log", "ShowActivateWeapon");
+            locString.Arguments = new object[] { localizedActorName };
+        }
+        else if (battleAction.IsRemovingStatuses)
+        {
+            locString = new("Battle Log", "ShowCeaseAction");
+            locString.Arguments = new object[] { localizedActorName, localizedBattleActionName };
+        }
+        else if (battleAction.IsMustSelf || battleAction.Target == null)
+        {
+            locString = new("Battle Log", "ShowSelfAction");
+            locString.Arguments = new object[] { localizedActorName, localizedBattleActionName };
+        }
+        else
+        {
+            locString = new("Battle Log", "ShowBattleAction");
+            string localizedTargetName = new LocalizedString("Character Name", battleAction.Target.Name).GetLocalizedString();
+            locString.Arguments = new object[] { localizedActorName, localizedTargetName, localizedBattleActionName };
+        }
+
         yield return ShowMessage(locString, isBlock);
 
         if (battleAction.HasExtraLog)
@@ -71,7 +96,7 @@ public class BattleLogSystem : MonoBehaviour
     {
         LocalizedString locString;
         string localizedTargetName = new LocalizedString("Character Name", battleAction.Target.Name).GetLocalizedString();
-        if (battleAction.Damage.Range == DamageRange.Indirect)
+        if (battleAction.Range == RangeType.Indirect)
         {
             locString = new("Battle Log", "ShowIndirectActionResult");
             string localizedSourceName = new LocalizedString("Battle Action", battleAction.Name).GetLocalizedString();

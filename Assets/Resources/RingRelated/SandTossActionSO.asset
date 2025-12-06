@@ -17,18 +17,21 @@ MonoBehaviour:
     Value: 5
     Reduction: 0
     Shield: 0
-    Range: 1
+    Power: 100
     Form: 1
     Element: 4
-    TargetType: 0
     Property: 0
-  Status: {fileID: 11400000, guid: 0d7c5b848ec0522438387ef197777da7, type: 2}
+  Statuses:
+  - {fileID: 11400000, guid: 0d7c5b848ec0522438387ef197777da7, type: 2}
+  StatusStacks: 02000000
   Power: 100
+  RecoveryTime: 100
   ManaCost: 10
+  Range: 0
   Area: 0
   Must: 0
   Prefer: 2
   Favorate: 0
   IsDamage: 1
-  IsStatus: 1
   Scale: 3
+  FollowUpAction: {fileID: 0}

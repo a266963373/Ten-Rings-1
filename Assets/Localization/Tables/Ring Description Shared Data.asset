@@ -135,6 +135,178 @@ MonoBehaviour:
     m_Key: Sand Toss Ring
     m_Metadata:
       m_Items: []
+  - m_Id: 25026040027041792
+    m_Key: Water Shot Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25097594870059008
+    m_Key: Floral Venom Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25117574302945280
+    m_Key: Vine Wrap Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25328676919988224
+    m_Key: Remnant Flame Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25512110409797632
+    m_Key: Mind Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25693223161843712
+    m_Key: Shrink Weapon Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25693225007337472
+    m_Key: Enlarge Weapon Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25760312971120640
+    m_Key: Roam Flame Hand Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25824549512826880
+    m_Key: Wrathfire Delusion Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26053582657835008
+    m_Key: Flame Enchantment Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26213872947056640
+    m_Key: Fire Wall Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26230484639043584
+    m_Key: Mana Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26487472681799680
+    m_Key: Blazing Ray Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29337278152179712
+    m_Key: Self-Immolation Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29455745446576128
+    m_Key: Explosion Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29460834060075008
+    m_Key: Chant Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40586208737988608
+    m_Key: Little Sun Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40586525084979200
+    m_Key: Summon Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40586556022165504
+    m_Key: Form of Fire Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40586562057768960
+    m_Key: Fiery Pursuit Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41247824110391296
+    m_Key: Last Burst Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41247830989049856
+    m_Key: Redirection Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41341278198927360
+    m_Key: Universal Potion Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43818800341815296
+    m_Key: Watery Eyes Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43818806851375104
+    m_Key: Please Rain Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43818808394878976
+    m_Key: Water Shield Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43818809267294208
+    m_Key: High Wave Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43818809900634112
+    m_Key: Subterranean Surge Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43818810542362624
+    m_Key: Drown Cell Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43909738137358336
+    m_Key: Watermelon Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43916694755446784
+    m_Key: Herbal Patch Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44172978697338880
+    m_Key: Pararoot Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44511699271483392
+    m_Key: Musecap Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45067439119859712
+    m_Key: Everwood Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45067440562700288
+    m_Key: Spikeward Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45071622216679424
+    m_Key: HP Regen Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45071622925516800
+    m_Key: MP Regen Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45074607231533056
+    m_Key: Elemental Brawler Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45088260542496768
+    m_Key: Floral Adorn Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51071107598266368
+    m_Key: The Republic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54531238402662400
+    m_Key: Republic Ruler Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54531239207968768
+    m_Key: Republic Warrior Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54531239946166272
+    m_Key: Republic Producer Ring
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

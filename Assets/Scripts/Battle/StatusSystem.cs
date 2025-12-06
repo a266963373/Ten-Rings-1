@@ -9,72 +9,111 @@ public class StatusSystem
     public List<Status> Statuses { get; } = new(); // for status effects
     public event Action OnStatusChanged;
     public Character Owner;  // The character that owns this status system
+    public Action<Character> OnApplierTurnBegin;
 
-    public void OnTurn(StatusDecayTrigger statusDecayTrigger)
+    public void Init(Character owner)
     {
-        // 记录需要移除的状态
-        List<Status> toRemove = new();
+        Owner = owner;
+        OnApplierTurnBegin = (applier) =>
+            OnTurn(TimingType.OnApplierTurnBegin, applier);
+    }
 
-        foreach (var status in Statuses)
+    public void OnTurn(TimingType timing, Character applier=null)
+    {
+        foreach (var status in Statuses.ToList())
         {
-            status.OnTurn(statusDecayTrigger, Owner);
-
-            // 自动减少持续时间
-            if (status.DecayTrigger == statusDecayTrigger && status.Stack > 0)
+            if (timing == TimingType.OnWorldTurn)
             {
-                if (status.DecayStatType == StatType.NON)
+                if (status.UpkeepMana != 0)
                 {
-                    status.Stack--;
-                } else
-                {
-                    float decayAmount = Owner.GetStat(status.DecayStatType) / 100f;
-                    status.Stack -= decayAmount;
+                    if (status.Applier.GetStat(StatType.MP) < status.UpkeepMana)
+                    {
+                        status.Applier.Trigger(TriggerType.OnNoUpkeepMana, status: status);
+                        continue;
+                    }
+                    status.Applier.Stats.ChangeStat(StatType.MP, -status.UpkeepMana);
                 }
             }
 
-            // 持续时间为0则移除
-            if (status.Stack == 0)
-                toRemove.Add(status);
-        }
+            if (status.DecayTrigger == timing)
+            {
+                if (status.DecayTrigger == TimingType.OnApplierTurnBegin && status.Applier != applier)
+                {
+                    continue;
+                }
 
-        foreach (var status in toRemove)
-        {
-            Statuses.Remove(status);
-        }
+                else if (status.Stack > 0)
+                {
+                    float decayAmount = status.DecayStatType == StatType.NON ?
+                        1 : 
+                        Owner.GetStat(status.DecayStatType) / 100f;
 
-        //if (toRemove.Count > 0)
-        OnStatusChanged?.Invoke();
+                    ModifyStatus(status, -decayAmount);
+                }
+            }
+        }
     }
 
-    public void AddStatus(Status status)
+    public void ApplyStatus(Status status, bool isApply=true)
     {
         if (Owner.IsDead) return;
         var existing = Statuses.Find(s => s.Id == status.Id);
 
         if (existing == null)
         {
-            Statuses.Add(status);
+            if (status.Stack > 0)
+            {
+                Statuses.Add(status);
+                ModifyStatus(status, 0);
+            }
         }
         else if (status.IsStackable)
         {
-            // 叠加Power和Duration
-            existing.Stack += status.Stack;
+            ModifyStatus(existing, status.Stack);
         }
         else
         {
-            existing.Stack = Mathf.Max(existing.Stack, status.Stack);
+            ModifyStatus(existing, Mathf.Max(existing.Stack, status.Stack));
         }
 
+        if (isApply) status.OnApplyEffect?.Invoke();
+    }
+
+    public void ModifyStatus(Status status, float amount)
+    {
+        status.Stack += amount;
+        Owner.Trigger(TriggerType.OnAfterStatusStackChanged, status: status);
+
+        if (status.Stack <= 0)
+        {
+            Statuses.Remove(status);
+            Owner.Trigger(TriggerType.OnAfterStatusRemoved, status: status);
+        }
         OnStatusChanged?.Invoke();
     }
 
-    public void RemoveStatus(Status status)
+    public void RemoveSameClassStatus(Status status)
     {
         var existing = Statuses.Find(s => s.Id == status.Id);
         if (existing != null)
         {
-            Statuses.Remove(existing);
-            OnStatusChanged?.Invoke();
+            RemoveStatus(existing);
         }
+    }
+
+    public void RemoveStatus(Status status)
+    {
+        Statuses.Remove(status);
+        OnStatusChanged?.Invoke();
+    }
+
+    public Status GetStatusById(int id)
+    {
+        return Statuses.Find(s => s.Id == id);
+    }
+
+    public Status GetStatusByName(string name)
+    {
+        return Statuses.Find(s => s.Name == name);
     }
 }

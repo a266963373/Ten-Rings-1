@@ -79,6 +79,22 @@ MonoBehaviour:
     m_Key: Mischief Boy
     m_Metadata:
       m_Items: []
+  - m_Id: 29760514820296704
+    m_Key: Fission Slime
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37253664257646592
+    m_Key: Little Sun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46154664146436096
+    m_Key: Everwood
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46154667942281216
+    m_Key: Spikeward
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -15,17 +15,23 @@ MonoBehaviour:
   Name: Predator Spiral
   Damage:
     Value: 0
-    Scale: 0
-    Range: 1
+    Reduction: 0
+    Shield: 0
+    Power: 100
     Form: 0
     Element: 5
-    TargetType: 0
     Property: 0
-  Status: {fileID: 11400000, guid: a984ef14e9a217e46b5e27fb0afe9483, type: 2}
+  Statuses:
+  - {fileID: 11400000, guid: a984ef14e9a217e46b5e27fb0afe9483, type: 2}
+  StatusStacks: 02000000
+  Power: 100
+  RecoveryTime: 100
   ManaCost: 40
+  Range: 2
   Area: 0
   Must: 0
   Prefer: 2
   Favorate: 5
   IsDamage: 0
-  IsStatus: 1
+  Scale: 0
+  FollowUpAction: {fileID: 0}

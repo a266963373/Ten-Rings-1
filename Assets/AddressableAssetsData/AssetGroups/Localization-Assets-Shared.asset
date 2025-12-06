@@ -107,6 +107,26 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5749b4587bebb04ab22157af06ced9f
+    m_Address: Assets/Localization/Tables/Misc Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6205c17d185b62f448319a370f632787
+    m_Address: Assets/Localization/Tables/Stat Type Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4cb6c1fd5063c7047bbab45282baadd3
+    m_Address: Assets/Localization/Tables/Terrain Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8cd555c066f4b442a7786ad3a762a3c
+    m_Address: Assets/Localization/Tables/Field Description Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: ec387e5b6fe2306429a37e909a4e5bf5, type: 2}
   m_SchemaSet:

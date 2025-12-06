@@ -67,6 +67,110 @@ MonoBehaviour:
     m_Key: Sand Toss
     m_Metadata:
       m_Items: []
+  - m_Id: 24797778587832320
+    m_Key: Water Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25098107170738176
+    m_Key: Vine Wrap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25748090832179200
+    m_Key: Roam Flame Hand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25802395836633088
+    m_Key: Wrathfire Delusion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26156638284173312
+    m_Key: Fire Wall
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26466067810504704
+    m_Key: Blazing Ray
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27821305943445504
+    m_Key: Self-Immolation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29424932650745856
+    m_Key: Explosion!!!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29441117383557120
+    m_Key: Chant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40566345692844032
+    m_Key: Fiery Pursuit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40567723123249152
+    m_Key: Little Sun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41322344498302976
+    m_Key: Universal Potion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41804186095685632
+    m_Key: Bipolar Spray
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43441723289604096
+    m_Key: Watery Eyes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43441749155876864
+    m_Key: Please Rain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43441750200258560
+    m_Key: Water Shield
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43441751135588352
+    m_Key: High Wave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43441771670900736
+    m_Key: Subterranean Surge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43441774086819840
+    m_Key: Drown Cell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43890647062253568
+    m_Key: Watermelon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43899591780438016
+    m_Key: Herbal Patch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44153669715558400
+    m_Key: Pararoot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44492608427065344
+    m_Key: Musecap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45048505675087872
+    m_Key: Everwood
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45048525052772352
+    m_Key: Spikeward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50505843819294720
+    m_Key: Floral Adorn
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: HealingLightRingSO
   m_EditorClassIdentifier: 
   Id: 28
-  Name: Healing Light
+  Name: Healing Light Ring
   Power: 0
+  Type: 0
+  RequiredRingId: -1
   GrantedActions:
   - {fileID: 11400000, guid: fa7a4605cc06a974c876c4b65642fdd4, type: 2}
+  level: 1
+  Element: 8

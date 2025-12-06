@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
@@ -30,7 +31,7 @@ public class ActionDecider : MonoBehaviour
         }
         else
         {
-            EnemyDecide(actor);
+            NpcDecide(actor);
         }
     }
 
@@ -53,13 +54,13 @@ public class ActionDecider : MonoBehaviour
             newActionButton.Initialize(battleAction);
 
             // 设置按钮可用性
-            bool canAfford = battleAction.ManaCost <= currentMp;
+            bool canAfford = battleAction.ManaCostRunTime <= currentMp;
             newActionButton.SetInteractable(canAfford);
         }
         actionPanel.SetActive(true);
     }
 
-    private void EnemyDecide(Character actor)
+    private void NpcDecide(Character actor)
     {
         Character chosenTarget = null;
         BattleActionSO chosenAction = null;
@@ -67,7 +68,7 @@ public class ActionDecider : MonoBehaviour
         // 1. 获取可支付的技能
         int currentMp = actor.Stats.GetStat(StatType.MP);
         List<BattleActionSO> affordableActions = actor.BattleActions
-            .Where(a => a.ManaCost <= currentMp)
+            .Where(a => a.ManaCostRunTime <= currentMp)
             .ToList();
 
         // 2. See if there is action that finds favorate target
@@ -80,7 +81,6 @@ public class ActionDecider : MonoBehaviour
                 break; // 找到一个合适的目标就可以了
             }
         }
-
 
         if (chosenTarget == null)
         {
@@ -126,22 +126,22 @@ public class ActionDecider : MonoBehaviour
                 chosenTarget = FindKillableTarget(actor, action, candidates);
                 break;
             case TargetType.WithoutMyStatus:
-                if (action.Status.IsBuff)
+                if (action.Statuses[0].IsBuff)
                     chosenTarget = candidates.Where(c => c.IsPlayerSide == actor.IsPlayerSide
-                    && !c.Statuses.Any(s => s.Id == action.Status.Id))
+                    && !c.Statuses.Any(s => s.Id == action.Statuses[0].Id))
                         .FirstOrDefault();
                 else
                     chosenTarget = candidates.Where(c => c.IsPlayerSide != actor.IsPlayerSide
-                    && !c.Statuses.Any(s => s.Id == action.Status.Id))
+                    && !c.Statuses.Any(s => s.Id == action.Statuses[0].Id))
                         .FirstOrDefault();
                 break;
             case TargetType.Enemy:
-                var enemies = candidates.Where(c => c.IsPlayerSide).ToList();
+                var enemies = actor.Enemies;
                 if (enemies.Count > 0)
                     chosenTarget = enemies[UnityEngine.Random.Range(0, enemies.Count)];
                 break;
             case TargetType.Ally:
-                var allies = candidates.Where(c => !c.IsPlayerSide).ToList();
+                var allies = actor.Allies;
                 if (allies.Count > 0)
                     chosenTarget = allies[UnityEngine.Random.Range(0, allies.Count)];
                 break;
@@ -167,6 +167,14 @@ public class ActionDecider : MonoBehaviour
         if (b.Must == TargetType.Self)
         {   // this won't be taunted
             actionResolver.SelectTarget(currentCharacter);
+        }
+        else if (b.Must == TargetType.Field)
+        {
+            actionResolver.SelectTarget(null);
+        }
+        else if (b is InvokeActionSO ia && ia.IsActionInvoked)
+        {
+            actionResolver.SelectTarget(ia.Target);
         }
         else if (currentCharacter.TauntedApplier != null)
         {

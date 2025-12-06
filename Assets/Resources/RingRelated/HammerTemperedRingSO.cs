@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Rings/HammerTemperedRingSO")]
-public class HammerTemperedRingSO : RingSO
+public class HammerTemperedRingSO : EmpowermentRingSO
 {
     protected override void InitRing(Ring ring)
     {

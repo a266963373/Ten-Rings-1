@@ -36,7 +36,7 @@ public class TimeSystem : MonoBehaviour
 
                 if (c.ActionGauge >= actionThreshold)
                 {
-                    c.ActionGauge = 0;
+                    //c.ActionGauge = 0;
                     BattleSystem.I.LogCount++;
                     BattleSystem.I.State = BattleState.AwaitForAction;
                     OnGaugeFull?.Invoke(c);
@@ -72,7 +72,8 @@ public class TimeSystem : MonoBehaviour
     {
         foreach (Character c in characters)
         {
-            c.OnWorldTurn();
+            c.Trigger(timing: TimingType.OnWorldTurn);
         }
+        FieldSystem.I.OnWorldTurn();
     }
 }

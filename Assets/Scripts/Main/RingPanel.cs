@@ -24,7 +24,9 @@ public class RingPanel : MonoBehaviour
     private IEnumerator Start()
     {
         while (!GameSystem.I.IsStarted)
+        {
             yield return new WaitUntil(() => GameSystem.I.IsStarted);
+        }
         if (InScene != InScene.Battle) LoadRings();     // otherwise it will wipe the rings on first start
     }
 
@@ -33,6 +35,7 @@ public class RingPanel : MonoBehaviour
         ClearRingsUI();
         System.Array.Clear(wornRings, 0, wornRings.Length);
         storedRings.Clear();
+        characterInfoPanel.gameObject.SetActive(false);
 
         if (InScene == InScene.Level)
         {
@@ -148,6 +151,7 @@ public class RingPanel : MonoBehaviour
 
     private void LoadCharacterInfo(Character character)
     {
+        storedTransform.gameObject.SetActive(false);
         characterInfoPanel.gameObject.SetActive(true);
         characterInfoPanel.SetCharacter(character);
         SetFocusAndDescription(null, true);
@@ -257,8 +261,9 @@ public class RingPanel : MonoBehaviour
         }
         else
         {
-            storedRings.Remove(ringButton.Ring);
+            if (wornButtonIndex == -1) return;
             wornRings[wornButtonIndex] = ringButton.Ring;
+            storedRings.Remove(ringButton.Ring);
         }
         SetFocusAndDescription(null, true);
         SaveRings();

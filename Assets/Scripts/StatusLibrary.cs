@@ -13,7 +13,7 @@ public class StatusLibrary : MonoBehaviour
         if (I == null)
         {
             I = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
             LoadAllStatuses();
         }
         else
@@ -35,12 +35,14 @@ public class StatusLibrary : MonoBehaviour
     /// <summary>
     /// 获取指定名称的 status 副本，可安全修改
     /// </summary>
-    public Status GetStatusByName(Character applier, Character bearer, string name)
+    public Status GetStatusByName(Character applier, Character bearer, string name, float stack=-1)
     {
         if (statusTemplates.TryGetValue(name, out var template))
         {
             // 返回副本，避免直接修改原始模板
             Status status = template.GetStatus(applier, bearer);
+            if (stack > 0)
+                status.Stack = stack;
             return status;
         }
         return null;

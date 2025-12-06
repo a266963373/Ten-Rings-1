@@ -7,6 +7,7 @@ using UnityEngine;
 public class BarController : MonoBehaviour
 {
     [SerializeField] RectTransform fillTransform;
+    [SerializeField] RectTransform negativeFillTransform;
     [SerializeField] TextMeshProUGUI numText;
     [SerializeField] bool isSpeedBar = false;
     private Vector3 originalScale;
@@ -22,12 +23,28 @@ public class BarController : MonoBehaviour
     }
     public void LazyUpdate()
     {
+        if (fillTransform == null) return;
+
         if (isSpeedBar) rightNum = 100f;
         else
         {
             numText.text = string.Format("{0} / {1}", leftNum, rightNum);
         }
-        originalScale.x = leftNum / rightNum;
-        fillTransform.localScale = originalScale;
+        if (leftNum >= 0)
+        {
+            originalScale.x = leftNum / rightNum;
+
+            fillTransform.gameObject.SetActive(true);
+            fillTransform.localScale = originalScale;
+            negativeFillTransform.gameObject.SetActive(false);
+        }
+        else
+        {
+            originalScale.x = -leftNum / rightNum;
+
+            fillTransform.gameObject.SetActive(false);
+            negativeFillTransform.localScale = originalScale;
+            negativeFillTransform.gameObject.SetActive(true);
+        }
     }
 }

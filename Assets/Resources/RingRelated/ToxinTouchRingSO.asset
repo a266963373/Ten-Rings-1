@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 6
   Name: Toxin Touch Ring
-  Power: 0
-  GrantedActions: []
+  Power: 1

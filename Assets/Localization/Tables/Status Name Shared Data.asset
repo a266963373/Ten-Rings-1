@@ -35,6 +35,62 @@ MonoBehaviour:
     m_Key: Sand In Eyes
     m_Metadata:
       m_Items: []
+  - m_Id: 22475070806052864
+    m_Key: Wet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22570867937660928
+    m_Key: Entangled
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22786866599317504
+    m_Key: Burning
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23281504594579456
+    m_Key: Angry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26773795694968832
+    m_Key: Immolated
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38039709579710464
+    m_Key: Fiery Pursued
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39145352013254656
+    m_Key: Frozen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39278680049684480
+    m_Key: Bipolar Sprayed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40896936359464960
+    m_Key: Water Shielded
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40916210197172224
+    m_Key: Water Prisoned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40916514498121728
+    m_Key: Crying
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40916515940962304
+    m_Key: Herb Infusion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41629987285827584
+    m_Key: Root Invaded
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47980448133820416
+    m_Key: Floral Adorned
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

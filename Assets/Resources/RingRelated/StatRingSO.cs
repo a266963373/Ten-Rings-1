@@ -6,6 +6,7 @@ public class StatRingSO : RingSO
     public StatType StatType = StatType.STR;
     protected override void InitRing(Ring ring)
     {
+        ring.Type = RingType.Stat;
         ring.StatModifiers.Add(new()
         {
             StatType = StatType,

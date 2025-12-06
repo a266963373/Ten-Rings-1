@@ -59,10 +59,25 @@ MonoBehaviour:
     m_Localized: '{0} healed for {1}. '
     m_Metadata:
       m_Items: []
+  - m_Id: 25463420987002880
+    m_Localized: '{0} uses {1}. '
+    m_Metadata:
+      m_Items:
+      - rid: 5901558444680282116
+  - m_Id: 25463393602392064
+    m_Localized: '{0} activates a weapon. '
+    m_Metadata:
+      m_Items:
+      - rid: 5901558444680282116
+  - m_Id: 44544647923208192
+    m_Localized: '{0} stops invoking {1}.'
+    m_Metadata:
+      m_Items:
+      - rid: 5901558444680282116
   references:
     version: 2
     RefIds:
     - rid: 5901558444680282116
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 005032cc0b0000000050726a4200000000503284fb0c000000b0cef5729a3b00
+        m_Entries: 005032cc0b0000000050726a4200000000503284fb0c000000b0cef5729a3b000050b2b2d8765a0000507252d2765a0000901b0c1f419e00

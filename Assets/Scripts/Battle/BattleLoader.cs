@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BattleLoader : MonoBehaviour
@@ -17,8 +18,16 @@ public class BattleLoader : MonoBehaviour
     public List<CharacterSO> enemySOs = new(); // 支持多个敌人
 
     public Character Player;
-    public List<Character> Allies = new();
-    public List<Character> Enemies = new(); // 支持多个敌人
+    public List<Character> Characters = new();  // living characters
+    public List<Character> Allies
+    {
+        get { return Characters.Where(c => c.IsPlayerSide).ToList();}
+    }
+
+    public List<Character> Enemies
+    {
+        get { return Characters.Where(c => !c.IsPlayerSide).ToList();}
+    }
     public List<Character> Deads = new();
 
     private void Awake()
@@ -58,7 +67,6 @@ public class BattleLoader : MonoBehaviour
         Character newCharacter = new(characterSO)
         {
             IsPlayerSide = isPlayerSide,
-            IsPlayerControlled = isPlayerSide
         };
         LoadCharacter(newCharacter);
     }
@@ -69,16 +77,17 @@ public class BattleLoader : MonoBehaviour
         Transform spawnSpot;
         if (character.IsPlayerSide)
         {
-            Allies.Add(character);
+            //Allies.Add(character);
             spawnSpot = playerSpot;
-            character.Allies = Allies;
+            //character.Allies = Allies;
         }
         else
         {
-            Enemies.Add(character);
+            //Enemies.Add(character);
             spawnSpot = enemySpot;
-            character.Allies = Enemies;
+            //character.Allies = Enemies;
         }
+        Characters.Add(character);
         CharacterBattlePanel characterBattlePanel = Instantiate(templateBattlePanel, spawnSpot).GetComponent<CharacterBattlePanel>();
         characterBattlePanel.Character = character;
         characterBattlePanel.Initialize(actionResolver);
@@ -89,10 +98,7 @@ public class BattleLoader : MonoBehaviour
         if (character == null) return;
 
         // 1. 从列表移除
-        if (character.IsPlayerSide)
-            Allies.Remove(character);
-        else
-            Enemies.Remove(character);
+        Characters.Remove(character);
         Deads.Add(character);
 
         // 2. 销毁对应的面板

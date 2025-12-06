@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ca71393d2d794442b1596ccb1e9df84, type: 3}
+  m_Script: {fileID: 11500000, guid: fbeaa352da69e224b910b370d0d10257, type: 3}
   m_Name: StaffRingSO
   m_EditorClassIdentifier: 
   Id: 27
   Name: Staff Ring
-  Power: 20
+  Power: 25
+  Type: 0
   GrantedActions:
   - {fileID: 11400000, guid: 206d390e00ef5174f8a851ef544553ce, type: 2}

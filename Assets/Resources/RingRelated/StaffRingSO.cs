@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StaffRingSO : SkillRingSO
+[CreateAssetMenu(menuName = "Rings/StaffRingSO")]
+public class StaffRingSO : WeaponRingSO
 {
     protected override void InitRing(Ring ring)
     {
+        base.InitRing(ring);
         ring.TriggerEffects.Add(new TriggerEffect()
         {
             Trigger = TriggerType.OnBeforeAction,

@@ -17,6 +17,7 @@ MonoBehaviour:
     Value: 50
     Reduction: 0
     Shield: 0
+    Power: 100
     Range: 1
     Form: 0
     Element: 7
@@ -24,11 +25,12 @@ MonoBehaviour:
     Property: 0
   Status: {fileID: 0}
   Power: 100
-  ManaCost: 30
+  RecoveryTime: 100
+  ManaCost: 10
   Area: 0
   Must: 0
   Prefer: 2
   Favorate: 0
   IsDamage: 1
-  IsStatus: 0
+  StatusStack: 2
   Scale: 0

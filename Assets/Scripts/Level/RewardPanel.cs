@@ -20,6 +20,7 @@ public class RewardPanel : MonoBehaviour
     private void Awake()
     {
         claimLSE.gameObject.SetActive(false);
+        ringDescriptionPanel.gameObject.SetActive(false);
     }
 
     private void Start()
@@ -37,6 +38,7 @@ public class RewardPanel : MonoBehaviour
 
     private void RingSelected(RingButton ringButton)
     {
+        ringDescriptionPanel.gameObject.SetActive(true);
         IsRingSelected = true;
         ringDescriptionPanel.Ring = ringButton.Ring;
         if (BattleSession.IsLastEncounter)
@@ -52,6 +54,7 @@ public class RewardPanel : MonoBehaviour
 
     private void GoldSelected()
     {
+        ringDescriptionPanel.gameObject.SetActive(true);
         IsRingSelected = false;
         ringDescriptionText.GoldSelected();
         actionDescriptionGO.SetActive(false);

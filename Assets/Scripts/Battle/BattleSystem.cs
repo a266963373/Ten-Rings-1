@@ -29,9 +29,10 @@ public class BattleSystem : MonoBehaviour
     //[SerializeField] BattleLogSystem.I battleLogSystem;
     [SerializeField] GameObject characterInfoPanel;
     public StatusDescriptionPanel StatusDescriptionPanel;
+    public FieldDescriptionPanel FieldDescriptionPanel;
 
     public bool IsStarted = false;
-    public List<Character> Characters => battleLoader.Allies.Concat(battleLoader.Enemies).ToList();
+    public List<Character> Characters => battleLoader.Characters;
     private bool hasCheckedEnd = false;
 
     private void Awake()
@@ -86,19 +87,15 @@ public class BattleSystem : MonoBehaviour
     private IEnumerator ScGaugeFull(Character character)
     {
         yield return BattleLogSystem.I.ShowWhoseTurn(character.Name, isBlock: !character.IsPlayerControlled);
-        character.OnCharacterTurnBegin();
+        character.Trigger(timing: TimingType.OnSelfTurnBegin);
         actionDecider.Decide(character);
     }
 
-    private void CheckBattleEnd()
+    public void CheckBattleEnd()
     {
-        bool allPlayersDead = Characters
-            .Where(c => c.IsPlayerSide)
-            .All(c => c.IsDead);
+        bool allPlayersDead = BattleLoader.I.Allies.Count == 0;
 
-        bool allEnemiesDead = Characters
-            .Where(c => !c.IsPlayerSide)
-            .All(c => c.IsDead);
+        bool allEnemiesDead = BattleLoader.I.Enemies.Count == 0;
 
         if (allPlayersDead || allEnemiesDead)
         {
@@ -126,6 +123,6 @@ public class BattleSystem : MonoBehaviour
                 }
             }
         }
-        BattleSession.EncounterGold = (int)processingGold;
+        BattleSession.EncounterGold = Mathf.RoundToInt(processingGold);
     }
 }

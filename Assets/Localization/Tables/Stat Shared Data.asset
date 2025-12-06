@@ -43,6 +43,14 @@ MonoBehaviour:
     m_Key: Block
     m_Metadata:
       m_Items: []
+  - m_Id: 44313020086419456
+    m_Key: HP Regen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44313077095399424
+    m_Key: MP Regen
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

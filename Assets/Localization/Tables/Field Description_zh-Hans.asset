@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Field Description_zh-Hans
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: zh-Hans
+  m_SharedData: {fileID: 11400000, guid: f8cd555c066f4b442a7786ad3a762a3c, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 2745771234950381577
+  m_TableData:
+  - m_Id: 5191651328
+    m_Localized: "\u5F53\u5BF9\u654C\u4EBA\u65BD\u5C55\u8FD1\u8EAB\u884C\u52A8\u65F6\uFF0C\u53D7\u5230{Power}\u4F24\u5BB3\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 2745771234950381577
+  - m_Id: 17638626088947712
+    m_Localized: "\u6C34\u548C\u571F\u884C\u52A8\u7684\u9B54\u529B\u6D88\u8017\u88AB\u9664\u4EE5{Power}."
+    m_Metadata:
+      m_Items:
+      - rid: 2745771234950381577
+  - m_Id: 17638622767058944
+    m_Localized: "\u6BCF\u56DE\u5408\u6240\u6709\u4EBA\u83B7\u5F97{Power}\u5C42\u6F6E\u6E7F\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 2745771234950381577
+  references:
+    version: 2
+    RefIds:
+    - rid: 2745771234950381577
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 005072350100000000905baa3caa3e0000905be43baa3e00

@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: en
   m_SharedData: {fileID: 11400000, guid: fecef6faf6309d84e8a3c70af77063b5, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 2745771138701328386
   m_TableData:
   - m_Id: 6261198848
     m_Localized: Punch
@@ -90,6 +91,141 @@ MonoBehaviour:
     m_Localized: Sand Toss
     m_Metadata:
       m_Items: []
+  - m_Id: 24911620340862976
+    m_Localized: 'Activate: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 2745771138701328386
+  - m_Id: 25205498642059264
+    m_Localized: Water Shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25309046776156160
+    m_Localized: Vine Wrap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25528242504093696
+    m_Localized: Burning
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25959021591810048
+    m_Localized: Roam Flame Hand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26013463146024960
+    m_Localized: Wrathfire Delusion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26367626627403776
+    m_Localized: Fire Wall
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26677020439236608
+    m_Localized: Blazing Ray
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28032272841199616
+    m_Localized: Self-Immolation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29635579904786432
+    m_Localized: Explosion!!!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29652699359215616
+    m_Localized: Chant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40777270014218240
+    m_Localized: Fiery Pursuit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40778700154441728
+    m_Localized: Little Sun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41440162690600960
+    m_Localized: Last Burst
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41533305930878976
+    m_Localized: Universal Potion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42015150246170624
+    m_Localized: Bipolar Spray
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43622360113975296
+    m_Localized: 'Invoke: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 2745771138701328386
+  - m_Id: 43622381009997824
+    m_Localized: 'Cease: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 2745771138701328386
+  - m_Id: 43632219236569088
+    m_Localized: Water Shield
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43651740169113600
+    m_Localized: Watery Eyes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43652369469902848
+    m_Localized: Please Rain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43652527750352896
+    m_Localized: Drown Cell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43652436612321280
+    m_Localized: Subterranean Surge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43652434028630016
+    m_Localized: High Wave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44025708248010752
+    m_Localized: Water Prisoned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44102522651774976
+    m_Localized: Watermelon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44110553003298816
+    m_Localized: Herbal Patch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44364659052838912
+    m_Localized: Pararoot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44704474789117952
+    m_Localized: Musecap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45261943990976512
+    m_Localized: Spikeward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45261943147921408
+    m_Localized: Everwood
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50716800013185024
+    m_Localized: Floral Adorn
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 2745771138701328386
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 00503299fc80580000905b0c53fa9a000090db2e4efa9a00

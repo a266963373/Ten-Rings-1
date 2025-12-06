@@ -14,7 +14,7 @@ public class RingLibrary : MonoBehaviour
         if (I == null)
         {
             I = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
             LoadAllRings();
         }
         else
@@ -54,7 +54,8 @@ public class RingLibrary : MonoBehaviour
         {
             if (id >= minId && id <= maxId && (idBlacklist == null || !idBlacklist.Contains(id)))
             {
-                if (isSkillRing && GetRingById(id).GrantedActions.Count == 0) continue;
+                Ring r = GetRingById(id);
+                if (isSkillRing && (r.Type != RingType.Skill || r.GrantedActions.Count == 0)) continue;
                 validIds.Add(id);
             }
         }

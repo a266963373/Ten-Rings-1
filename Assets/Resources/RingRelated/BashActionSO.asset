@@ -24,7 +24,7 @@ MonoBehaviour:
     Property: 0
   Status: {fileID: 0}
   Power: 100
-  ManaCost: 10
+  ManaCost: 0
   Area: 0
   Must: 0
   Prefer: 2

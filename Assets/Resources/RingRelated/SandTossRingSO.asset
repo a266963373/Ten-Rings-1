@@ -15,5 +15,8 @@ MonoBehaviour:
   Id: 31
   Name: Sand Toss Ring
   Power: 0
+  Type: 0
   GrantedActions:
   - {fileID: 11400000, guid: 9fc9fe88b22c73f4da7c3b89b058e07d, type: 2}
+  level: 1
+  Element: 4

@@ -6,8 +6,11 @@ public class RingDescriptionPanel : MonoBehaviour
 {
     [SerializeField] GameObject ringDescriptionGO;
     [SerializeField] RingDescriptionText ringDescriptionText;
+    [SerializeField] RingStatText ringStatText;
+
     [SerializeField] GameObject actionDescriptionGO;
     [SerializeField] ActionDescriptionText actionDescriptionText;
+    [SerializeField] ActionStatText actionStatText;
 
     private Ring ring;
     public Ring Ring
@@ -37,6 +40,7 @@ public class RingDescriptionPanel : MonoBehaviour
     {
         ringDescriptionGO.SetActive(true);
         ringDescriptionText.Ring = ring;
+        ringStatText.Ring = ring;
     }
 
     private void ShowActionDescription()
@@ -48,6 +52,7 @@ public class RingDescriptionPanel : MonoBehaviour
         else
         {
             actionDescriptionText.BattleAction = ring.GrantedActions[0];
+            actionStatText.BattleAction = ring.GrantedActions[0];
             actionDescriptionGO.SetActive(true);
         }
     }

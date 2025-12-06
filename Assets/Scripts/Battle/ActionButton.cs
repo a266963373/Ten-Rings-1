@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
@@ -13,7 +14,29 @@ public class ActionButton : MonoBehaviour
     public void Initialize(BattleActionSO b)
     {
         battleAction = b;
-        localizeStringEvent.StringReference.SetReference("Battle Action", b.Name);
+        if (b is ActivateWeaponActionSO a)
+        {
+            localizeStringEvent.StringReference.SetReference("Battle Action", "Activate");
+            string localizedWeaponRingName = new LocalizedString("Ring Name", a.WeaponRingSO.Name).GetLocalizedString();
+            localizeStringEvent.StringReference.Arguments = new object[] { localizedWeaponRingName };
+        }
+        else if (b is InvokeActionSO ia)
+        {
+            string localizedActionName = new LocalizedString("Battle Action", ia.Name).GetLocalizedString();
+            if (!ia.IsActionInvoked)
+            {
+                localizeStringEvent.StringReference.SetReference("Battle Action", "Invoke");
+            }
+            else
+            {
+                localizeStringEvent.StringReference.SetReference("Battle Action", "Cease");
+            }
+            localizeStringEvent.StringReference.Arguments = new object[] { localizedActionName };
+        }
+        else
+        {
+            localizeStringEvent.StringReference.SetReference("Battle Action", b.Name);
+        }
     }
 
     public void OnClick()

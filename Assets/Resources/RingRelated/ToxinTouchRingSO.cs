@@ -19,10 +19,10 @@ public class ToxinTouchRingSO : RingSO
         if (target == null) return;
 
         // 检查是否造成了Bio伤害
-        if (context.Damage.Element == DamageElement.Bio)
+        if (context.Damage.Element == Element.Bio)
         {
             ActionResolver.I.ApplyStatusByName(
-                context.Actor, target, "Poisoned");
+                context.Actor, target, "Poisoned", Power);
         }
     }
 }

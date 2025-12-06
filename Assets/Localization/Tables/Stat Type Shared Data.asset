@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Stat Type Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Stat Type
+  m_TableCollectionNameGuidString: 6205c17d185b62f448319a370f632787
+  m_Entries:
+  - m_Id: 6181507072
+    m_Key: NON
+    m_Metadata:
+      m_Items: []
+  - m_Id: 398256656384
+    m_Key: MHP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 436106055680
+    m_Key: HP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460433018880
+    m_Key: STR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 470398685184
+    m_Key: MND
+    m_Metadata:
+      m_Items: []
+  - m_Id: 480536317952
+    m_Key: SPD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 494322995200
+    m_Key: MMP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 507878985728
+    m_Key: MP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 522949120000
+    m_Key: EVS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 534890303488
+    m_Key: ACC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 546600800256
+    m_Key: CRT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 557069783040
+    m_Key: BLK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 568880943104
+    m_Key: HPR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 582973804544
+    m_Key: MPR
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 2745771158884319234
+  references:
+    version: 2
+    RefIds:
+    - rid: 2745771158884319234
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1757946211095

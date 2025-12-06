@@ -54,10 +54,20 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 5901558532654497803
+  - m_Id: 44313020086419456
+    m_Localized: 'HP Regen: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 5901558532654497803
+  - m_Id: 44313077095399424
+    m_Localized: 'MP Regen: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 5901558532654497803
   references:
     version: 2
     RefIds:
     - rid: 5901558532654497803
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 0010b900010000000010796c4a1800000010f9f24518000000b08e2f1743370000b00e025343370000b00ece5f43370000b04e8a44433700
+        m_Entries: 0010b900010000000010796c4a1800000010f9f24518000000b08e2f1743370000b00e025343370000b00ece5f43370000b04e8a4443370000002d43826e9d0000002dfd746e9d00

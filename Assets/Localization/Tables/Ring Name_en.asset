@@ -142,6 +142,178 @@ MonoBehaviour:
     m_Localized: Sand Toss Ring
     m_Metadata:
       m_Items: []
+  - m_Id: 25058354576642048
+    m_Localized: Water Shot Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25136477527756800
+    m_Localized: Floral Venom Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25149841184280576
+    m_Localized: Vine Wrap Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25361115302219776
+    m_Localized: Remnant Flame Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25544425122975744
+    m_Localized: Mind Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25725387156901888
+    m_Localized: Shrink Weapon Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25725431209676800
+    m_Localized: Enlarge Weapon Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25792586949218304
+    m_Localized: Roam Flame Hand Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25856792230776832
+    m_Localized: Wrathfire Delusion Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26092356238462976
+    m_Localized: Flame Enchantment Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26262776807837696
+    m_Localized: Mana Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26501918707830784
+    m_Localized: Fire Wall Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26519742209740800
+    m_Localized: Blazing Ray Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26630064954298368
+    m_Localized: Self-Immolation Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29488056179359744
+    m_Localized: Explosion Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29493151004622848
+    m_Localized: Chant Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40617578109571072
+    m_Localized: Little Sun Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40617565925117952
+    m_Localized: Fiery Pursuit Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40617547575037952
+    m_Localized: Form of Fire Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40617521733931008
+    m_Localized: Summon Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41280054174126080
+    m_Localized: Last Burst Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41280099543912448
+    m_Localized: Redirection Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41373598092070912
+    m_Localized: Universal Potion Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43847526131666944
+    m_Localized: Drown Cell Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43847523254374400
+    m_Localized: Subterranean Surge Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43847521815728128
+    m_Localized: High Wave Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43847520872009728
+    m_Localized: Water Shield Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43847518959407104
+    m_Localized: Please Rain Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43847482557042688
+    m_Localized: Watery Eyes Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43942053936861184
+    m_Localized: Watermelon Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43949767534546944
+    m_Localized: Herbal Patch Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44205292143837184
+    m_Localized: Pararoot Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44544017415602176
+    m_Localized: Musecap Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45100921460162560
+    m_Localized: Everwood Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45100926359109632
+    m_Localized: Spikeward Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45103483357822976
+    m_Localized: HP Regen Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45103484024717312
+    m_Localized: MP Regen Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45107297255227392
+    m_Localized: Elemental Brawler Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50556821893427200
+    m_Localized: Floral Adorn Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51105711449321472
+    m_Localized: The Republic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54563138664079360
+    m_Localized: Republic Producer Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54563136139108352
+    m_Localized: Republic Ruler Ring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54563137158324224
+    m_Localized: Republic Warrior Ring
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

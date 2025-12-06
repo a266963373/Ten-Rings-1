@@ -20,7 +20,7 @@ MonoBehaviour:
     - rid: 1998738010735116297
   m_TableData:
   - m_Id: 8961519616
-    m_Localized: "\u9996\u5C42\u9020\u6210{Power}\u70B9\u751F\u7269\u4F24\u5BB3\uFF0C\u6BCF\u5C42\u9012\u51CF1\u70B9\uFF0C\u6700\u591A50\u70B9\u3002\u968F\u6700\u5927\u4F53\u529B\u8870\u51CF\u3002"
+    m_Localized: "\u6BCF\u56DE\u5408\u53D7\u5230{Value}\u70B9\u6BD2\u4F24\u5BB3\uFF0C\u6700\u591A50\u70B9\u3002"
     m_Metadata:
       m_Items:
       - rid: 1998738010735116297
@@ -30,7 +30,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1998738010735116297
   - m_Id: 886208589824
-    m_Localized: "\u65BD\u52A0\u8005\u6BCF\u9AD8\u51FA1\u70B9\u901F\u5EA6\uFF0C\u4F7F\u6301\u6709\u8005\u901F\u5EA6-{Power}\u3002"
+    m_Localized: "\u65BD\u52A0\u8005\u6BCF\u9AD8\u51FA1\u70B9\u901F\u5EA6\uFF0C\u4F7F\u6301\u6709\u8005\u683C\u6321-{Power}\u3002"
     m_Metadata:
       m_Items:
       - rid: 1998738010735116297
@@ -39,7 +39,75 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5005393918054400
-    m_Localized: "\u964D\u4F4E{Power}~50\u7684\u547D\u4E2D\u3002"
+    m_Localized: "\u964D\u4F4E{Value}\u7684\u547D\u4E2D\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 1998738010735116297
+  - m_Id: 5789155484389376
+    m_Localized: "\u53D7\u5230\u706B\u7130\u4F24\u5BB3-{Value}\uFF0C\u7535\u4E0E\u51B0\u4F24\u5BB3+{Value}\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 1998738010735116297
+  - m_Id: 5884247608020992
+    m_Localized: "\u95EA\u907F-{Value}\u3002\u8FD1\u6218\u6280\u80FD\u547D\u4E2D-{Value}\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 1998738010735116297
+  - m_Id: 6101176885071872
+    m_Localized: "\u6BCF\u56DE\u5408\u53D7\u5230{Value}\u70B9\u706B\u4F24\u5BB3\uFF0C\u6700\u591A50\u70B9\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 1998738010735116297
+  - m_Id: 6595601302179840
+    m_Localized: "\u529B\u91CF+{Value}, \u7CBE\u795E-{Value}\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 1998738010735116297
+  - m_Id: 10087364159340544
+    m_Localized: "\u71C3\u70E7\u5C42\u6570\u6C38\u4E0D\u4F4E\u4E8E1\uFF0C\u8FD1\u8EAB\u63A5\u89E6\u8005\u5C06\u88AB\u65BD\u52A0\u4E0E\u76F8\u540C\u7684\u71C3\u70E7\u5C42\u6570\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 1998738010735116297
+  - m_Id: 21354146466336768
+    m_Localized: "\u88AB\u4E00\u56E2\u706B\u8FFD\u9010\uFF0C\u6BCF\u56DE\u5408\u83B7\u5F97{Power}\u5C42\u71C3\u70E7\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 1998738010735116297
+  - m_Id: 22459278268534784
+    m_Localized: "\u901F\u5EA6-{Value}\u3002"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22592854746173440
+    m_Localized: "\u5F53\u53D7\u5230\u706B\u6216\u51B0\u4F24\u5BB3\u65F6\uFF0C\u8F6C\u5316\u6210\u71C3\u70E7\u6216\u51BB\u7ED3\u3002"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24211041728303104
+    m_Localized: "\u53D7\u5230\u7684\u8FD1\u7A0B\u4E0E\u8FDC\u7A0B\u4F24\u5BB3\u4F1A\u88AB\u9664\u4EE5{Power}\u3002\u5BF9\u706B\u4F24\u5BB3\u6548\u679C\u7FFB\u500D\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 1998738010735116297
+  - m_Id: 24212234479308800
+    m_Localized: "\u901F\u5EA6-{Power}\u3002\u6BCF\u56DE\u5408\u53D7\u5230{Power2}\u6C34\u5185\u90E8\u4F24\u5BB3\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 1998738010735116297
+  - m_Id: 24230684559904768
+    m_Localized: "\u547D\u4E2D-{Value}\u3002\u4F60\u7684\u653B\u51FB\u8005-{Value}\u66B4\u51FB\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 1998738010735116297
+  - m_Id: 24689865221967872
+    m_Localized: "\u6BCF\u56DE\u5408\u56DE\u590D{Value}\u751F\u547D\u503C\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 1998738010735116297
+  - m_Id: 24944213110882304
+    m_Localized: "\u751F\u547D\u6062\u590D-{Power}, \u9B54\u529B\u6062\u590D-{Power2}\u3002"
+    m_Metadata:
+      m_Items:
+      - rid: 1998738010735116297
+  - m_Id: 31294613976133632
+    m_Localized: "\u654C\u4EBA\u5BF9\u8FD9\u4E2A\u89D2\u8272\u7684\u66B4\u51FB-{Value}\u3002"
     m_Metadata:
       m_Items:
       - rid: 1998738010735116297
@@ -49,4 +117,4 @@ MonoBehaviour:
     - rid: 1998738010735116297
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00f025160200000000f02546bf00000000f02556ce0000000050721661c81100
+        m_Entries: 00f025160200000000f02546bf00000000f02556ce0000000050721661c81100005032cc3491140000507228b1e714000050f2f0fcac15000050b218aa6e17000000707d67d6230000909baa7bdd4b000090db6dd003560000905b23e60456000090dbe1ad15560000901b364db757000000ad31a19e580000306e1d492e6f00
