@@ -27,6 +27,7 @@ public enum TargetType
     Killable,
     WithoutMyStatus,
     Field,
+    LowestPercentHpAlly,
 }
 
 [CreateAssetMenu(menuName = "BattleActions/BattleActionSO")]

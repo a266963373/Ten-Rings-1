@@ -675,7 +675,7 @@ MonoBehaviour:
   enemySpot: {fileID: 1439555397}
   actionResolver: {fileID: 227901413}
   IsStarted: 0
-  playerSO: {fileID: 11400000, guid: 113719714c29e2b4abf8fd0cfe1ebcce, type: 2}
+  playerSO: {fileID: 11400000, guid: 06a883d743178384d93c4b4a6e1eb8e6, type: 2}
   enemySOs: []
 --- !u!114 &227901412
 MonoBehaviour:

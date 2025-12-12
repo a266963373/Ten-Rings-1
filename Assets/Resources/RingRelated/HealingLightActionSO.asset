@@ -17,18 +17,20 @@ MonoBehaviour:
     Value: -20
     Reduction: 0
     Shield: 0
-    Range: 1
+    Power: 100
     Form: 3
     Element: 8
-    TargetType: 0
     Property: 0
-  Status: {fileID: 0}
+  Statuses: []
+  StatusStacks: 
   Power: 100
+  RecoveryTime: 100
   ManaCost: 20
+  Range: 0
   Area: 0
   Must: 0
-  Prefer: 3
+  Prefer: 7
   Favorate: 0
   IsDamage: 1
-  IsStatus: 0
   Scale: 4
+  FollowUpAction: {fileID: 0}

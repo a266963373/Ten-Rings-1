@@ -279,8 +279,9 @@ public class Character
             Timing = TimingType.OnWorldTurn,
             EffectOnTime = () => {
                 StatusSystem.OnTurn(TimingType.OnWorldTurn);
-                Stats.ChangeStat(StatType.HP, Stats.GetStat(StatType.HPR));
-                Stats.ChangeStat(StatType.MP, Stats.GetStat(StatType.MPR));
+                // 修改这里：HPR 除以 10
+                Stats.ChangeStat(StatType.HP, Stats.GetStat(StatType.HPR) / 10);
+                Stats.ChangeStat(StatType.MP, Stats.GetStat(StatType.MPR) / 10);
             }
         });
         TriggerEffects.Add(new TriggerEffect()

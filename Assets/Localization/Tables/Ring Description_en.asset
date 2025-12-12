@@ -381,6 +381,18 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 5901558492828794900
+  - m_Id: 55792916192763904
+    m_Localized: 'No matter how matter shifts, only form defines the self.
+
+      After
+      making melee contact with an ally, both units'' HP are averaged.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55805083814141952
+    m_Localized: All is Apeiron. Both the damage you deal and the damage you receive
+      have no element.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

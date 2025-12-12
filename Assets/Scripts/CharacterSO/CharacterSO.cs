@@ -6,21 +6,69 @@ using UnityEngine;
 public class CharacterSO : ScriptableObject
 {
     public string CharacterName;
+    public string Template;
     public List<StatEntry> StatEntries;
     //public List<RingSO> Rings;
     public int[] RingIds = new int[10];
 
-    public virtual CharacterStats GetStats() {  return new(StatEntries); }
+    public virtual CharacterStats GetStats()
+    {
+        List<StatEntry> combinedStats = new List<StatEntry>();
+        
+        // 先尝试从模板加载 StatEntries
+        if (!string.IsNullOrEmpty(Template))
+        {
+            CharacterSO templateSO = Resources.Load<CharacterSO>($"Characters/Templates/{Template}TemplateSO");
+            if (templateSO != null && templateSO.StatEntries != null)
+            {
+                combinedStats.AddRange(templateSO.StatEntries);
+            }
+        }
+        
+        // 再添加自己的 StatEntries
+        if (StatEntries != null)
+        {
+            combinedStats.AddRange(StatEntries);
+        }
+        
+        return new(combinedStats);
+    }
+
     public virtual Ring[] GetRings()
     {
         Ring[] result = new Ring[10];
-        for (int i = 0; i < result.Length; i++)
+        int currentIndex = 0;
+
+        // 先尝试从模板加载 RingIds
+        if (!string.IsNullOrEmpty(Template))
         {
-            if (i < RingIds.Length)
-                result[i] = RingLibrary.I.GetRingById(RingIds[i]);
-            else
-                result[i] = null;
+            CharacterSO templateSO = Resources.Load<CharacterSO>($"Characters/Templates/{Template}TemplateSO");
+            if (templateSO != null && templateSO.RingIds != null)
+            {
+                for (int i = 0; i < templateSO.RingIds.Length && i < 10; i++)
+                {
+                    if (templateSO.RingIds[i] != 0)
+                    {
+                        result[i] = RingLibrary.I.GetRingById(templateSO.RingIds[i]);
+                        currentIndex = i + 1;
+                    }
+                }
+            }
         }
+
+        // 继续添加自己的 RingIds
+        if (RingIds != null)
+        {
+            for (int i = 0; i < RingIds.Length && currentIndex < 10; i++)
+            {
+                if (RingIds[i] != 0)
+                {
+                    result[currentIndex] = RingLibrary.I.GetRingById(RingIds[i]);
+                    currentIndex++;
+                }
+            }
+        }
+
         return result;
     }
 }

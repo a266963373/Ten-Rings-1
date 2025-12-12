@@ -35,6 +35,10 @@ MonoBehaviour:
     m_Key: Ring Requirement
     m_Metadata:
       m_Items: []
+  - m_Id: 30980389604892672
+    m_Key: Ring Protocol Requirement
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

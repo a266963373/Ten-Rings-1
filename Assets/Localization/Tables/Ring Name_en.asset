@@ -314,6 +314,14 @@ MonoBehaviour:
     m_Localized: Republic Warrior Ring
     m_Metadata:
       m_Items: []
+  - m_Id: 55827011887112192
+    m_Localized: Hylomorphism
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55836899858128896
+    m_Localized: Apeironism
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

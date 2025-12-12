@@ -16,13 +16,13 @@ public class DefendingStatusSO : StatusSO
         status.StatModifiers.Add(new()
         {
             StatType = StatType.HPR,
-            Value = Power / 10
+            Value = Power
         });
 
         status.StatModifiers.Add(new()
         {
             StatType = StatType.MPR,
-            Value = Power / 10
+            Value = Power
         });
     }
 }

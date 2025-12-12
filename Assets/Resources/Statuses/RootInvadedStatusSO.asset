@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 18
   Name: Root Invaded
-  Power: 2
-  Power2: 1
+  Power: 20
+  Power2: 10
   IsBuff: 0
   StartStack: 1
   IsStackable: 1

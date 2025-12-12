@@ -50,6 +50,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 2745771138701328393
+  - m_Id: 30980389604892672
+    m_Localized: Effective only if all allies equip it.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

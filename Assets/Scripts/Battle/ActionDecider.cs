@@ -127,13 +127,16 @@ public class ActionDecider : MonoBehaviour
                 break;
             case TargetType.WithoutMyStatus:
                 if (action.Statuses[0].IsBuff)
-                    chosenTarget = candidates.Where(c => c.IsPlayerSide == actor.IsPlayerSide
-                    && !c.Statuses.Any(s => s.Id == action.Statuses[0].Id))
+                    chosenTarget = actor.Allies.Where(c => !c.Statuses.Any(s => s.Id == action.Statuses[0].Id))
                         .FirstOrDefault();
                 else
-                    chosenTarget = candidates.Where(c => c.IsPlayerSide != actor.IsPlayerSide
-                    && !c.Statuses.Any(s => s.Id == action.Statuses[0].Id))
+                    chosenTarget = actor.Enemies.Where(c => !c.Statuses.Any(s => s.Id == action.Statuses[0].Id))
                         .FirstOrDefault();
+                break;
+            case TargetType.LowestPercentHpAlly:
+                chosenTarget = actor.Allies
+                    .OrderBy(c => (float)c.Stats.GetStat(StatType.HP) / c.Stats.GetStat(StatType.MHP))
+                    .FirstOrDefault();
                 break;
             case TargetType.Enemy:
                 var enemies = actor.Enemies;

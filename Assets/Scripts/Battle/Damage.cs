@@ -21,7 +21,8 @@ public enum Element
     Light,
     Dark,
     Ice,
-    Wind,
+    Air,
+    None,
 }
 
 //public enum DamageTargetType

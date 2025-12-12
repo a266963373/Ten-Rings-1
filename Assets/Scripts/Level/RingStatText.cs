@@ -43,6 +43,12 @@ public class RingStatText : MonoBehaviour
                 localizeStringEvent.RefreshString();
                 gameObject.SetActive(true);
             }
+            else if (ring.Type == RingType.Protocol)
+            {
+                localizeStringEvent.StringReference.SetReference("Misc", "Ring Protocol Requirement");
+                localizeStringEvent.RefreshString();
+                gameObject.SetActive(true);
+            }
             else
             {
                 gameObject.SetActive(false);
