@@ -1,74 +1,149 @@
-# Ten Rings 1 🌌
+# Ten Rings 1 🌌⚔️
 
-A modular, multi-world turn-based combat system centered around dynamic mechanics, elemental interactions, and system-driven design.
+A full-scale Unity game system featuring a modular combat engine, ring-based progression, and extensible gameplay architecture.
 
 ---
 
 ## 📌 Overview
 
-Ten Rings 1 is a system design project focused on creating a flexible and extensible combat framework.  
-Rather than hardcoding isolated features, the project explores how mechanics interact to form emergent gameplay.
+Ten Rings 1 is not just a framework — it is a complete game system built in Unity, integrating combat, progression, saving/loading, and system-driven mechanics.
 
-The system is built around the concept of **rings**, where each ring grants abilities and influences combat behavior.
-
----
-
-## ⚙️ Core Features
-
-### 🔄 Dynamic Turn System
-- Turn order is determined by speed accumulation
-- Characters compete in a continuous timeline rather than fixed turns
-- Visualizable as a race-track style system
-
-### 🧩 Modular Skill Framework
-- Skills are defined as composable components
-- Supports multiple damage types and behaviors
-- Easily extendable for new abilities
-
-### 🌊 Elemental Interaction System
-- Elements such as Water, Fire, and Electric produce status effects:
-  - Water → Wet
-  - Fire → Burn
-  - Electric → Paralysis
-- Interactions between elements create emergent effects
-
-### 🌍 Multi-World Design
-- Different worlds represent different conceptual systems
-- Each world introduces unique mechanics and rules
-- Designed to scale with additional worlds and systems
+The project focuses on **designing interacting systems**, where mechanics combine to produce emergent gameplay rather than isolated features.
 
 ---
 
-## 🛠️ Design Philosophy
+## 🎮 Core Systems
 
-This project focuses on:
+### 🔄 Game System (Global State Manager)
+- Centralized singleton (`GameSystem`) controlling game state, save data, and runtime session
+- Persistent across scenes using `DontDestroyOnLoad`
+- Handles:
+  - Save/Load system integration
+  - Currency (gold) updates with event-driven notifications
+  - Scene transitions
 
-- **System over feature** — mechanics are designed to interact, not exist in isolation  
-- **Abstraction** — game logic is structured through reusable components  
-- **Emergence** — complex behavior arises from simple rule combinations  
+### ⚔️ Combat System
+- Turn-based combat architecture
+- Action resolution system (`BattleActionLibrary`, `TriggerEffect`)
+- Supports:
+  - Modular actions
+  - Trigger-based effects
+  - Extensible combat logic
+
+### 💍 Ring System
+- Core progression mechanic
+- Each ring grants abilities or modifies combat behavior
+- Implemented via:
+  - `Ring.cs`
+  - `RingLibrary.cs`
+- Scales to large numbers of rings (e.g., 75+ implemented)
+
+### 🧬 Status & Effect System
+- Dynamic status effects (`Status.cs`, `StatusLibrary.cs`)
+- Supports:
+  - Buffs / debuffs
+  - Interaction between effects
+  - Trigger-based updates
+
+### 🧍 Character System
+- ScriptableObject-based character definitions (`CharacterSO`)
+- Runtime stats handling (`CharacterStats.cs`)
+- Supports flexible character configuration and scaling
+
+### 🗺️ Level & Encounter System
+- Encounter assets defining battle scenarios
+- Scene-based progression
+- Modular level design structure
+
+### 💾 Save System
+- Persistent save/load system (`SaveSystem`, `SaveData`)
+- Integrated with global game state
+- Supports multiple save slots
 
 ---
 
-## 🧠 Technical Concepts
+## 🧠 Architecture Highlights
 
-- State-driven combat logic  
-- Data modeling for abilities and status effects  
-- Extensible architecture for game systems  
-- Separation of system rules and execution logic  
+- **Singleton Core System**
+  - Global game state managed through `GameSystem`
+
+- **Event-Driven Design**
+  - Example: gold updates trigger UI refresh via `OnGoldChange`
+
+- **Library Pattern**
+  - Centralized registries for Rings, Statuses, and Actions
+
+- **Modular Systems**
+  - Combat, progression, and effects are decoupled but interoperable
+
+---
+
+## 🛠️ Tech Stack
+
+- Unity (C#)
+- ScriptableObjects for data-driven design
+- Scene-based architecture
+- Localization support (Unity Localization)
+
+---
+
+## 📂 Project Structure
+
+```
+Assets/
+│── Scripts/
+│   ├── Battle/            # Combat logic and action resolution
+│   ├── CharacterSO/       # Character definitions
+│   ├── Level/             # Level and encounter systems
+│   ├── Main/              # Core game logic (GameSystem, managers)
+│   ├── Save/              # Save/load system
+│   ├── Ring.cs            # Ring mechanics
+│   ├── Status.cs          # Status system
+│   └── TriggerEffect.cs   # Effect triggers
+│
+│── Scenes/                # Game scenes
+│── Prefabs/               # Reusable game objects
+│── Resources/             # Assets and data
+```
+
+---
+
+## 🔥 Key Features
+
+- Fully functional combat system with extensible mechanics  
+- Scalable ring-based progression (75+ rings implemented)  
+- Modular and reusable architecture for rapid feature expansion  
+- Event-driven updates and clean system separation  
+- Integration of gameplay systems with persistence and UI  
 
 ---
 
 ## 🚀 Future Improvements
 
-- Implement full simulation of combat scenarios  
-- Add UI visualization for turn-order system  
-- Expand elemental interaction rules  
-- Integrate with a playable game environment (e.g., Unity)  
+- Advanced AI behavior for enemies  
+- Expanded interaction between status effects  
+- UI polish and visualization improvements  
+- Additional worlds and gameplay systems  
 
 ---
 
-## ✨ Summary
+## ✨ Design Philosophy
 
-Ten Rings 1 explores how complex systems can be built from simple, composable rules.  
-It serves as a foundation for designing scalable and expressive gameplay mechanics.
+Ten Rings 1 is built on the idea that:
+
+> Complex gameplay emerges from simple, interacting systems.
+
+Instead of scripting isolated features, the project defines **rules and interactions**, allowing systems to combine dynamically.
+
+---
+
+## 🐾 Summary
+
+This project demonstrates:
+- System design thinking
+- Scalable architecture in Unity
+- Integration of multiple gameplay systems
+- Ability to design and implement complex mechanics
+
+Ten Rings 1 is both a technical implementation and a design-driven exploration of game systems.
 
