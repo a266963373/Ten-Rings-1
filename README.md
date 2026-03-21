@@ -6,7 +6,7 @@ A full-scale Unity game system featuring a modular combat engine, ring-based pro
 
 ## 📌 Overview
 
-Ten Rings 1 is not just a framework — it is a complete game system built in Unity, integrating combat, progression, saving/loading, and system-driven mechanics.
+Ten Rings 1 is a complete game system built in Unity, integrating combat, progression, saving/loading, and system-driven mechanics.
 
 The project focuses on **designing interacting systems**, where mechanics combine to produce emergent gameplay rather than isolated features.
 
