@@ -2,6 +2,8 @@
 
 A full-scale Unity game system featuring a modular combat engine, ring-based progression, and extensible gameplay architecture.
 
+Gameplay: 
+https://youtu.be/EbSCILgqq7E
 ---
 
 ## 📌 Overview
