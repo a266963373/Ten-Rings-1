@@ -219,6 +219,10 @@ MonoBehaviour:
     m_Key: Floral Adorn
     m_Metadata:
       m_Items: []
+  - m_Id: 91526035995000832
+    m_Key: Rock Drop
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

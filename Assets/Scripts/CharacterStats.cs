@@ -31,7 +31,6 @@ public class CharacterStats
             };
         }
         stats[StatType.HPR].Value = 0;
-        stats[StatType.MPR].Value = 10;
     }
 
     public CharacterStats(List<StatEntry> statEntries) : this()
@@ -89,7 +88,6 @@ public class CharacterStats
 
         if (type == StatType.HP)
         {
-            Debug.Log($"Final HP Calculation for {Owner.Name}:{Explanation}\n= {finalValue}");
             if (finalValue < 0) finalValue = 0;
             else if (finalValue > GetStat(StatType.MHP)) finalValue = GetStat(StatType.MHP);
         }
@@ -122,9 +120,21 @@ public class CharacterStats
         return value;
     }
 
-    public void ChangeStat(StatType type, int delta)
+    public void ChangeStat(StatType type, float delta, ModifierType modType = ModifierType.Flat)  // permanent & recordless
     {
-        stats[type].Value += delta;
+        switch (modType)
+        {
+            case ModifierType.Flat:
+                stats[type].Value = (int)(delta + stats[type].Value);
+                break;
+            case ModifierType.Percent:
+                stats[type].Value = (int)(delta * stats[type].Value);
+                break;
+            case ModifierType.Set:
+                stats[type].Value = (int)delta;
+                break;
+        }
+
         if (type == StatType.HP || type == StatType.MHP)
         {
             OnHpChanged?.Invoke();
@@ -137,7 +147,6 @@ public class CharacterStats
 
     public void InitBeforeBattle()
     {
-        Debug.Log($"InitBeforeBattle for {Owner.Name}");
         stats[StatType.HP].Value = GetStat(StatType.MHP);
         stats[StatType.MP].Value = GetStat(StatType.MMP) / 2;
     }

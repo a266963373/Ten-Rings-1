@@ -115,7 +115,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 19230261420355584
-    m_Localized: Savage Bite RIng
+    m_Localized: Savage Bite Ring
     m_Metadata:
       m_Items: []
   - m_Id: 19322921996906496
@@ -303,15 +303,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 54563138664079360
-    m_Localized: Republic Producer Ring
+    m_Localized: Atomism
     m_Metadata:
       m_Items: []
   - m_Id: 54563136139108352
-    m_Localized: Republic Ruler Ring
+    m_Localized: The Four Elements
     m_Metadata:
       m_Items: []
   - m_Id: 54563137158324224
-    m_Localized: Republic Warrior Ring
+    m_Localized: Seed Theory
     m_Metadata:
       m_Items: []
   - m_Id: 55827011887112192
@@ -320,6 +320,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 55836899858128896
     m_Localized: Apeironism
+    m_Metadata:
+      m_Items: []
+  - m_Id: 91365935632252928
+    m_Localized: Rock Drop Ring
     m_Metadata:
       m_Items: []
   references:

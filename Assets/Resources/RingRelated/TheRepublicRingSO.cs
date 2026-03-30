@@ -2,12 +2,10 @@ using System;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Rings/TheRepublicRingSO")]
-public class TheRepublicRingSO : ProtocolRingSO
+public class TheRepublicRingSO : RingSO
 {
     protected override void InitRing(Ring ring)
     {
-        base.InitRing(ring);    // to set the ring type to Protocol
-
         var negativeStatMod = new StatModifier()
         {
             StatType = StatType.ALL,

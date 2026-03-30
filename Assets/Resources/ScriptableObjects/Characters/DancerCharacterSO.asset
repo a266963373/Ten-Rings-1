@@ -9,13 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b114baf4a1a1f6b47af38cad4c15cf9e, type: 3}
-  m_Name: RepublicRulerRingSO
+  m_Script: {fileID: 11500000, guid: 929e22f95865f364e967dc2c8a988883, type: 3}
+  m_Name: DancerCharacterSO
   m_EditorClassIdentifier: 
-  Id: 73
-  Name: Republic Ruler Ring
-  Power: 50
-  Power2: 0
-  Type: 0
-  RequiredRingId: -1
-  RepublicClass: 0
+  CharacterName: Dancer
+  Template: Human
+  StatEntries: []
+  RingIds: 07000000070000002b0000002b0000002f0000000300000028000000270000000000000000000000

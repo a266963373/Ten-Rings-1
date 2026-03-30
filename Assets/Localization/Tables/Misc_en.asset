@@ -54,6 +54,14 @@ MonoBehaviour:
     m_Localized: Effective only if all allies equip it.
     m_Metadata:
       m_Items: []
+  - m_Id: 70912076246306816
+    m_Localized: Congratulation! You beat the game.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70912615629606912
+    m_Localized: Yay!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

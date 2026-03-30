@@ -94,6 +94,30 @@ MonoBehaviour:
     m_Localized: Spikeward
     m_Metadata:
       m_Items: []
+  - m_Id: 96793466598739968
+    m_Localized: Slime Boss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96806309360455680
+    m_Localized: Merchandiser
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96809926532419584
+    m_Localized: Dancer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96809976629186560
+    m_Localized: Prince
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96810009411866624
+    m_Localized: Servant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96811102875308032
+    m_Localized: Big Bag Traveler
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

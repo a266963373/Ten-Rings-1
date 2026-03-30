@@ -367,17 +367,20 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 54531239946166272
-    m_Localized: Sustain life by desire. Actions targeting allies gain {Power}.
+    m_Localized: "Matter is more indivisible than we imagine.\r Damage taken and
+      healing received are rounded up to the multiple of {Power}.\r\n\r\n"
     m_Metadata:
       m_Items:
       - rid: 5901558492828794900
   - m_Id: 54531238402662400
-    m_Localized: Govern the world by reason. Actions targeting no creature gain {Power}.
+    m_Localized: "All things are composed of the four elements. Deny all else\u2014damage
+      you deal and take with elements other than Fire, Water, Earth, or Air is halved."
     m_Metadata:
-      m_Items:
-      - rid: 5901558492828794900
+      m_Items: []
   - m_Id: 54531239207968768
-    m_Localized: Defend order by spirit. Actions targeting enemies gain {Power}.
+    m_Localized: "All things are composed of infinitely divisible seeds.\r Because
+      they are infinitely divisible, upon death\u2014if your maximum HP is greater
+      than {Power}\u2014you refuse to die, but your maximum HP is halved."
     m_Metadata:
       m_Items:
       - rid: 5901558492828794900
@@ -393,10 +396,14 @@ MonoBehaviour:
       have no element.
     m_Metadata:
       m_Items: []
+  - m_Id: 91333669229068288
+    m_Localized: A simple and brutal spell that works anywhere.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
     - rid: 5901558492828794900
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00e0a3f307000000001039481a14010000c0a2f4e864170000b0ce020e2d300000b08eaf1ff3390000b08e82a0073a0000b04ee689083a0000b04e6adc083a0000b04ecae3083a0000b08e83ef2b3a0000b04e75c20b3a0000b04e7ff62c3a0000b0ce87cc4d3e0000b0ce3dcc4d3e0000507278030f55000010b760d09e51000050f22a212a59000070ac038de10800005072264cfc59000050721621a35a000050b2afd9475b000050b21dda475b000050726b988f5c000050329f7c305d000090db6fad8a92000000edf96620a0000000adcf6620a000002027b2dfbbc10000202756dfbbc10000202786dfbbc100
+        m_Entries: 00e0a3f307000000001039481a14010000c0a2f4e864170000b0ce020e2d300000b08eaf1ff3390000b08e82a0073a0000b04ee689083a0000b04e6adc083a0000b04ecae3083a0000b08e83ef2b3a0000b04e75c20b3a0000b04e7ff62c3a0000b0ce87cc4d3e0000b0ce3dcc4d3e0000507278030f55000010b760d09e51000050f22a212a59000070ac038de10800005072264cfc59000050721621a35a000050b2afd9475b000050b21dda475b000050726b988f5c000050329f7c305d000090db6fad8a92000000edf96620a0000000adcf6620a000002027b2dfbbc10000202786dfbbc100

@@ -346,6 +346,12 @@ public class ActionResolver : MonoBehaviour // receive choice from panels
                     yield return null;
                 }
             }
+
+            if (c.IsDeathDefied)
+            {
+                c.IsDeathDefied = false;
+                yield break;
+            }
             c.IsDead = true;
             BattleLoader.I.DestroyCharacter(c);
             c.Trigger(TriggerType.OnAfterDeath, ba);

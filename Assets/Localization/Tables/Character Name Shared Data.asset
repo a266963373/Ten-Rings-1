@@ -95,6 +95,30 @@ MonoBehaviour:
     m_Key: Spikeward
     m_Metadata:
       m_Items: []
+  - m_Id: 96793466598739968
+    m_Key: Slime Boss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96806309360455680
+    m_Key: Merchandiser
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96809926532419584
+    m_Key: Dancer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96809976629186560
+    m_Key: Prince
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96810009411866624
+    m_Key: Servant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96811102875308032
+    m_Key: Big Bag Traveler
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

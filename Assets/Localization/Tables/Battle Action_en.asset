@@ -222,6 +222,10 @@ MonoBehaviour:
     m_Localized: Floral Adorn
     m_Metadata:
       m_Items: []
+  - m_Id: 91526035995000832
+    m_Localized: Rock Drop
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

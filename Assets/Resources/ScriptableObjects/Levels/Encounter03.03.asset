@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30e05faf4649d694687334647e60181d, type: 3}
-  m_Name: Encounter03.01
+  m_Name: Encounter03.03
   m_EditorClassIdentifier: Assembly-CSharp::EncounterSO
-  Name: 03.01
+  Name: 03.03
   Characters:
-  - {fileID: 11400000, guid: 5bb22c0763e76cd4b9dfd37b3c527602, type: 2}
-  - {fileID: 11400000, guid: 5bb22c0763e76cd4b9dfd37b3c527602, type: 2}
-  Gold: 10
+  - {fileID: 11400000, guid: 6b466dd7820c86c4b8de802e8bc8e9c9, type: 2}
+  Gold: 24

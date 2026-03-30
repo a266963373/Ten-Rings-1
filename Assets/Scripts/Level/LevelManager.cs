@@ -34,7 +34,7 @@ public class LevelManager : MonoBehaviour
         level = run.Level;
         if (level == null)
         {
-            level = Resources.Load<LevelSO>("ScriptableObjects/Levels/Level01");
+            level = Resources.Load<LevelSO>("ScriptableObjects/Levels/Level03");
         }
         backgroundImage.sprite = level.BackgroundImage;
 
@@ -72,6 +72,7 @@ public class LevelManager : MonoBehaviour
 
     private void ShowEncounter()
     {
+
         encounterPanel.Encounter = level.Encounters[run.EncounterIndex];
         encounterPanel.gameObject.SetActive(true);
     }
@@ -87,6 +88,11 @@ public class LevelManager : MonoBehaviour
         rewardPanel.gameObject.SetActive(false);
         run.EncounterIndex++;
         BattleSession.IsLastEncounter = run.EncounterIndex == level.Encounters.Count - 1;
+
+        if (run.EncounterIndex > level.Encounters.Count - 1)
+        {
+            return;
+        }
 
         if (rewardPanel.IsRingSelected)
         {

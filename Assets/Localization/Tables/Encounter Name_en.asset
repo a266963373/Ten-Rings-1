@@ -62,6 +62,22 @@ MonoBehaviour:
     m_Localized: Mischief Duo
     m_Metadata:
       m_Items: []
+  - m_Id: 96342577022914560
+    m_Localized: Merchandiser
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96343310552158208
+    m_Localized: Big Bag Traveler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96343331657895936
+    m_Localized: Dancer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96343333331423232
+    m_Localized: Prince
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

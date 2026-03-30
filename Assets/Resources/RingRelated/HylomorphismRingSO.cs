@@ -2,12 +2,10 @@ using System;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Rings/HylomorphismRingSO")]
-public class HylomorphismRingSO : ProtocolRingSO
+public class HylomorphismRingSO : RingSO
 {
     protected override void InitRing(Ring ring)
     {
-        base.InitRing(ring);    // to set the ring type to Protocol
-
         ring.TriggerEffects.Add(new TriggerEffect()
         {
             Trigger = TriggerType.OnAfterMeleeAction,
@@ -18,8 +16,22 @@ public class HylomorphismRingSO : ProtocolRingSO
                 {
                     var HpAverage = (ba.Actor.GetStat(StatType.HP) 
                         + ba.Target.GetStat(StatType.HP)) / 2;
-                    ba.Actor.Stats.ChangeStat(StatType.HP, HpAverage);
-                    ba.Target.Stats.ChangeStat(StatType.HP, HpAverage);
+                    bool isActorHigherHp = ba.Actor.GetStat(StatType.HP) > ba.Target.GetStat(StatType.HP);
+
+                    int finalChange;
+                    if (!isActorHigherHp)
+                    {
+                        finalChange = Math.Min(HpAverage - ba.Actor.GetStat(StatType.HP),
+                            ba.Actor.GetStat(StatType.MHP) - ba.Actor.GetStat(StatType.HP));
+                    } else
+                    {
+                        finalChange = Math.Min(HpAverage - ba.Target.GetStat(StatType.HP),
+                            ba.Target.GetStat(StatType.MHP) - ba.Target.GetStat(StatType.HP));
+                    }
+
+                    int changeFactor = isActorHigherHp ? 1 : -1;
+                    ba.Actor.Stats.ChangeStat(StatType.HP, HpAverage * -changeFactor);
+                    ba.Target.Stats.ChangeStat(StatType.HP, HpAverage * changeFactor);
                 }
             },
         });

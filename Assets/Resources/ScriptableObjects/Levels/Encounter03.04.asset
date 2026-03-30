@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e05faf4649d694687334647e60181d, type: 3}
   m_Name: Encounter03.04
   m_EditorClassIdentifier: Assembly-CSharp::EncounterSO
-  Name: 02.04
+  Name: 03.04
   Characters:
-  - {fileID: 11400000, guid: 78509409f7906a747b8ec69712659423, type: 2}
-  - {fileID: 11400000, guid: 8f24b45db6a584f4c97167471a34a7d7, type: 2}
+  - {fileID: 11400000, guid: cbf3d189f904a6d40b413a6036a7b845, type: 2}
   Gold: 40

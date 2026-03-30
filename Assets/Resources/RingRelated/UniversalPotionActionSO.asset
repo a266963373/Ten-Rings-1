@@ -21,10 +21,8 @@ MonoBehaviour:
     Form: 4
     Element: 2
     Property: 0
-  Status: {fileID: 0}
-  StatusStack: -2
-  Field: {fileID: 0}
-  FieldDuration: 5
+  Statuses: []
+  StatusStacks: 02000000
   Power: 100
   RecoveryTime: 100
   ManaCost: 20

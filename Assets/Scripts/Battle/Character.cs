@@ -83,6 +83,7 @@ public class Character
         get { return IsPlayerSide && !ERings.Any(r => r.Id == 49); }
     }
     public bool IsDead = false;
+    public bool IsDeathDefied = false;
     public ActivateWeaponActionSO ActivatedWeaponActionSO;
     public List<Character> Allies   // with self
     {

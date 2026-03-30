@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.Localization.Components;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RewardPanel : MonoBehaviour
 {
@@ -14,6 +14,10 @@ public class RewardPanel : MonoBehaviour
     [SerializeField] RingDescriptionText ringDescriptionText;
     [SerializeField] GameObject actionDescriptionGO;
     [SerializeField] LocalizeStringEvent claimLSE;
+    
+    [SerializeField] GameObject congratsPanel;
+    [SerializeField] Image backgroundImage;
+
     public Action OnClaimReward;
     public bool IsRingSelected = true;
 
@@ -86,10 +90,24 @@ public class RewardPanel : MonoBehaviour
         }
         if (BattleSession.IsLastEncounter)
         {
-            SceneManager.LoadScene("MainScene");
-            return;
+            if (BattleSession.Encounter.Name == "03.05")
+            {
+                // final level, show Congrats
+                backgroundImage.sprite = Resources.Load<Sprite>("Images/Level & Battle Backgrounds/Congrats");
+                congratsPanel.SetActive(true);
+            }
+            else
+            {
+                LoadMainScene();
+                return;
+            }
         }
         OnClaimReward();
         IsRingSelected = false;
+    }
+
+    public void LoadMainScene()
+    {
+        SceneManager.LoadScene("MainScene");
     }
 }

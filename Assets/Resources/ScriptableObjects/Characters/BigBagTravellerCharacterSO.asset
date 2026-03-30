@@ -9,13 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b114baf4a1a1f6b47af38cad4c15cf9e, type: 3}
-  m_Name: RepublicProducerRingSO
+  m_Script: {fileID: 11500000, guid: 929e22f95865f364e967dc2c8a988883, type: 3}
+  m_Name: BigBagTravellerCharacterSO
   m_EditorClassIdentifier: 
-  Id: 75
-  Name: Republic Producer Ring
-  Power: 50
-  Power2: 0
-  Type: 0
-  RequiredRingId: -1
-  RepublicClass: 2
+  CharacterName: Big Bag Traveler
+  Template: Human
+  StatEntries: []
+  RingIds: 3e000000410000004000000042000000430000000500000005000000450000000000000000000000

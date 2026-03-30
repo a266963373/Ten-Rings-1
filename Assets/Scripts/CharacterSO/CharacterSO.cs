@@ -13,12 +13,13 @@ public class CharacterSO : ScriptableObject
 
     public virtual CharacterStats GetStats()
     {
-        List<StatEntry> combinedStats = new List<StatEntry>();
+        List<StatEntry> combinedStats = new ();
         
         // 先尝试从模板加载 StatEntries
         if (!string.IsNullOrEmpty(Template))
         {
-            CharacterSO templateSO = Resources.Load<CharacterSO>($"Characters/Templates/{Template}TemplateSO");
+            CharacterTemplateSO templateSO = Resources.Load<CharacterTemplateSO>(
+                $"ScriptableObjects/Characters/Templates/{Template}CharacterTemplateSO");
             if (templateSO != null && templateSO.StatEntries != null)
             {
                 combinedStats.AddRange(templateSO.StatEntries);
@@ -42,7 +43,8 @@ public class CharacterSO : ScriptableObject
         // 先尝试从模板加载 RingIds
         if (!string.IsNullOrEmpty(Template))
         {
-            CharacterSO templateSO = Resources.Load<CharacterSO>($"Characters/Templates/{Template}TemplateSO");
+            CharacterTemplateSO templateSO = Resources.Load<CharacterTemplateSO>(
+                $"ScriptableObjects/Characters/Templates/{Template}CharacterTemplateSO");
             if (templateSO != null && templateSO.RingIds != null)
             {
                 for (int i = 0; i < templateSO.RingIds.Length && i < 10; i++)
