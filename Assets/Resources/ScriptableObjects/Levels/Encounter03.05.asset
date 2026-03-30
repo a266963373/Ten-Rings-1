@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EncounterSO
   Name: 03.05
   Characters:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 3025f8e84bab55f419a52678558f3df3, type: 2}
   - {fileID: 11400000, guid: 1097e80a7a1272846bb659969a1b50da, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 3025f8e84bab55f419a52678558f3df3, type: 2}
   Gold: 80
